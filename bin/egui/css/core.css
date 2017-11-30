@@ -1,0 +1,191 @@
+/*EGUI*/
+
+@font-face {
+    font-family: 'sans_serif_normal';
+    src: url('../fonts/proximanova-light-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sans_serif_bold';
+    src: url('../fonts/proximanova-bold-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sans_serif_italic';
+    src: url('../fonts/proximanova-lightitalic-webfont.woff2') format('woff2'),
+         url('../fonts/proximanova-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body, * {
+    color: rgba(255, 255, 255, 1);
+    margin: 0;
+    border: 0;
+    padding: 0;
+
+    font-family: 'sans_serif_normal', Sans-Serif;
+    font-style: normal;
+    font-size: 12px;
+
+    position: relative;
+    background: none;
+    width: 100%;
+    height: 100%;
+    perspective: 10000px;
+
+    /*-webkit-transform: translate3d(90, 90, 90);*/
+    /*-moz-transform: translate3d(90, 90, 90);*/
+    /*-ms-transform: translate3d(90, 90, 90);*/
+    /*transform: translate3d(90, 90, 90);*/
+
+    /*-webkit-backface-visibility: hidden;*/
+   /*-moz-backface-visibility: hidden;*/
+   /*-ms-backface-visibility: hidden;*/
+   backface-visibility: hidden;
+
+    /*-webkit-transform: translate3d(250px,250px,250px)*/
+   /*rotate3d(250px,250px,250px,-120deg)*/
+   /*scale3d(0.5, 0.5, 0.5);*/
+}
+
+body {
+    display: block;
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background: #111;
+}
+
+b {
+    font-family:'sans_serif_bold',Sans-Serif;
+}
+
+i {
+    font-family:'sans_serif_italic',Sans-Serif;
+}
+
+input {
+    padding: 5px;
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(255, 255, 255, 0.9);
+    height: 20px;
+    display: inline;
+    margin: 5px;
+}
+
+a {
+    padding: none;
+    margin: none;
+    border: none;
+    text-decoration: none;
+    display: block;
+}
+
+p {
+    padding: none;
+    margin: none;
+    border: none;
+    text-decoration: none;
+    display: block;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.no_select {
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: rgba(255, 255, 255, 0.5);
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: rgba(255, 255, 255, 0.5);
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: rgba(255, 255, 255, 0.5);
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.blue_button {
+    background: #004a89;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.1s;
+    font-weight: 600;
+    font-size: 14px;
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.44), inset 0px 0px 0px 0px rgba(255,255,255,0.01);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.44), inset 0px 0px 0px 0px rgba(255,255,255,0.01);
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.44), inset 0px 0px 0px 0px rgba(255,255,255,0.01);
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+.blue_button:hover {
+    background: #175a94;
+    transition: 0.1s;
+    -webkit-box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.76), inset 1px 1px 0px 0px rgba(255,255,255,0.1);
+    -moz-box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.76), inset 1px 1px 0px 0px rgba(255,255,255,0.1);
+    box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.76), inset 1px 1px 0px 0px rgba(255,255,255,0.1);
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.blue_button:active {
+    background: #f3cb29;
+    transition: 0.5s;
+    color: rgba(255, 255, 255, 1);
+
+    -webkit-box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.76), inset 1px 1px 0px 0px rgba(255,255,255,1);
+    -moz-box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.76), inset 1px 1px 0px 0px rgba(255,255,255,1);
+    box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.76), inset 1px 1px 0px 0px rgba(255,255,255,1);
+
+}
+
+.shadow_box {
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.raise_box {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    cursor: pointer;
+    transition: 0.4s;
+
+    -webkit-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 0px rgba(255,255,255,0.01);
+    -moz-box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 0px rgba(255,255,255,0.01);
+    box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.1), inset 0px 0px 0px 0px rgba(255,255,255,0.01);
+
+    opacity: 0.9;
+}
+
+.raise_box:hover {
+    -webkit-box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.3), inset 1px 1px 0px 0px rgba(255,255,255,0.1);
+    -moz-box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.3), inset 1px 1px 0px 0px rgba(255,255,255,0.1);
+    box-shadow: 4px 4px 7px 0px rgba(0,0,0,0.3), inset 1px 1px 0px 0px rgba(255,255,255,0.1);
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.4);
+    opacity: 1;
+}
