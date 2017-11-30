@@ -223,7 +223,7 @@ function Egui(){
             }
             else {
                 var color = "rgba(" + rgb_a[0] + "," + rgb_a[1] + "," + rgb_a[2] + "," + rgb_a[3] + ")"
-            }
+            };
 
             return color;
         };
