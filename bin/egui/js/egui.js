@@ -202,7 +202,10 @@ function Egui(){
         };
 
         this.rgb_to_hex = function(rgb) {
-            return "#" + this.rgb_component_to_hex(rgb[0]) + this.rgb_component_to_hex(rgb[1]) + this.rgb_component_to_hex(rgb[2]);
+            var hex = "#" + this.rgb_component_to_hex(rgb[0]);
+            hex += this.rgb_component_to_hex(rgb[1]);
+            hex += this.rgb_component_to_hex(rgb[2]);
+            return hex;
         };
 
         this.hex_to_rgb = function(hex) {
