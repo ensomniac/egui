@@ -1,6 +1,6 @@
 'use strict';
 
-// Github https://github.com/ensomniac/egui 1.0
+// Github https://github.com/ensomniac/egui
 
 $(document).ready(function() {
 
