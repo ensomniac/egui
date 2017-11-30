@@ -275,12 +275,12 @@ function Egui(){
             var tz = js_date.getTimezoneOffset();
             var ampm = hour < 12 ? "am" : "pm";
 
-            if (hour >= 12) {
-                hour = hour-12;
-            }
             if (hour == 0) {
                 hour = 12;
             }
+            else if (hour >= 12) {
+                hour = hour-12;
+            };
 
             if (("" + minute).length == 1) {
                 minute = "0" + minute;
@@ -345,13 +345,10 @@ function Egui(){
 
             for (var key in obj) {
                 count += 1;
-            }
+            };
 
             return count;
         };
-
-
-
 
         (function(self){
 
@@ -365,45 +362,16 @@ function Egui(){
                 "enumerable" : false
             });
 
-
-
         })(this);
-
-
-
-
-
-        // Clashing with jquery at the moment
-        // window.Object.prototype.E = function() {
-
-        //     // for (var key in this) {
-
-        //     //     if (this.hasOwnProperty(key)) {
-        //     //         return false;
-        //     //     }
-
-        //     // };
-
-        //     // return true;
-
-        // };
 
     };
 
-    // this.create_prototypes();
-
-    // (function(self){
-    //     setTimeout(function(){
-    //         self.create_prototypes();
-    //         self.create_public_functions();
-    //     }, 1000);
-    // })(this);
     this.start = function(){
         // Called when all scripts are loaded but before modules are created
         this.create_prototypes();
         this.create_public_functions();
     };
 
-}
+};
 
 window.egui = new Egui();
