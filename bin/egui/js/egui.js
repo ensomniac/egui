@@ -1,6 +1,7 @@
-'use strict';
+// Author: Ryan Martin ryan@ensomniac.com
+// Github: https://github.com/ensomniac/egui
 
-// Github https://github.com/ensomniac/egui
+'use strict';
 
 $(document).ready(function() {
 
