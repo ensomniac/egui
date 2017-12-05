@@ -1,7 +1,7 @@
+'use strict';
+
 // Author: Ryan Martin ryan@ensomniac.com
 // Github: https://github.com/ensomniac/egui
-
-'use strict';
 
 $(document).ready(function() {
 
@@ -16,6 +16,40 @@ $(document).ready(function() {
         // Subscribe
         window.egui.Style = EguiStyle;
         EguiStyle = null;
+
+
+
+
+
+        window.egui.Context = EguiContext;
+        EguiContext = null;
+
+        window.egui.Rect = EguiRect;
+        EguiRect = null;
+
+        window.egui.Layout = EguiLayout;
+        EguiLayout = null;
+
+        window.egui.layout.Linear = EguiLayoutLinear;
+        EguiLayoutLinear = null;
+
+        window.egui.layout.Horizontal = EguiLayoutHorizontal;
+        EguiLayoutHorizontal = null;
+
+        window.egui.layout.Vertical = EguiLayoutVertical;
+        EguiLayoutVertical = null;
+
+        window.egui.Packable = EguiPackable;
+        EguiPackable = null;
+
+
+
+
+
+
+
+
+
 
         window.egui.Color = new EguiColor();
         EguiColor = null;
@@ -100,7 +134,11 @@ function Egui(){
     this.Style = null;
     this.Color = null;
 
+    this.Context = null;
+    this.Rect = null;
+
     this.Layout = null;
+    this.Packable = null;
 
     this.LayoutContainer = null;
     this.LayoutColumns = null;
