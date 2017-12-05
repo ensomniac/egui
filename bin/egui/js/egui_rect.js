@@ -19,15 +19,23 @@ function EguiRect(drawable){
         return this;
     };
 
-    this.set = function(width, height, left, top){
-        if (width == undefined) {
+    this.set = function(width_rect, height, left, top){
+        if (width_rect == undefined) {
             return;
         };
 
-        this.width = width;
-        this.height = height;
-        this.left = left;
-        this.top = top;
+        if (width_rect.constructor == egui.Rect) {
+            this.width = width_rect.width;
+            this.height = width_rect.height;
+            this.left = width_rect.left;
+            this.top = width_rect.top;
+        }
+        else {
+            this.width = width_rect;
+            this.height = height;
+            this.left = left;
+            this.top = top;
+        };
 
         this.drawable.draw();
 

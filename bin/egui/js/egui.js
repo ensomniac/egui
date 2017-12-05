@@ -86,6 +86,14 @@ $(document).ready(function() {
         window.egui.ImageGallery = EguiImageGallery;
         EguiImageGallery = null;
 
+        window.egui.Button = EguiButton;
+        EguiButton = null;
+
+
+
+
+
+
         // HTML PARTS ///////////////////////////////
         window.egui.html.Button = EguiHTMLButton;
         EguiHTMLButton = null;

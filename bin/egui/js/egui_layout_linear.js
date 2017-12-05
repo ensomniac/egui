@@ -10,6 +10,12 @@ function EguiLayoutLinear(){
 
     this.draw = function(){
         // Overrides the draw call for egui.Layout
+
+        if (this.children.length == 0) {
+            // Convinience draw function
+            this.append(new egui.Box());
+        };
+
         var child_width = this.rect.width/this.children.length;
         var child_height = this.rect.height;
         var left = this.rect.left;
