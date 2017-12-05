@@ -5,13 +5,14 @@ function EguiButton(){
 
     egui.Packable.call(this);
 
-    this.backing = new egui.Box();
-    this.layout = new egui.layout.Horizontal();
+    this.label = new egui.Label();
+    this.label.set_text("Some Button");
+    // this.layout = new egui.layout.Horizontal();
 
     this.draw = function(){
         console.log("Drawing button");
 
-        this.backing.rect.set(this.rect);
+        this.label.rect.set(this.rect);
 
     };
 

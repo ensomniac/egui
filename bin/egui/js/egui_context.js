@@ -23,7 +23,7 @@ function EguiContext(){
 
     this.draw = function(){
         // Called whenever the window/screen size changes
-        console.log("Context sized " + this.width + " x " + this.height);
+        // console.log("Context sized " + this.width + " x " + this.height);
 
         if (this.layout) {
             this.layout.rect.set(this.rect.width, this.rect.height, this.rect.left, this.rect.top);

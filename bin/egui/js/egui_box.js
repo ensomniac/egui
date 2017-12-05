@@ -21,6 +21,10 @@ function EguiBox(opts){
 
         this.set_rect();
 
+        if (this.post_draw) {
+            this.post_draw();
+        };
+
     };
 
     this.set_rect = function(){
