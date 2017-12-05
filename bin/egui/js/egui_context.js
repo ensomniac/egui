@@ -41,6 +41,20 @@ function EguiContext(){
 
     };
 
+    this.set_background_image = function(image_path){
+        // This needs to be made generic for other platforms
+        $("body").css({
+            "background": "#000000",
+            "background-image": "url(" + image_path + ")",
+            "-webkit-background-size": "cover",
+            "-moz-background-size": "cover",
+            "-o-background-size": "cover",
+            "background-size": "cover",
+            "background-repeat": "no-repeat",
+            "background-position": "center center",
+        });
+    };
+
     this.check_size = function(){
         // HTML = Check window
         // UNITY = Check Screen

@@ -35,6 +35,13 @@ $(document).ready(function() {
         window.egui.layout.Vertical = EguiLayoutVertical;
         EguiLayoutVertical = null;
 
+        window.egui.layout.CenterBox = EguiLayoutCenterBox;
+        EguiLayoutCenterBox = null;
+
+
+
+
+
         window.egui.Packable = EguiPackable;
         EguiPackable = null;
 
@@ -132,6 +139,7 @@ function Egui(){
     this.layout["Vertical"] = null;
     this.layout["Grid"] = null;
     this.layout["Ripple"] = null;
+    this.layout["CenterBox"] = null;
 
     this.Anim = null;
 

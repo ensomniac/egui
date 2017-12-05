@@ -8,8 +8,6 @@ function EguiLayoutLinear(){
     this.description = "Horizontal or vertical layout container";
     this.orientation = "vertical";
 
-    this.children = [];
-
     this.draw = function(){
         // Overrides the draw call for egui.Layout
         var child_width = this.rect.width/this.children.length;
