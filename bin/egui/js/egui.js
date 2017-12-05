@@ -13,17 +13,13 @@ $(document).ready(function() {
     if (start_exists) {
         Egui = null;
 
-        // Subscribe
         window.egui.Style = EguiStyle;
         EguiStyle = null;
-
-
-
-
 
         window.egui.Context = EguiContext;
         EguiContext = null;
 
+        // LAYOUT ////////////////
         window.egui.Rect = EguiRect;
         EguiRect = null;
 
@@ -42,21 +38,6 @@ $(document).ready(function() {
         window.egui.Packable = EguiPackable;
         EguiPackable = null;
 
-
-
-
-
-
-
-
-
-
-        window.egui.Color = new EguiColor();
-        EguiColor = null;
-
-        window.egui.Layout = EguiLayout;
-        EguiLayout = null;
-
         window.egui.LayoutContainer = EguiLayoutContainer;
         EguiLayoutContainer = null;
 
@@ -68,6 +49,11 @@ $(document).ready(function() {
 
         window.egui.LayoutBox = EguiLayoutBox;
         EguiLayoutBox = null;
+        // LAYOUT ////////////////
+
+
+        window.egui.Color = new EguiColor();
+        EguiColor = null;
 
         window.egui.Anim = EguiAnim;
         EguiAnim = null;
@@ -112,11 +98,6 @@ $(document).ready(function() {
         window.egui.html.Dialog = EguiHTMLDialog;
         EguiHTMLDialog = null;
 
-
-
-        // window.egui.Button = EguiButton;
-        // EguiButton = null;
-
         // This will self assign itself
         new window.egui.Style();
 
@@ -145,6 +126,12 @@ function Egui(){
     this.LayoutRows = null;
 
     this.LayoutBox = null;
+
+    this.layout = {};
+    this.layout["Horizontal"] = null;
+    this.layout["Vertical"] = null;
+    this.layout["Grid"] = null;
+    this.layout["Ripple"] = null;
 
     this.Anim = null;
 

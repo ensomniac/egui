@@ -2,6 +2,7 @@
 
 function EguiLayoutLinear(){
     this.description = "Describe this Egui constructor..."
+
     egui.Layout.call(this);
 
     this.description = "Horizontal or vertical layout container";
@@ -40,6 +41,7 @@ function EguiLayoutLinear(){
 function EguiLayoutHorizontal(){
     this.description = "Describe this Egui constructor..."
     egui.layout.Linear.call(this);
+
     this.description = "Horizontal Layout"
     this.orientation = "horizontal";
 };
@@ -47,6 +49,7 @@ function EguiLayoutHorizontal(){
 function EguiLayoutVertical(){
     this.description = "Describe this Egui constructor..."
     egui.layout.Linear.call(this);
+
     this.description = "Vertical Layout"
     this.orientation = "vertical";
 };
