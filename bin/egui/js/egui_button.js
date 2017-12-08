@@ -3,18 +3,19 @@
 function EguiButton(){
     this.description = "Describe this Egui constructor..."
 
-    egui.Packable.call(this);
+    egui.Label.call(this);
 
-    this.label = new egui.Label();
-    this.label.set_text("Some Button");
-    // this.layout = new egui.layout.Horizontal();
+    this.height = egui.line_height;
+    this.rect.set_expand_y(this.height);
 
-    this.draw = function(){
-        console.log("Drawing button");
+    this.set_text("Egui Button");
 
-        this.label.rect.set(this.rect);
+    this.set_background_color(egui.button_color);
+    this.set_background_hover_color(egui.button_color_hover);
 
-    };
+    this.set_text_color(egui.button_text_color);
+    this.set_cursor("pointer");
+    this.set_pointer_events_active(false);
 
-}
+};
 

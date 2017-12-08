@@ -7,10 +7,20 @@ function EguiStyle(){
 
     // DEFAULTS
     this.style = {};
-    this.style["line_height"] = 25;
+    this.style["line_height"] = 30;
     this.style["font_size"] = 12;
-    this.style["padding"] = 5;
+    this.style["padding"] = 10;
+    this.style["corner_radius"] = 2;
     this.style["button_size"] = this.style["line_height"];
+    this.style["button_color"] = "#506279";
+    this.style["button_color_hover"] = "#677a91";
+    this.style["button_text_color"] = "rgba(255, 255, 255, 0.8)";
+
+    this.style["input_color"] = "rgba(220, 220, 220, 0.9)";
+    this.style["input_text_color"] = "rgba(0, 0, 0, 0.9)";
+    this.style["input_placeholder_color"] = "rgba(100, 100, 100, 0.9)";
+
+    this.style["cursor"] = "pointer";
 
     this.Set = function(){
         for (var key in this.style) {

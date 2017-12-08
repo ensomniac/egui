@@ -11,6 +11,9 @@ function EguiRect(drawable){
     this.left = 0;
     this.top = 0;
 
+    this.expand_x = -1;
+    this.expand_y = -1;
+
     this.lerp = function(layout_a, layout_b, t){
         this.width = egui.lerp(layout_a.width, layout_b.width, t);
         this.height = egui.lerp(layout_a.height, layout_b.height, t);
@@ -37,8 +40,20 @@ function EguiRect(drawable){
             this.top = top;
         };
 
-        this.drawable.draw();
+        if (this.drawable) {
+            this.drawable.draw();
+        };
 
+
+
+    };
+
+    this.set_expand_x = function(expand_x){
+        this.expand_x = expand_x;
+    };
+
+    this.set_expand_y = function(expand_y){
+        this.expand_y = expand_y;
     };
 
 };

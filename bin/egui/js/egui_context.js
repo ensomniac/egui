@@ -37,7 +37,24 @@ function EguiContext(){
             return;
         };
 
+        if (this.layout) {
+
+            (function(self, new_layout){
+                self.layout.fade_out(function(){
+                    self.layout = null;
+                    self.set_layout(new_layout);
+                });
+            })(this, layout);
+
+            return;
+        };
+
         this.layout = layout;
+
+
+        if (this.size_set) {
+            this.draw();
+        };
 
     };
 

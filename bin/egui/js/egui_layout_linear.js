@@ -5,10 +5,38 @@ function EguiLayoutLinear(){
 
     egui.Layout.call(this);
 
-    this.description = "Horizontal or vertical layout container";
     this.orientation = "vertical";
 
-    this.draw = function(){
+    this.fixed_space_x = 0;
+    this.fixed_space_y = 0;
+
+    this.num_fixed_children_x = 0;
+    this.num_fixed_children_y = 0;
+
+    this.calculate_children_sizes = function(){
+
+        this.fixed_space_x = 0;
+        this.fixed_space_y = 0;
+
+        this.num_fixed_children_x = 0;
+        this.num_fixed_children_y = 0;
+
+        for (var i in this.children) {
+
+            if (this.children[i].rect.expand_x != -1) {
+                this.fixed_space_x += this.children[i].rect.expand_x;
+                this.num_fixed_children_x += 1;
+            };
+
+            if (this.children[i].rect.expand_y != -1) {
+                this.fixed_space_y += this.children[i].rect.expand_y;
+                this.num_fixed_children_y += 1;
+            };
+        };
+
+    };
+
+    this.draw_layout = function(){
         // Overrides the draw call for egui.Layout
 
         if (this.children.length == 0) {
@@ -16,28 +44,62 @@ function EguiLayoutLinear(){
             this.append(new egui.Box());
         };
 
-        var child_width = this.rect.width/this.children.length;
-        var child_height = this.rect.height;
+        this.calculate_children_sizes();
+
+        // console.log("Fixed X: " + this.fixed_space_x);
+        if (this.fixed_space_y > this.rect.height || this.fixed_space_x > this.rect.width) {
+            console.log("WARNING: Sizes need to be clamped or scrolling needs to be introduced");
+        }
+
+        var fixed_padding = (this.child_padding*(this.children.length-1));
+
+        var child_width_expand = (this.rect.width-this.fixed_space_x-fixed_padding)/(this.children.length-this.num_fixed_children_x);
+        var child_height_expand = (this.rect.height-this.fixed_space_y-fixed_padding)/(this.children.length-this.num_fixed_children_y);
+
         var left = this.rect.left;
         var top = this.rect.top;
-        var add_left = child_width;
-        var add_top = 0;
-
-        if (this.orientation == "vertical") {
-            child_width = this.rect.width;
-            child_height = this.rect.height/this.children.length;
-            add_left = 0;
-            add_top = child_height;
-        };
 
         for (var i in this.children) {
+
             var child = this.children[i];
-            child.rect.set(child_width, child_height, left, top);
+            var width = 0;
+            var height = 0;
 
-            left += add_left;
-            top += add_top;
+            var left_addl = 0;
+            var top_addl = 0;
+
+            if (this.orientation == "vertical") {
+                // VERTICAL
+                width = this.rect.width;
+                height = child_height_expand;
+
+                if (child.rect.expand_y != -1) {
+                    // Fixed height
+                    height = child.rect.expand_y;
+                };
+
+                top_addl = height + this.child_padding;
+
+            }
+            else {
+                // HORIZONTAL
+                height = this.rect.height;
+                width = child_width_expand;
+
+                if (child.rect.expand_x != -1) {
+                    // fixed width
+                    width = child.rect.expand_x;
+                };
+
+                left_addl = width + this.child_padding;
+
+            };
+
+            child.rect.set(width, height, left, top);
+
+            left += left_addl;
+            top += top_addl;
         };
-
     };
 
 };

@@ -19,6 +19,9 @@ $(document).ready(function() {
         window.egui.Context = EguiContext;
         EguiContext = null;
 
+        window.egui.Primitive = EguiPrimitive;
+        EguiPrimitive = null;
+
         // LAYOUT ////////////////
         window.egui.Rect = EguiRect;
         EguiRect = null;
@@ -77,22 +80,29 @@ $(document).ready(function() {
         window.egui.Vbox = EguiVbox;
         EguiVbox = null;
 
-        window.egui.Box = EguiBox;
+        window.egui["Box"] = EguiBox;
         EguiBox = null;
 
-        window.egui.Label = EguiLabel;
+        window.egui["Label"] = EguiLabel;
         EguiLabel = null;
 
-        window.egui.ImageGallery = EguiImageGallery;
+        window.egui["ImageGallery"] = EguiImageGallery;
         EguiImageGallery = null;
 
-        window.egui.Button = EguiButton;
+        window.egui["Button"] = EguiButton;
         EguiButton = null;
 
+        window.egui["Image"] = EguiImage;
+        EguiButton = EguiImage;
 
+        window.egui["Input"] = EguiInput;
+        EguiInput = null;
 
+        window.egui["alert"] = new EguiAlert().show;
+        EguiAlert = null;
 
-
+        window.egui["Spacer"] = EguiSpacer;
+        EguiSpacer = null;
 
         // HTML PARTS ///////////////////////////////
         window.egui.html.Button = EguiHTMLButton;
@@ -127,14 +137,18 @@ $(document).ready(function() {
 function Egui(){
     this.description = "EGUI Core"
 
+    this.alert = null;
+
     this.Style = null;
     this.Color = null;
 
     this.Context = null;
     this.Rect = null;
+    this.Primitive = null;
 
     this.Layout = null;
     this.Packable = null;
+    this.Spacer = null;
 
     this.LayoutContainer = null;
     this.LayoutColumns = null;
@@ -159,9 +173,12 @@ function Egui(){
 
     this.Box = null;
 
-    this.Label = null;
     this.ImageGallery = null;
+
+    this.Label = null;
     this.Button = null;
+    this.Image = null;
+    this.Input = null;
 
     // HTML Simple Objects
     this.html = {};
