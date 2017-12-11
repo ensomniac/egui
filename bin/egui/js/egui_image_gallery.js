@@ -53,7 +53,7 @@ function EguiImageGallery(opts){
         this.html.css({
             // "overflow": "hidden",
             "border-radius": 4,
-            "height": 400,
+            "height": 300,
         });
 
         this.feature_area.css({
@@ -146,6 +146,9 @@ function EguiImageGallery(opts){
         this.nav_button_width = this.feature_width*0.5;
         this.nav_icon_size = this.feature_width*0.07;
 
+        console.log("***");
+        console.log(this.nav_icon_size);
+
         this.next_button.css({
             "width": this.nav_button_width,
             "height": this.feature_height,
@@ -179,6 +182,10 @@ function EguiImageGallery(opts){
 
     this.draw_thumb_bar = function(){
         this.thumb_bar_height = this.height*0.1;
+
+
+        console.log("8888");
+        console.log(this.thumb_bar_height);
 
         this.thumbs_bar.css({
             "width": this.feature_width,
@@ -229,9 +236,11 @@ function EguiImageGallery(opts){
 
         }
 
-        console.log(this.feature_height);
-        console.log(this.feature_width);
-        console.log(this.size);
+        this.html.css({
+            "height": this.feature_height,
+        });
+
+
 
         if (this.bleed == "full" && this.size[1] == -1) {
             this.feature_height = this.height;
