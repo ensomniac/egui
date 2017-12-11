@@ -15,6 +15,10 @@ function EguiLabel(){
     this.width = -1;
     this.height = egui.line_height;
 
+    this.set_font_size_mult = function(font_size_mult){
+        this.font_size_mult = font_size_mult;
+    };
+
     this.set_pointer_events_active = function(pointer_events_active){
         this.pointer_events_active = pointer_events_active;
 
@@ -80,7 +84,7 @@ function EguiLabel(){
 
         if (aspect > 1) {
             // Wide label
-            font_size_mult = 0.5;
+            font_size_mult = 0.4;
             font_size = (this.rect.height*font_size_mult);
         }
         else {

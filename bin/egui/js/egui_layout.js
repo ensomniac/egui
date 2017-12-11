@@ -3,13 +3,8 @@
 function EguiLayout(){
     this.description = "Describe this Egui constructor..."
 
+    egui.Primitive.call(this);
     egui.Packable.call(this);
-
-    this.outter_padding = 0;
-    this.child_padding = 0;
-
-    this.width = -1;
-    this.height = -1;
 
     this.children = [];
     this.found_primitives = [];
@@ -36,13 +31,15 @@ function EguiLayout(){
 
         if (!this.background) {
             this.background = new egui.Box();
-        }
+            this.primitive.consume(this.background);
+        };
 
         this.background.set_background_color(background_color);
+
     };
 
     this.draw = function(){
-        // This draw call is often overwritten by inherited members
+
         if (this.background) {
             this.background.rect.set(this.rect);
         };
@@ -74,14 +71,6 @@ function EguiLayout(){
 
         this.children.push(child);
 
-    };
-
-    this.set_outter_padding = function(outter_padding){
-        this.outter_padding = outter_padding;
-    };
-
-    this.set_child_padding = function(child_padding){
-        this.child_padding = child_padding;
     };
 
     this.fade_in = function(fade_in_complete_callback){
@@ -120,7 +109,6 @@ function EguiLayout(){
         })(this);
 
         this.anim.start();
-
     };
 
     this.fade_out = function(fade_out_complete_callback){
@@ -155,11 +143,7 @@ function EguiLayout(){
         })(this);
 
         this.anim.start();
-
     };
-
-
-
 
     this.get_all_primitives = function(){
         // Search through all children and return any primitives
@@ -175,15 +159,10 @@ function EguiLayout(){
     this.get_children_primitives = function(children_list){
         // Search through all children and return any primitives
 
-        // console.log(children_list);
-
         for (var i in children_list) {
             var child = children_list[i];
 
-            // console.log(child);
-
             if (child["primitive"]) {
-                if (!child["primitives"]) {continue;}
                 this.found_primitives.push(child);
             };
 
@@ -191,14 +170,8 @@ function EguiLayout(){
                 this.get_children_primitives(child.children);
             };
 
-
         };
-
     };
-
-
-
-
 
 };
 

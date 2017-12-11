@@ -18,16 +18,16 @@ function EguiLayoutCenterBox(){
 
     this.draw_layout = function(){
         // Overrides the draw call for egui.Layout
-        var width = (this.rect.width*this.width_mult)-(this.outter_padding*2);
-        var height = (this.rect.height*this.height_mult)-(this.outter_padding*2);
+        var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
+        var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
         var left = (this.rect.width-width)*0.5;
         var top = (this.rect.height-height)*0.5;
 
         this.background.rect.set(
-            width+(this.outter_padding*2),
-            height+(this.outter_padding*2),
-            left-this.outter_padding,
-            top-this.outter_padding
+            width+(this.padding_outer*2),
+            height+(this.padding_outer*2),
+            left-this.padding_outer,
+            top-this.padding_outer
         );
 
         if (this.children.length) {

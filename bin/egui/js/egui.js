@@ -92,6 +92,9 @@ $(document).ready(function() {
         window.egui["Button"] = EguiButton;
         EguiButton = null;
 
+        window.egui["ButtonBar"] = EguiButtonBar;
+        EguiButtonBar = null;
+
         window.egui["Image"] = EguiImage;
         EguiButton = EguiImage;
 
@@ -177,6 +180,7 @@ function Egui(){
 
     this.Label = null;
     this.Button = null;
+    this.ButtonBar = null;
     this.Image = null;
     this.Input = null;
 

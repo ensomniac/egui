@@ -13,7 +13,7 @@ function EguiStyle(){
     this.style["corner_radius"] = 2;
     this.style["button_size"] = this.style["line_height"];
     this.style["button_color"] = "#506279";
-    this.style["button_color_hover"] = "#677a91";
+    this.style["button_color_hover"] = "#677E9C";
     this.style["button_text_color"] = "rgba(255, 255, 255, 0.8)";
 
     this.style["input_color"] = "rgba(220, 220, 220, 0.9)";

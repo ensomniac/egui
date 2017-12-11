@@ -14,6 +14,9 @@ function EguiRect(drawable){
     this.expand_x = -1;
     this.expand_y = -1;
 
+    this.padding_inner = 0;
+    this.padding_outer = 0;
+
     this.lerp = function(layout_a, layout_b, t){
         this.width = egui.lerp(layout_a.width, layout_b.width, t);
         this.height = egui.lerp(layout_a.height, layout_b.height, t);
@@ -26,6 +29,10 @@ function EguiRect(drawable){
         if (width_rect == undefined) {
             return;
         };
+
+        if (this.padding_inner) {
+            console.log("Padding inner: " + this.padding_inner);
+        }
 
         if (width_rect.constructor == egui.Rect) {
             this.width = width_rect.width;
@@ -44,8 +51,6 @@ function EguiRect(drawable){
             this.drawable.draw();
         };
 
-
-
     };
 
     this.set_expand_x = function(expand_x){
@@ -54,6 +59,14 @@ function EguiRect(drawable){
 
     this.set_expand_y = function(expand_y){
         this.expand_y = expand_y;
+    };
+
+    this.set_padding_inner = function(padding_inner){
+        this.padding_inner = padding_inner;
+    };
+
+    this.set_padding_outer = function(padding_outer){
+        this.padding_outer = padding_outer;
     };
 
 };

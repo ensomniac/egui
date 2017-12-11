@@ -29,6 +29,8 @@ function EguiInput(){
     this.placeholder_label.set_text_color(this.text_color_placeholder);
     this.placeholder_label.set_text_alignment("left");
 
+    this.primitive.consume(this.placeholder_label);
+
     this.draw_placeholder_label = function(){
         // this.backing.rect.set(this.rect);
         this.placeholder_label.rect.set(this.rect);
@@ -114,12 +116,6 @@ function EguiInput(){
         var type_addl = 'type="text"';
         if (this.is_password_input) {
             type_addl = 'type="password"';
-        };
-
-        for (var i in this.placeholder_label["primitives"]) {
-            if (this.placeholder_label["primitives"][i]) {
-                this.primitives["placeholder_" + i] = this.placeholder_label["primitives"][i];
-            };
         };
 
         this.primitives["input"] = $('<input ' + type_addl + '>');

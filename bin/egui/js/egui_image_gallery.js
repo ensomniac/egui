@@ -3,6 +3,8 @@
 function EguiImageGallery(opts){
     this.description = "An image gallery";
 
+    this.html = $("<div></div>");
+
     this.opts = opts || {};
     this.feature_width = this.opts["width"] || 600; // Add a description...
     this.feature_height = this.opts["height"] || 400; // Add a description...

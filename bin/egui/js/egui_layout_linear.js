@@ -37,27 +37,29 @@ function EguiLayoutLinear(){
     };
 
     this.draw_layout = function(){
-        // Overrides the draw call for egui.Layout
-
-        if (this.children.length == 0) {
-            // Convinience draw function
-            this.append(new egui.Box());
-        };
-
         this.calculate_children_sizes();
 
-        // console.log("Fixed X: " + this.fixed_space_x);
-        if (this.fixed_space_y > this.rect.height || this.fixed_space_x > this.rect.width) {
-            console.log("WARNING: Sizes need to be clamped or scrolling needs to be introduced");
-        }
+        if (this.fixed_space_y > this.rect.height && this.orientation == "vertical") {
+            console.log("WARNING: Sizes need to be clamped or scrolling needs to be introduced to vertical layout");
+        };
 
-        var fixed_padding = (this.child_padding*(this.children.length-1));
+        if (this.fixed_space_x > this.rect.width && this.orientation == "horizontal") {
+            console.log("WARNING: Sizes need to be clamped or scrolling needs to be introduced to vertical layout");
+        };
 
+        var fixed_padding = (this.padding_inner*(this.children.length-1));
         var child_width_expand = (this.rect.width-this.fixed_space_x-fixed_padding)/(this.children.length-this.num_fixed_children_x);
         var child_height_expand = (this.rect.height-this.fixed_space_y-fixed_padding)/(this.children.length-this.num_fixed_children_y);
 
         var left = this.rect.left;
         var top = this.rect.top;
+
+
+        // if (this.constructor == egui.ButtonBar) {
+        //     console.log(this);
+        //     console.log(this.padding_inner);
+        // }
+
 
         for (var i in this.children) {
 
@@ -78,7 +80,7 @@ function EguiLayoutLinear(){
                     height = child.rect.expand_y;
                 };
 
-                top_addl = height + this.child_padding;
+                top_addl = height + this.padding_inner;
 
             }
             else {
@@ -91,7 +93,7 @@ function EguiLayoutLinear(){
                     width = child.rect.expand_x;
                 };
 
-                left_addl = width + this.child_padding;
+                left_addl = width + this.padding_inner;
 
             };
 
