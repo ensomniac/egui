@@ -24,7 +24,7 @@ function EguiImageGallery(opts){
     this.size = [-1, this.feature_height]; // Add a description...
 
     // Inherits from Box
-    egui.Box.call(this, {"size": this.size, "background": "rgba(0, 0, 0, 0)"});
+    // egui.Box.call(this, {"size": this.size, "background": "rgba(0, 0, 0, 0)"});
 
     this.create = function(){
         // Create and attach base objects
