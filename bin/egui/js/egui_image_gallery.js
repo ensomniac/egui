@@ -331,16 +331,16 @@ function EguiImageGallery(opts){
         }
 
         this.display_image_by_id(next_image_id, false);
-    }
+    };
 
     this.display_image_by_id = function(id, from_right) {
         if (!this.is_visible) {
             return;
-        }
+        };
 
         if (id == this.loaded_image) {
             return;
-        }
+        };
 
         var image_data = this.image_content[id];
         this.feature_area.append(image_data["image"]);
@@ -350,7 +350,7 @@ function EguiImageGallery(opts){
         var start_x = -this.feature_width;
         if (from_right) {
             start_x  = this.feature_width;
-        }
+        };
 
         image_data["image"].css({
             "left": start_x,
@@ -364,14 +364,14 @@ function EguiImageGallery(opts){
 
         if (this.auto_timeout) {
             clearTimeout(this.auto_timeout);
-        }
+        };
 
         (function(self){
             self.auto_timeout = setTimeout(function(){
                 self.Next();
             }, self.timeout_duration);
         })(this);
-    }
+    };
 
     this.create();
     this.style();
