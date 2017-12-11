@@ -53,6 +53,7 @@ function EguiImageGallery(opts){
         this.html.css({
             // "overflow": "hidden",
             "border-radius": 4,
+            "height": 300,
         });
 
         this.feature_area.css({
