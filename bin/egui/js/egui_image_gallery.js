@@ -51,7 +51,7 @@ function EguiImageGallery(opts){
     this.style = function(){
         // Style base objects (no sizing)
         this.html.css({
-            // "overflow": "hidden",
+            "overflow": "hidden",
             "border-radius": 4,
             "height": 300,
         });
@@ -181,7 +181,7 @@ function EguiImageGallery(opts){
     };
 
     this.draw_thumb_bar = function(){
-        this.thumb_bar_height = this.height*0.1;
+        this.thumb_bar_height = this.feature_height*0.1;
 
 
         console.log("8888");
