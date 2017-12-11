@@ -20,6 +20,7 @@ function EguiImageGallery(opts){
     this.loaded_image = -1;
     this.auto_timeout = null;
     this.start_delay_timeout = null;
+    this.is_visible = true;
 
     this.size = [-1, this.feature_height]; // Add a description...
 
@@ -335,12 +336,16 @@ function EguiImageGallery(opts){
 
     this.display_image_by_id = function(id, from_right) {
         if (!this.is_visible) {
+            console.log("not visible");
             return;
         };
 
         if (id == this.loaded_image) {
+            console.log("Already loaded");
             return;
         };
+
+        console.log("DISPLAYING " + id);
 
         var image_data = this.image_content[id];
         this.feature_area.append(image_data["image"]);
