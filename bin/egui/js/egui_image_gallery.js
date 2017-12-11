@@ -186,6 +186,7 @@ function EguiImageGallery(opts){
 
         console.log("8888");
         console.log(this.thumb_bar_height);
+        console.log(this.height);
 
         this.thumbs_bar.css({
             "width": this.feature_width,
