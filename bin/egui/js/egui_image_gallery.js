@@ -51,7 +51,7 @@ function EguiImageGallery(opts){
     this.style = function(){
         // Style base objects (no sizing)
         this.html.css({
-            "overflow": "hidden",
+            // "overflow": "hidden",
             "border-radius": 4,
         });
 
@@ -59,7 +59,7 @@ function EguiImageGallery(opts){
             "background": "rgba(0, 0, 0, 0.9)",
             "position": "absolute",
             "top": 0,
-            "overflow": "hidden",
+            // "overflow": "hidden",
             "border-radius": 4,
         });
 
@@ -91,7 +91,7 @@ function EguiImageGallery(opts){
             "left": 0,
             "width": 10,
             "height": 10,
-            "overflow": "hidden",
+            // "overflow": "hidden",
             "opacity": 0.1,
         });
 
@@ -99,7 +99,7 @@ function EguiImageGallery(opts){
             "position": "absolute",
             "bottom": 0,
             "left": 0,
-            "overflow": "hidden",
+            // "overflow": "hidden",
             "background": "rgba(0, 0, 0, 0.7)",
             "opacity": 0.01,
         });
