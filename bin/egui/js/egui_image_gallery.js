@@ -228,6 +228,10 @@ function EguiImageGallery(opts){
 
         }
 
+        console.log(this.feature_height);
+        console.log(this.feature_width);
+        console.log(this.size);
+
         if (this.bleed == "full" && this.size[1] == -1) {
             this.feature_height = this.height;
         }
