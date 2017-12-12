@@ -146,9 +146,6 @@ function EguiImageGallery(opts){
         this.nav_button_width = this.feature_width*0.5;
         this.nav_icon_size = this.feature_width*0.07;
 
-        console.log("***");
-        console.log(this.nav_icon_size);
-
         this.next_button.css({
             "width": this.nav_button_width,
             "height": this.feature_height,
@@ -182,11 +179,6 @@ function EguiImageGallery(opts){
 
     this.draw_thumb_bar = function(){
         this.thumb_bar_height = this.feature_height*0.1;
-
-
-        console.log("8888");
-        console.log(this.thumb_bar_height);
-        console.log(this.height);
 
         this.thumbs_bar.css({
             "width": this.feature_width,
@@ -351,16 +343,12 @@ function EguiImageGallery(opts){
 
     this.display_image_by_id = function(id, from_right) {
         if (!this.is_visible) {
-            console.log("not visible");
             return;
         };
 
         if (id == this.loaded_image) {
-            console.log("Already loaded");
             return;
         };
-
-        console.log("DISPLAYING " + id);
 
         var image_data = this.image_content[id];
         this.feature_area.append(image_data["image"]);
