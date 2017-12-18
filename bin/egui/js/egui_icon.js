@@ -69,9 +69,6 @@ function EguiIcon(){
             "text-align": this.text_alignment,
             "color": this.text_color,
             "background": "orange",
-            // "overflow": "hidden",
-            // "white-space": "nowrap",
-            // "text-overflow": "ellipsis",
             "color": "rgba(255, 255, 255, 0.7)",
         });
 

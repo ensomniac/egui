@@ -32,14 +32,14 @@ function EguiButton(){
     };
 
     this.draw_icon = function(){
-        var icon_size = Math.min(this.rect.width, this.rect.height);
+        var icon_size = (Math.min(this.rect.width, this.rect.height));
 
         console.log(icon_size);
 
         this.icon.rect.set(
             icon_size,
             icon_size,
-            this.rect.left,
+            this.rect.left + this.rect.width-icon_size,
             this.rect.top,
         );
     };
