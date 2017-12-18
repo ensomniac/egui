@@ -53,6 +53,9 @@ function EguiButtonBar(){
     this.set_active = function(active_button){
         console.log("SET ACTIVE BUTTON");
         console.log(active_button);
+
+        active_button.set_opacity(0.5);
+
     };
 
 
