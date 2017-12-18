@@ -36,14 +36,13 @@ function EguiButton(){
     };
 
     this._draw = function(){
-        if (!this.setup_complete) {
-            this.setup();
-        };
-
         if (this.icon) {
             this.draw_icon();
         };
 
+        if (!this.setup_complete) {
+            this.setup();
+        };
 
     };
 
