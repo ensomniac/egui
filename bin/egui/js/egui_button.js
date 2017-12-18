@@ -25,8 +25,15 @@ function EguiButton(){
         this.consume(this.icon);
     };
 
+    this.draw_icon = function(){
+        console.log("Drawing icon");
+        this.icon.rect.set(this.rect);
+    };
+
     this._draw = function(){
-        console.log(this.rect);
+        if (this.icon) {
+            this.draw_icon();
+        }
     };
 
     (function(self){
