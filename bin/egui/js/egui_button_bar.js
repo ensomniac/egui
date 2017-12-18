@@ -25,6 +25,7 @@ function EguiButtonBar(){
 
         button.set_text("");
         button.set_opacity(0.5);
+        console.log("Set to 0.5");
 
         this.append(button);
         this.buttons.push(button);

@@ -100,6 +100,7 @@ function EguiBox(){
             "background": this.background_color,
             "border-radius": this.corner_radius,
             "cursor": this.cursor,
+            "opacity": this.opacity,
         });
 
         if (this.shadow) {

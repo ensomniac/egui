@@ -7,13 +7,15 @@ function EguiPrimitive(){
     this.primitives = {};
     this._consumed = {};
     this.pointer_events_active = true;
+    this.opacity = 1;
 
     this.set_opacity = function(opacity){
+        this.opacity = opacity;
 
         var primitives = this.get_primitives();
 
         for (var i in primitives) {
-            primitives[i].css({"opacity": opacity});
+            primitives[i].css({"opacity": this.opacity});
         };
 
     };
