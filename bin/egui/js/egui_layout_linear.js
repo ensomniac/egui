@@ -51,7 +51,7 @@ function EguiLayoutLinear(){
         var child_width_expand = (this.rect.width-this.fixed_space_x-fixed_padding)/(this.children.length-this.num_fixed_children_x);
         var child_height_expand = (this.rect.height-this.fixed_space_y-fixed_padding)/(this.children.length-this.num_fixed_children_y);
 
-        child_width_expand -= this.rect.padding_outer;
+        child_width_expand -= (this.rect.padding_outer*0.5);
         console.log(this.rect.padding_outer);
 
 
