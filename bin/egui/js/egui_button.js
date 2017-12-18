@@ -8,6 +8,8 @@ function EguiButton(){
     this.height = egui.line_height;
     this.rect.set_expand_y(this.height);
 
+    this.icon = null;
+
     this.set_text("Egui Button");
 
     this.set_background_color(egui.button_color);
@@ -18,16 +20,14 @@ function EguiButton(){
     this.set_pointer_events_active(false);
 
     this.set_icon = function(icon_name){
-        console.log(icon_name);
+        // console.log(icon_name);
+        this.icon = new egui.Image();
+        this.consume(this.icon);
     };
 
     this._draw = function(){
         console.log(this.rect);
     };
-
-    // this.draw = function(){
-    //     console.log("drawing button");
-    // };
 
     (function(self){
         self.on_draw(function(){

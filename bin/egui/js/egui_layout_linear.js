@@ -55,11 +55,11 @@ function EguiLayoutLinear(){
         var top = this.rect.top;
 
 
-        if (this.constructor == egui.ButtonBar) {
-            console.log(this);
-            console.log(this.padding_inner);
-            // console.log(this.padding_outter);
-        }
+        // if (this.constructor == egui.ButtonBar) {
+        //     console.log(this);
+        //     console.log(this.padding_inner);
+        //     // console.log(this.padding_outter);
+        // }
 
 
         for (var i in this.children) {
