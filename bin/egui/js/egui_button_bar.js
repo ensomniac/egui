@@ -20,7 +20,6 @@ function EguiButtonBar(){
 
         button.set_text("-");
         // button.set_outter_padding(10);
-
         button.set_width(this.height);
 
         this.append(button);
@@ -37,6 +36,7 @@ function EguiButtonBar(){
 
         for (var i in this.buttons) {
             this.buttons[i].set_height(10);
+            this.buttons[i].set_width(10);
         };
 
 
