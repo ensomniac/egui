@@ -20,7 +20,6 @@ function EguiButton(){
     this.set_pointer_events_active(false);
 
     this.set_icon = function(icon_name){
-        // console.log(icon_name);
         this.icon = new egui.Image();
         this.consume(this.icon);
     };
