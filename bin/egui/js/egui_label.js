@@ -13,9 +13,29 @@ function EguiLabel(){
 
     this.width = -1;
     this.height = egui.line_height;
+
     this.is_loading = false;
     this.load_dots = null;
+    this.icon = null;
 
+    this.set_icon = function(icon_name){
+        this.icon = new egui.Icon();
+        this.icon.set_background_color(null);
+        this.icon.set_icon_name(icon_name);
+        this.consume_as("button_icon", this.icon);
+    };
+
+    this.draw_icon = function(){
+        var icon_size = (Math.min(this.rect.width, this.rect.height))-(egui.padding*2);
+
+
+        this.icon.rect.set(
+            icon_size,
+            icon_size,
+            this.rect.left + this.rect.width-icon_size-egui.padding,
+            this.rect.top+egui.padding,
+        );
+    };
 
     this._set_loading = function(is_loading){
         if ((this.is_loading && is_loading) || (!this.is_loading && !is_loading) ) {
