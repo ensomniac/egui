@@ -66,50 +66,28 @@ function EguiButton(){
         };
 
         if (this.icon) {
-            console.log("Hide icon");
-
-            console.log(this.icon);
 
             this.loading_anim = new egui.Anim();
             this.loading_anim.set_duration(500);
 
-            (function(self){
+            (function(self, is_loading){
 
                 self.loading_anim.set_update_callback(function(t){
                     self.icon.set_opacity(egui.lerp(self.icon.rest_opacity, 0, t), true);
-                    console.log(self.icon);
                 });
 
                 self.loading_anim.set_complete_callback(function(){
-                    console.log("done");
-                    // if (self.fade_in_complete_callback) {
-                    //     self.fade_in_complete_callback();
-                    // };
+                    self._set_loading(is_loading);
                 });
 
-            })(this);
+            })(this, is_loading);
 
             this.loading_anim.start();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
+        else {
+            this._set_loading(is_loading);
         };
-
-        // console.log(this.is_loading);
-        // console.log("BUTTON LOADING");
-        // this._set_loading(is_loading);
-
 
     };
 
