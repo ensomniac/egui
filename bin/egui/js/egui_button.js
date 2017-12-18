@@ -61,12 +61,16 @@ function EguiButton(){
     };
 
     this.set_loading = function(is_loading){
-        // if (this.is_loading && is_loading) {
-        //     return;
-        // };
+        if (this.is_loading && is_loading) {
+            return;
+        };
 
-        console.log("LOADING");
-        console.log(this.label);
+        console.log(this.is_loading);
+
+        console.log("BUTTON LOADING");
+
+        this._set_loading(is_loading);
+
 
     };
 

@@ -15,13 +15,20 @@ function EguiLabel(){
     this.height = egui.line_height;
     this.is_loading = false;
 
-    this.set_loading = function(is_loading){
-        // if (this.is_loading && is_loading) {
-        //     return;
-        // };
+
+    this._set_loading = function(is_loading){
+        if ((this.is_loading && is_loading) || (!this.is_loading && !is_loading) ) {
+            return;
+        };
 
         console.log("LABEL LOADING");
 
+    };
+
+
+    this.set_loading = function(is_loading){
+        // This may be overloaded by button
+        this._set_loading(is_loading);
     };
 
     this.set_font_size_mult = function(font_size_mult){
