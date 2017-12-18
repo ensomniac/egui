@@ -17,5 +17,17 @@ function EguiButton(){
     this.set_cursor("pointer");
     this.set_pointer_events_active(false);
 
+    this.set_icon = function(icon_name){
+        console.log(icon_name);
+    };
+
+    // this.draw = function(){
+    //     console.log("drawing button");
+    // };
+
+    this.on_draw(function(){
+        console.log("DDD");
+    });
+
 };
 
