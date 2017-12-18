@@ -10,7 +10,6 @@ function EguiLabel(){
     this.font_size_mult = 1.0;
     this.text_color = "rgba(0, 0, 0, 0.8)";
     this.text_alignment = "center";
-    // this.pointer_events_active = true;
 
     this.width = -1;
     this.height = egui.line_height;
@@ -18,24 +17,6 @@ function EguiLabel(){
     this.set_font_size_mult = function(font_size_mult){
         this.font_size_mult = font_size_mult;
     };
-
-    // this.set_pointer_events_active = function(pointer_events_active){
-    //     this.pointer_events_active = pointer_events_active;
-
-    //     console.log(this.pointer_events_active);
-
-    //     if (this.primitives["label"]) {
-
-    //         var pointer_events = "none";
-    //         if (this.pointer_events_active) {
-    //             pointer_events = "auto";
-    //         };
-
-    //         this.primitives["label"].css({
-    //             "pointer-events": pointer_events,
-    //         });
-    //     };
-    // };
 
     this.set_text = function(label_text){
         this.label_text = label_text;
