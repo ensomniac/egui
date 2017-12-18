@@ -52,10 +52,17 @@ function EguiButtonBar(){
     };
 
     this.set_active = function(active_button){
-        console.log("SET ACTIVE BUTTON");
-        console.log(active_button);
+        // console.log("SET ACTIVE BUTTON");
+        // console.log(active_button);
 
-        active_button.set_opacity(1);
+        for (var i in this.buttons) {
+            if (active_button == this.buttons[i]) {
+                this.buttons[i].set_opacity(1);
+            }
+            else {
+                this.buttons[i].set_opacity(0.5);
+            }
+        };
 
     };
 
