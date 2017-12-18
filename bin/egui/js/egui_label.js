@@ -19,21 +19,21 @@ function EguiLabel(){
         this.font_size_mult = font_size_mult;
     };
 
-    // this.set_pointer_events_active = function(pointer_events_active){
-    //     this.pointer_events_active = pointer_events_active;
+    this.set_pointer_events_active = function(pointer_events_active){
+        this.pointer_events_active = pointer_events_active;
 
-    //     if (this.primitives["label"]) {
+        if (this.primitives["label"]) {
 
-    //         var pointer_events = "none";
-    //         if (this.pointer_events_active) {
-    //             pointer_events = "auto";
-    //         };
+            var pointer_events = "none";
+            if (this.pointer_events_active) {
+                pointer_events = "auto";
+            };
 
-    //         this.primitives["label"].css({
-    //             "pointer-events": pointer_events,
-    //         });
-    //     };
-    // };
+            this.primitives["label"].css({
+                "pointer-events": pointer_events,
+            });
+        };
+    };
 
     this.set_text = function(label_text){
         this.label_text = label_text;
