@@ -39,14 +39,12 @@ function EguiButtonBar(){
         this.set_padding_inner(this.padding);
         this.set_padding_outer(this.padding);
 
-        this.button_width = this.rect.width/this.buttons.length;
+        // this.button_width = this.rect.width/this.buttons.length;
 
-        console.log(this.button_width);
-
-        for (var i in this.buttons) {
+        // for (var i in this.buttons) {
             // this.buttons[i].set_height(10);
             // this.buttons[i].set_width(10);
-        };
+        // };
 
 
     };
