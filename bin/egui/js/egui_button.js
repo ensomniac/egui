@@ -17,9 +17,6 @@ function EguiButton(){
 
     this.set_text_color(egui.button_text_color);
     this.set_cursor("pointer");
-    // this.set_pointer_events_active(false);
-
-    console.log(this.primitives);
 
     this.set_icon = function(icon_name){
         // this.icon = new egui.Image();
@@ -35,7 +32,9 @@ function EguiButton(){
     this._draw = function(){
         if (this.icon) {
             this.draw_icon();
-        }
+        };
+
+
     };
 
     (function(self){
