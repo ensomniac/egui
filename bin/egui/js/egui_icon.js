@@ -5,8 +5,8 @@ function EguiIcon(){
 
     egui.Box.call(this);
 
-    this.primitives["label"] = null;
-    this.label_text = "EGUI Label";
+    this.primitives["label_icon"] = null;
+    this.label_text = "+";
     this.font_size_mult = 1.0;
     this.text_color = "rgba(0, 0, 0, 0.8)";
     this.text_alignment = "center";
@@ -18,42 +18,20 @@ function EguiIcon(){
         this.font_size_mult = font_size_mult;
     };
 
-    this.set_text = function(label_text){
-        this.label_text = label_text;
-
-        if (this.primitives["label"]) {
-            this.primitives["label"].text(this.label_text);
-        };
-    };
-
-    this.set_text_opacity = function(opacity){
-        this.primitives["label"].css({"opacity": opacity});
-    };
-
-    this.set_text_alignment = function(text_alignment){
-        this.text_alignment = text_alignment;
-
-        if (this.primitives["label"]) {
-            this.primitives["label"].css({
-                "text-align": this.text_alignment,
-            });
-        };
-    };
-
     this.draw_label = function(){
         // Post draw is fired by the inherited box
-        if (!this.primitives["label"]) {
+        if (!this.primitives["label_icon"]) {
             this.create_label();
         };
 
         this.set_post_rect();
     };
 
-    this.set_text_color = function(text_color){
+    this.set_color = function(text_color){
         this.text_color = text_color;
 
-        if (this.primitives["label"]) {
-            this.primitives["label"].css({
+        if (this.primitives["label_icon"]) {
+            this.primitives["label_icon"].css({
                 "color": this.text_color,
             });
         };
@@ -76,7 +54,7 @@ function EguiIcon(){
             font_size = (this.rect.width*font_size_mult);
         }
 
-        this.primitives["label"].css({
+        this.primitives["label_icon"].css({
             "width": this.rect.width-(egui.padding*2),
             "height": this.rect.height,
             "left": this.rect.left,
@@ -85,6 +63,7 @@ function EguiIcon(){
             "font-size": font_size*(this.font_size_mult) + "px",
             "padding-left": egui.padding,
             "padding-right": egui.padding,
+            "padding-right": egui.padding,
         });
     };
 
@@ -92,8 +71,8 @@ function EguiIcon(){
         // This should be the only place an instance of a native platform
         // visual element is created. DIV/DRID (HTML/UNITY)
 
-        this.primitives["label"] = $("<div>" + this.label_text + "</div>");
-        this.primitives["label"].css({
+        this.primitives["label_icon"] = $("<div>" + this.label_text + "</div>");
+        this.primitives["label_icon"].css({
             "position": "absolute",
             "text-align": this.text_alignment,
             "color": this.text_color,
@@ -103,7 +82,7 @@ function EguiIcon(){
         });
 
         // this.set_pointer_events_active(this.pointer_events_active);
-        $("body").append(this.primitives["label"]);
+        $("body").append(this.primitives["label_icon"]);
     };
 
     (function(self){
