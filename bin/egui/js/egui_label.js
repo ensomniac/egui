@@ -54,7 +54,6 @@ function EguiLabel(){
         else {
             this._set_loading(is_loading);
         };
-
     };
 
     this._set_loading = function(is_loading){
@@ -63,7 +62,7 @@ function EguiLabel(){
         };
 
         this.is_loading = is_loading;
-        // this.load_dots = new egui.SpriteSheet();
+        this.load_dots = new egui.SpriteSheet();
         console.log("add dots");
     };
 

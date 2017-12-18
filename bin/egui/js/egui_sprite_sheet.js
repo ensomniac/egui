@@ -1,7 +1,7 @@
 'use strict';
 
-function EguiIcon(){
-    this.description = "Scalable named vector icons"
+function EguiSpriteSheet(){
+    this.description = "Sprite Sheet Interface"
 
     egui.Box.call(this);
 

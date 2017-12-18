@@ -110,6 +110,9 @@ $(document).ready(function() {
         window.egui["Spacer"] = EguiSpacer;
         EguiSpacer = null;
 
+        window.egui["SpriteSheet"] = EguiSpriteSheet;
+        EguiSpriteSheet = null;
+
         // HTML PARTS ///////////////////////////////
         window.egui.html.Button = EguiHTMLButton;
         EguiHTMLButton = null;
@@ -159,7 +162,6 @@ function Egui(){
     this.LayoutContainer = null;
     this.LayoutColumns = null;
     this.LayoutRows = null;
-
     this.LayoutBox = null;
 
     this.layout = {};
@@ -172,7 +174,6 @@ function Egui(){
     this.Anim = null;
 
     this.View = null;
-
     this.Packbox = null;
     this.Hbox = null;
     this.Vbox = null;
@@ -187,6 +188,7 @@ function Egui(){
     this.Image = null;
     this.Input = null;
     this.Icon = null;
+    this.SpriteSheet = null;
 
     // HTML Simple Objects
     this.html = {};
