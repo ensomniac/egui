@@ -6,7 +6,10 @@ function EguiButtonBar(){
     egui.layout.Horizontal.call(this);
 
     this.height = egui.line_height*2;
+
     this.set_height(this.height);
+    this.set_padding_outer(33);
+
     this.padding = 0;
     this.buttons = [];
 

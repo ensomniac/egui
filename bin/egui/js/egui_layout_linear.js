@@ -54,7 +54,7 @@ function EguiLayoutLinear(){
         var left = this.rect.left;
         var top = this.rect.top;
 
-
+        console.log(this.rect);
 
         // if (this.constructor == egui.ButtonBar) {
         //     console.log(this);
