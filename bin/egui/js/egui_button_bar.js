@@ -7,7 +7,9 @@ function EguiButtonBar(){
 
     this.height = egui.line_height*2;
     this.set_height(this.height);
-    // this.set_padding_outer(5);
+
+    this.button_width = 0;
+    this.button_height = 0;
 
     this.padding = 0;
     this.buttons = [];
@@ -35,8 +37,11 @@ function EguiButtonBar(){
         this.padding = padding;
 
         this.set_padding_inner(this.padding);
+        this.set_padding_outer(this.padding);
 
+        this.button_width = this.rect.width/this.buttons.length;
 
+        console.log(this.button_width);
 
         for (var i in this.buttons) {
             // this.buttons[i].set_height(10);
