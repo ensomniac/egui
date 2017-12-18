@@ -64,8 +64,16 @@ function EguiPrimitive(){
             found_primitive = this.primitives[primitive_name];
         };
 
-        console.log("FOUND (" + primitive_name + ")");
-        console.log(found_primitive);
+        if (!found_primitive) {
+            console.log("FOUND (" + primitive_name + ")");
+            if (this._consumed[primitive_name]) {
+                var found = this._consumed[primitive_name].get_primitives();
+                console.log(found);
+            }
+        }
+
+        // console.log("FOUND (" + primitive_name + ")");
+        // console.log(found_primitive);
 
         // console.log(this.primitives);
         // console.log(this._consumed);
