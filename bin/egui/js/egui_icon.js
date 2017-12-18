@@ -11,6 +11,16 @@ function EguiIcon(){
     this.scale = 1.0;
     this.width = -1;
     this.height = egui.line_height;
+    this.icon_name = "sliders";
+
+    this.set_icon_name = function(icon_name){
+        this.icon_name = icon_name;
+
+        if (!this.primitives["label_icon"]) {
+            this.set_post_rect();
+        };
+
+    };
 
     this.draw_label = function(){
         // Post draw is fired by the inherited box
@@ -34,7 +44,7 @@ function EguiIcon(){
     this.set_post_rect = function(){
 
         var aspect = this.rect.width/this.rect.height;
-        var font_size_mult = 0.5;
+        var font_size_mult = 0.75;
         var font_size = this.rect.height*font_size_mult;
 
         this.primitives["label_icon"].css({
@@ -54,7 +64,8 @@ function EguiIcon(){
         // This should be the only place an instance of a native platform
         // visual element is created. DIV/DRID (HTML/UNITY)
 
-        this.primitives["label_icon"] = $('<i class="fa fa-camera-retro"></i>');
+
+        this.primitives["label_icon"] = $('<i class="fa fa-' + this.icon_name + '"></i>');
         this.primitives["label_icon"].css({
             "position": "absolute",
             "text-align": this.text_alignment,
@@ -62,6 +73,7 @@ function EguiIcon(){
             "overflow": "hidden",
             "white-space": "nowrap",
             "text-overflow": "ellipsis",
+            "color": "rgba(255, 255, 255, 0.7)",
         });
 
         // this.set_pointer_events_active(this.pointer_events_active);
