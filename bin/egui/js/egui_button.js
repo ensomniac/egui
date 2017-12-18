@@ -21,13 +21,19 @@ function EguiButton(){
         console.log(icon_name);
     };
 
+    this._draw = function(){
+        console.log(this.rect);
+    };
+
     // this.draw = function(){
     //     console.log("drawing button");
     // };
 
-    this.on_draw(function(){
-        console.log("DDD");
-    });
+    (function(self){
+        self.on_draw(function(){
+            self._draw();
+        });
+    })(this);
 
 };
 
