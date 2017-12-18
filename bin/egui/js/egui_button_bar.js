@@ -7,6 +7,7 @@ function EguiButtonBar(){
 
     this.height = egui.line_height*2;
     this.set_height(this.height);
+    this.padding = 0;
     // this.set_padding_inner(10);
 
     this.set_background("gray");
@@ -25,6 +26,13 @@ function EguiButtonBar(){
         this.append(button);
 
         return button;
+    };
+
+    this.set_padding = function(padding){
+        this.padding = padding;
+        this.set_padding_inner(this.padding);
+
+        console.log(this.padding);
     };
 
     // this.set_background_color(egui.button_color);
