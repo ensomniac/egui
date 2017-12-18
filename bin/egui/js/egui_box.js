@@ -149,7 +149,10 @@ function EguiBox(){
     this.on_click = function(){
         if (this.on_click_callback) {
             this.on_click_callback();
-        };
+        }
+        else {
+            console.log("nope");
+        }
     };
 
     this.setup_events = function(){

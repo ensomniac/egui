@@ -28,10 +28,9 @@ function EguiButtonBar(){
         this.buttons.push(button);
 
         (function(self, button){
-
-            button.set_click_callback = function(){
+            button.set_click_callback(function(){
                 console.log("button");
-            };
+            });
 
         })(this, button);
 
