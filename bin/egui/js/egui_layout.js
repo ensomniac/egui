@@ -94,7 +94,11 @@ function EguiLayout(){
             self.anim.set_update_callback(function(t){
 
                 for (var i in self.found_primitives) {
-                    self.found_primitives[i].set_opacity(t);
+
+                    // console.log(self.found_primitives[i]);
+                    // console.log(self.found_primitives[i].opacity);
+
+                    self.found_primitives[i].set_opacity(egui.lerp(0, self.found_primitives[i].opacity, t));
                 };
 
             });
