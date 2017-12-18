@@ -48,11 +48,12 @@ function EguiLayoutLinear(){
         };
 
         var fixed_padding = (this.padding_inner*(this.children.length-1));
-        var child_width_expand = (this.rect.width-this.fixed_space_x-fixed_padding)/(this.children.length-this.num_fixed_children_x);
+        var outter_padding = this.rect.padding_outer*2;
+        var child_width_expand = (this.rect.width-outter_padding-this.fixed_space_x-fixed_padding)/(this.children.length-this.num_fixed_children_x);
         var child_height_expand = (this.rect.height-this.fixed_space_y-fixed_padding)/(this.children.length-this.num_fixed_children_y);
 
-        child_width_expand -= (this.rect.padding_outer*0.5);
-        console.log(this.rect.padding_outer);
+        // child_width_expand -= (this.rect.padding_outer*0.5);
+        // console.log(this.rect.padding_outer);
 
 
         var left = this.rect.left + this.rect.padding_outer;
