@@ -21,6 +21,8 @@ function EguiLabel(){
             return;
         };
 
+        this.is_loading = is_loading;
+
         console.log("LABEL LOADING");
 
     };

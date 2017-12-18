@@ -61,15 +61,22 @@ function EguiButton(){
     };
 
     this.set_loading = function(is_loading){
-        if (this.is_loading && is_loading) {
+        if ((this.is_loading && is_loading) || (!this.is_loading && !is_loading) ) {
             return;
         };
 
-        console.log(this.is_loading);
+        if (this.icon) {
+            console.log("Hide icon");
 
-        console.log("BUTTON LOADING");
+            console.log(this.icon);
 
-        this._set_loading(is_loading);
+            this.icon.set_opacity(0.5);
+
+        };
+
+        // console.log(this.is_loading);
+        // console.log("BUTTON LOADING");
+        // this._set_loading(is_loading);
 
 
     };
