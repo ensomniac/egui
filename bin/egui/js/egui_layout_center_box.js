@@ -10,6 +10,8 @@ function EguiLayoutCenterBox(){
     this.width_mult = 0.5;
     this.height_mult = 0.5;
 
+    this.aspect = -1;
+
     this.set_background(this.background_color);
 
     // this.set_opacity = function(opacity){
@@ -20,6 +22,11 @@ function EguiLayoutCenterBox(){
         // Overrides the draw call for egui.Layout
         var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
         var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
+
+        if (this.aspect != -1) {
+            height = width/this.aspect;
+        };
+
         var left = (this.rect.width-width)*0.5;
         var top = (this.rect.height-height)*0.5;
 
@@ -38,6 +45,10 @@ function EguiLayoutCenterBox(){
 
     this.set_shadow = function(left, top, blur){
         // this.backing.set_shadow(left, top, blur);
+    };
+
+    this.set_aspect = function(aspect){
+        this.aspect = aspect;
     };
 
 };
