@@ -22,7 +22,6 @@ function EguiButton(){
     this.set_icon = function(icon_name){
         this.icon = new egui.Image();
         this.consume_as("icon", this.icon);
-        console.log("!!");
     };
 
     this.draw_icon = function(){
@@ -38,6 +37,12 @@ function EguiButton(){
         if (this.primitives["label"]) {
             this.set_primitive_pointer_events_active("label", false);
         };
+
+        // if (this.primitives["label"]) {
+        //     this.set_primitive_pointer_events_active("label", false);
+        // };
+
+
 
     };
 

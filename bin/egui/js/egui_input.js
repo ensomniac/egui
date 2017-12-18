@@ -29,7 +29,7 @@ function EguiInput(){
     this.placeholder_label.set_text_color(this.text_color_placeholder);
     this.placeholder_label.set_text_alignment("left");
 
-    this.primitive.consume(this.placeholder_label);
+    this.primitive.consume_as("placeholder_label", this.placeholder_label);
 
     this.draw_placeholder_label = function(){
         // this.backing.rect.set(this.rect);
