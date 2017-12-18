@@ -7,7 +7,9 @@ function EguiPrimitive(){
     this.primitives = {};
     this._consumed = {};
     this.pointer_events_active = true;
-    this.opacity = 1;
+
+    this.rest_opacity = 1;
+    this.current_opacity = 1;
 
     this.set_opacity = function(opacity){
         this.opacity = opacity;
