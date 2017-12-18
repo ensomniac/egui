@@ -83,7 +83,7 @@ function EguiLayout(){
 
         this.get_all_primitives();
         for (var i in this.found_primitives) {
-            this.found_primitives[i].set_opacity(0);
+            this.found_primitives[i].set_opacity(0, true);
         };
 
         this.anim = new egui.Anim();
@@ -94,13 +94,7 @@ function EguiLayout(){
             self.anim.set_update_callback(function(t){
 
                 for (var i in self.found_primitives) {
-
-                    // console.log(self.found_primitives[i]);
-                    // console.log(self.found_primitives[i].opacity);
-
-                    console.log(self.found_primitives[i].rest_opacity);
-
-                    self.found_primitives[i].set_opacity(egui.lerp(0, 0.6, t), true);
+                    self.found_primitives[i].set_opacity(egui.lerp(0, self.found_primitives[i].rest_opacity, t), true);
                 };
 
             });
@@ -130,7 +124,7 @@ function EguiLayout(){
             self.anim.set_update_callback(function(t){
 
                 for (var i in self.found_primitives) {
-                    self.found_primitives[i].set_opacity(1-t);
+                    self.found_primitives[i].set_opacity(1-t, true);
                 };
 
             });

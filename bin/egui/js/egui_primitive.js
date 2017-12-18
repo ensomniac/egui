@@ -8,13 +8,14 @@ function EguiPrimitive(){
     this._consumed = {};
     this.pointer_events_active = true;
 
-    this.rest_opacity = 1;
+    this.rest_opacity = 1; // Normally set with this.opacity, but can be set independantly for animation state storage
     this.opacity = 1;
 
     this.set_opacity = function(opacity, skip_set){
         // When skip_set is true, this.rest_opacity is not set
         if (!skip_set) {
             this.rest_opacity = opacity;
+            console.log("Setting rest opacity: " + this.rest_opacity);
         };
 
         this.opacity = opacity;
