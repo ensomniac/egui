@@ -19,7 +19,7 @@ function EguiButton(){
     this.set_cursor("pointer");
     // this.set_pointer_events_active(false);
 
-    console.log(this.label);
+    console.log(this.primitives);
 
     this.set_icon = function(icon_name){
         // this.icon = new egui.Image();

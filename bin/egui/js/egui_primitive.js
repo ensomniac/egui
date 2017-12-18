@@ -6,6 +6,7 @@ function EguiPrimitive(){
 
     this.primitives = {};
     this.consumed = [];
+    this.pointer_events_active = true;
 
     this.set_opacity = function(opacity){
 
@@ -56,6 +57,21 @@ function EguiPrimitive(){
 
     };
 
+    this.set_pointer_events_active = function(pointer_events_active){
+        this.pointer_events_active = pointer_events_active;
+
+        if (this.primitives["box"]) {
+
+            var pointer_events = "none";
+            if (this.pointer_events_active) {
+                pointer_events = "auto";
+            };
+
+            this.primitives["box"].css({
+                "pointer-events": pointer_events,
+            });
+        };
+    };
 
 
 
