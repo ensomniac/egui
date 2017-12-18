@@ -30,14 +30,6 @@ function EguiButton(){
     };
 
     this._draw = function(){
-        if (this.icon) {
-            this.draw_icon();
-        };
-
-        if (!this.setup_complete) {
-            this.setup();
-        };
-
     };
 
     this.set_loading = function(is_loading){
