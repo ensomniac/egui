@@ -30,9 +30,9 @@ function EguiRect(drawable){
             return;
         };
 
-        if (this.padding_inner) {
-            console.log("Padding inner: " + this.padding_inner);
-        }
+        // if (this.padding_inner) {
+        //     console.log("Padding inner: " + this.padding_inner);
+        // }
 
         if (width_rect.constructor == egui.Rect) {
             this.width = width_rect.width;

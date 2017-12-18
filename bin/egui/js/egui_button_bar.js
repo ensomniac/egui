@@ -22,6 +22,7 @@ function EguiButtonBar(){
 
     this.add_button = function(){
         var button = new egui.Button();
+
         button.set_text("-");
 
         this.append(button);
