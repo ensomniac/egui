@@ -19,8 +19,10 @@ function EguiLabel(){
         this.font_size_mult = font_size_mult;
     };
 
-    this._set_pointer_events_active = function(pointer_events_active){
+    this.set_pointer_events_active = function(pointer_events_active){
         this.pointer_events_active = pointer_events_active;
+
+        console.log(this.pointer_events_active);
 
         if (this.primitives["label"]) {
 
@@ -119,7 +121,7 @@ function EguiLabel(){
             "text-overflow": "ellipsis",
         });
 
-        this._set_pointer_events_active(this.pointer_events_active);
+        this.set_pointer_events_active(this.pointer_events_active);
         $("body").append(this.primitives["label"]);
     };
 
