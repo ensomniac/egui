@@ -27,7 +27,7 @@ function EguiButton(){
     this.set_icon = function(icon_name){
         this.icon = new egui.Icon();
         this.icon.set_background_color(null);
-        this.icon.set_icon_name("video");
+        this.icon.set_icon_name("video-camera");
         this.consume_as("button_icon", this.icon);
     };
 

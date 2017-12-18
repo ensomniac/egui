@@ -17,6 +17,7 @@ function EguiIcon(){
         this.icon_name = icon_name;
 
         if (this.primitives["label_icon"]) {
+            console.log("Setting to " + icon_name);
             this.primitives["label_icon"].removeClass();
             this.primitives["label_icon"].addClass("fa");
             this.primitives["label_icon"].addClass('"fa-' + this.icon_name + '"');
@@ -66,7 +67,6 @@ function EguiIcon(){
     this.create_label = function(){
         // This should be the only place an instance of a native platform
         // visual element is created. DIV/DRID (HTML/UNITY)
-
 
         this.primitives["label_icon"] = $('<i class="fa fa-' + this.icon_name + '"></i>');
         this.primitives["label_icon"].css({
