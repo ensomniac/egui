@@ -31,7 +31,7 @@ function EguiButtonBar(){
         (function(self, button){
             button.set_click_callback(function(){
                 if (self.click_callback) {
-                    self.click_callback();
+                    self.click_callback(button);
                 };
             });
 
@@ -50,7 +50,10 @@ function EguiButtonBar(){
         this.click_callback = click_callback;
     };
 
-
+    this.set_active = function(active_button){
+        console.log("SET ACTIVE BUTTON");
+        console.log(active_button);
+    };
 
 
 };
