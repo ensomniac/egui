@@ -176,6 +176,11 @@ function EguiBox(){
 
     this.setup_events = function(){
 
+        if (!this.set_pointer_events_active) {
+            console.log("skipping");
+            return;
+        };
+
         (function(self){
             self.primitives["box"].mouseenter(function(){self.on_mouse_in()});
             self.primitives["box"].mouseleave(function(){self.on_mouse_out()});
