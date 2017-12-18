@@ -21,7 +21,7 @@ function EguiButton(){
 
     this.set_icon = function(icon_name){
         this.icon = new egui.Image();
-        this.consume_as("icon", this.icon);
+        this.consume_as("icon_test", this.icon);
     };
 
     this.draw_icon = function(){
@@ -31,18 +31,8 @@ function EguiButton(){
 
     this.setup = function(){
         this.setup_complete = true;
-
-
-        if (this.primitives.exists("label")) {
-            this.set_primitive_pointer_events_active("label", false);
-        };
-
-        // if (this.primitives["label"]) {
-        //     this.set_primitive_pointer_events_active("label", false);
-        // };
-
-
-
+        this.set_primitive_pointer_events_active("icon", false);
+        this.set_primitive_pointer_events_active("label", false);
     };
 
     this._draw = function(){
