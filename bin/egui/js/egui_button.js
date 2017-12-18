@@ -21,7 +21,7 @@ function EguiButton(){
 
     this.set_icon = function(icon_name){
         this.icon = new egui.Image();
-        this.consume_as(this.icon);
+        this.consume_as("icon", this.icon);
         console.log("!!");
     };
 

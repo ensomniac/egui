@@ -49,7 +49,7 @@ function EguiPrimitive(){
 
     };
 
-    this.consume = function(primitive_elem){
+    this.consume_as = function(primitive_elem){
         // This is generally used when one primitive instantiates another primitive
         // and needs to control their child primitives
 
