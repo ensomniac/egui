@@ -27,17 +27,14 @@ function EguiButtonBar(){
         this.append(button);
         this.buttons.push(button);
 
-        (function(self, b){
-            b.set_click_callback(function(){
-                console.log("button");
+        (function(self, button){
+            button.set_click_callback(function(){
+                if (self.click_callback) {
+                    self.click_callback();
+                };
             });
 
         })(this, button);
-
-
-
-
-
 
         return button;
     };
@@ -48,9 +45,9 @@ function EguiButtonBar(){
         this.set_padding_outer(this.padding);
     };
 
-    // this.set_click_callback = function(click_callback){
-    //     this.click_callback = click_callback;
-    // };
+    this.set_click_callback = function(click_callback){
+        this.click_callback = click_callback;
+    };
 
 
 

@@ -157,19 +157,13 @@ function EguiBox(){
 
     this.set_click_callback = function(on_click_callback){
         this.on_click_callback = on_click_callback;
-        console.log("SET");
-        console.log(this.on_click_callback);
     };
 
     this.on_click = function(){
         if (this.on_click_callback) {
-            console.log("CLICK");
             this.on_click_callback();
-        }
-        else {
-            console.log("nope");
-            console.log(this);
-        }
+        };
+
     };
 
     this.setup_events = function(){
