@@ -33,7 +33,7 @@ function EguiButton(){
     this.setup = function(){
         this.setup_complete = true;
 
-        // console.log(this.get_primitives);
+        console.log(this.get_primitives());
 
         if (this.primitives["label"]) {
             this.set_primitive_pointer_events_active("label", false);

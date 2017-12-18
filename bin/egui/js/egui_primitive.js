@@ -5,7 +5,7 @@ function EguiPrimitive(){
     this.primitive = this;
 
     this.primitives = {};
-    this.consumed = [];
+    this._consumed = {};
     this.pointer_events_active = true;
 
     this.set_opacity = function(opacity){
@@ -41,8 +41,8 @@ function EguiPrimitive(){
         };
 
         // Include any consumed primitives
-        for (var i in this.consumed) {
-            primitives = primitives.concat(this.consumed[i].get_primitives());
+        for (var consumed_name in this._consumed) {
+            primitives = primitives.concat(this._consumed[consumed_name].get_primitives());
         };
 
         return primitives;
@@ -52,10 +52,8 @@ function EguiPrimitive(){
     this.consume_as = function(primitive_name, primitive_elem){
         // This is generally used when one primitive instantiates another primitive
         // and needs to control their child primitives
-        // primitive_elem.consumed_as = primitive_name;
 
-        this.consumed.push(primitive_elem);
-        // this.primitives = this.get_primitives();
+        this._consumed[primitive_name] = primitive_elem;
 
     };
 
