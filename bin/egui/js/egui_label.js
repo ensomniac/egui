@@ -34,7 +34,7 @@ function EguiLabel(){
         if (this.icon) {
 
             this.loading_anim = new egui.Anim();
-            this.loading_anim.set_duration(500);
+            this.loading_anim.set_duration(200);
 
             (function(self, is_loading){
 
@@ -62,8 +62,12 @@ function EguiLabel(){
         };
 
         this.is_loading = is_loading;
+
         this.load_dots = new egui.SpriteSheet();
-        console.log("add dots");
+        this.load_dots.set_background_color("orange");
+        this.load_dots.set_icon_name("box");
+        this.consume_as("label_load_dots", this.icon);
+
     };
 
     this.set_font_size_mult = function(font_size_mult){
