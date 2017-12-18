@@ -94,7 +94,7 @@ function EguiBox(){
         // This should be the only place an instance of a native platform
         // visual element is created. DIV/DRID (HTML/UNITY)
 
-        this.primitives["box"] = $("<div></div>");
+        this.primitives["box"] = $("<div title='" + this.tooltip + "'></div>");
         this.primitives["box"].css({
             "position": "absolute",
             "background": this.background_color,

@@ -6,10 +6,16 @@ function EguiPrimitive(){
 
     this.primitives = {};
     this._consumed = {};
-    this.pointer_events_active = true;
 
+    // PRIMITIVE NATIVE
+    this.pointer_events_active = true;
     this.rest_opacity = 1; // Normally set with this.opacity, but can be set independantly for animation state storage
     this.opacity = 1;
+    this.tooltip = "";
+
+    this.set_tooltip = function(tooltip){
+        this.tooltip = tooltip;
+    };
 
     this.set_opacity = function(opacity, skip_set){
         // When skip_set is true, this.rest_opacity is not set
