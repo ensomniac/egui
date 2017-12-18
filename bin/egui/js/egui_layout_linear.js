@@ -87,6 +87,7 @@ function EguiLayoutLinear(){
                 // HORIZONTAL
                 height = this.rect.height-(this.rect.padding_outer*2);
                 width = child_width_expand;
+                top += this.rect.padding_outer;
 
                 if (child.rect.expand_x != -1) {
                     // fixed width
