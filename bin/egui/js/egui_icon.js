@@ -53,9 +53,6 @@ function EguiIcon(){
             "top": this.rect.top,
             "line-height": this.rect.width + "px",
             "font-size": this.rect.width*(this.scale) + "px",
-            // "padding-left": egui.padding,
-            // "padding-right": egui.padding,
-            // "padding-right": egui.padding,
         });
     };
 
@@ -68,7 +65,6 @@ function EguiIcon(){
             "position": "absolute",
             "text-align": this.text_alignment,
             "color": this.text_color,
-            "background": "orange",
             "color": "rgba(255, 255, 255, 0.7)",
         });
 
