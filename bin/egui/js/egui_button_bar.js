@@ -22,7 +22,7 @@ function EguiButtonBar(){
         var button = new egui.Button();
 
         button.set_text("");
-        button.set_opacity(0.5);
+        // button.set_opacity(0.5);
 
         this.append(button);
         this.buttons.push(button);
