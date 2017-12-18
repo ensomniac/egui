@@ -17,7 +17,6 @@ function EguiIcon(){
         this.icon_name = icon_name;
 
         if (this.primitives["label_icon"]) {
-            console.log("Setting to " + icon_name);
             this.primitives["label_icon"].removeClass();
             this.primitives["label_icon"].addClass("fa");
             this.primitives["label_icon"].addClass('"fa-' + this.icon_name + '"');
@@ -53,14 +52,14 @@ function EguiIcon(){
 
         this.primitives["label_icon"].css({
             "width": this.rect.width-(egui.padding*2),
-            "height": this.rect.height,
+            "height": this.rect.width-(egui.padding*2),
             "left": this.rect.left,
             "top": this.rect.top,
             "line-height": this.rect.height + "px",
             "font-size": font_size*(this.scale) + "px",
-            "padding-left": egui.padding,
-            "padding-right": egui.padding,
-            "padding-right": egui.padding,
+            // "padding-left": egui.padding,
+            // "padding-right": egui.padding,
+            // "padding-right": egui.padding,
         });
     };
 
@@ -73,9 +72,10 @@ function EguiIcon(){
             "position": "absolute",
             "text-align": this.text_alignment,
             "color": this.text_color,
-            "overflow": "hidden",
-            "white-space": "nowrap",
-            "text-overflow": "ellipsis",
+            "background": "orange",
+            // "overflow": "hidden",
+            // "white-space": "nowrap",
+            // "text-overflow": "ellipsis",
             "color": "rgba(255, 255, 255, 0.7)",
         });
 
