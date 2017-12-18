@@ -183,6 +183,7 @@ function Egui(){
     this.ButtonBar = null;
     this.Image = null;
     this.Input = null;
+    this.Icon = null;
 
     // HTML Simple Objects
     this.html = {};
