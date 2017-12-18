@@ -178,9 +178,9 @@ function EguiBox(){
 
     this.setup_events = function(){
 
-        if (!this.pointer_events_active) {
-            return;
-        };
+        // if (!this.pointer_events_active) {
+        //     return;
+        // };
 
         (function(self){
             self.primitives["box"].mouseenter(function(){self.on_mouse_in()});
