@@ -70,7 +70,39 @@ function EguiButton(){
 
             console.log(this.icon);
 
-            this.icon.set_opacity(0.5);
+            this.loading_anim = new egui.Anim();
+            this.loading_anim.set_duration(750);
+
+            (function(self){
+
+                self.loading_anim.set_update_callback(function(t){
+                    self.icon.set_opacity(t);
+                    console.log(self.icon);
+                });
+
+                self.loading_anim.set_complete_callback(function(){
+                    console.log("done");
+                    // if (self.fade_in_complete_callback) {
+                    //     self.fade_in_complete_callback();
+                    // };
+                });
+
+            })(this);
+
+            this.loading_anim.start();
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         };
 
