@@ -100,7 +100,7 @@ function EguiLayout(){
 
                     console.log(self.found_primitives[i].opacity);
 
-                    self.found_primitives[i].set_opacity(egui.lerp(0, 1, t));
+                    self.found_primitives[i].set_opacity(egui.lerp(0, 0.6, t), true);
                 };
 
             });
