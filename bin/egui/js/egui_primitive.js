@@ -58,17 +58,16 @@ function EguiPrimitive(){
     };
 
     this.set_primitive_pointer_events_active = function(primitive_name, pointer_events_active){
-        var found_primitive = false;
+        var found_primitives = [];
 
         if (this.primitives[primitive_name]) {
-            found_primitive = this.primitives[primitive_name];
+            found_primitives = [this.primitives[primitive_name]];
         };
 
-        if (!found_primitive) {
-
-            if (this._consumed[primitive_name]) {
-                var found = this._consumed[primitive_name].get_primitives();
-                console.log(found);
+        if (this._consumed[primitive_name]) {
+            var consumed_primitives = this._consumed[primitive_name].get_primitives();
+            for (var i in consumed_primitives) {
+                console.log(consumed_primitives[i]);
             }
         }
 
