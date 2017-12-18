@@ -27,8 +27,8 @@ function EguiButtonBar(){
         this.append(button);
         this.buttons.push(button);
 
-        (function(self, button){
-            button.set_click_callback(function(){
+        (function(self, b){
+            b.set_click_callback(function(){
                 console.log("button");
             });
 
@@ -48,9 +48,9 @@ function EguiButtonBar(){
         this.set_padding_outer(this.padding);
     };
 
-    this.set_click_callback = function(click_callback){
-        this.click_callback = click_callback;
-    };
+    // this.set_click_callback = function(click_callback){
+    //     this.click_callback = click_callback;
+    // };
 
 
 

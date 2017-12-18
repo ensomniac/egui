@@ -21,7 +21,11 @@ function EguiButton(){
 
     this.set_icon = function(icon_name){
         this.icon = new egui.Image();
+        this.icon.set_pointer_events_active(false);
         this.consume(this.icon);
+
+
+
     };
 
     this.draw_icon = function(){

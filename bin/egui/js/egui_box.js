@@ -35,6 +35,22 @@ function EguiBox(){
         };
     };
 
+    this.set_pointer_events_active = function(pointer_events_active){
+        this.pointer_events_active = pointer_events_active;
+
+        if (this.primitives["box"]) {
+
+            var pointer_events = "none";
+            if (this.pointer_events_active) {
+                pointer_events = "auto";
+            };
+
+            this.primitives["box"].css({
+                "pointer-events": pointer_events,
+            });
+        };
+    };
+
     this.on_draw = function(draw_callback){
         this.post_draw_callbacks.push(draw_callback);
     };
@@ -144,6 +160,8 @@ function EguiBox(){
 
     this.set_click_callback = function(on_click_callback){
         this.on_click_callback = on_click_callback;
+        console.log("SET");
+        console.log(this.on_click_callback);
     };
 
     this.on_click = function(){
@@ -152,6 +170,7 @@ function EguiBox(){
         }
         else {
             console.log("nope");
+            console.log(this);
         }
     };
 
