@@ -14,6 +14,7 @@ function EguiLabel(){
     this.width = -1;
     this.height = egui.line_height;
     this.is_loading = false;
+    this.load_dots = null;
 
 
     this._set_loading = function(is_loading){
@@ -23,8 +24,7 @@ function EguiLabel(){
 
         this.is_loading = is_loading;
 
-        console.log("LABEL LOADING");
-
+        this.load_dots = new egui.SpriteSheet();
     };
 
 
