@@ -9,9 +9,14 @@ function EguiPrimitive(){
     this.pointer_events_active = true;
 
     this.rest_opacity = 1;
-    this.current_opacity = 1;
+    this.opacity = 1;
 
-    this.set_opacity = function(opacity){
+    this.set_opacity = function(opacity, skip_set){
+        // When skip_set is true, this.rest_opacity is not set
+        if (!skip_set) {
+            this.rest_opacity = opacity;
+        };
+
         this.opacity = opacity;
 
         var primitives = this.get_primitives();

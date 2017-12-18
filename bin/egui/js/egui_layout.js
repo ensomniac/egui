@@ -98,7 +98,7 @@ function EguiLayout(){
                     // console.log(self.found_primitives[i]);
                     // console.log(self.found_primitives[i].opacity);
 
-                    console.log(self.found_primitives[i].opacity);
+                    console.log(self.found_primitives[i].rest_opacity);
 
                     self.found_primitives[i].set_opacity(egui.lerp(0, 0.6, t), true);
                 };
