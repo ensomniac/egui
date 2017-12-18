@@ -21,6 +21,7 @@ function EguiButtonBar(){
         // button.set_outter_padding(10);
 
         button.set_width(this.height);
+
         this.append(button);
 
         return button;
