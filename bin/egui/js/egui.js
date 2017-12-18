@@ -86,6 +86,9 @@ $(document).ready(function() {
         window.egui["Label"] = EguiLabel;
         EguiLabel = null;
 
+        window.egui["Icon"] = EguiIcon;
+        EguiIcon = null;
+
         window.egui["ImageGallery"] = EguiImageGallery;
         EguiImageGallery = null;
 
