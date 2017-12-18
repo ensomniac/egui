@@ -28,46 +28,17 @@ function EguiButton(){
         this.set_primitive_pointer_events_active("label", false);
     };
 
-    this._draw = function(){
-    };
-
-    this.set_loading = function(is_loading){
-        if ((this.is_loading && is_loading) || (!this.is_loading && !is_loading) ) {
-            return;
-        };
-
-        if (this.icon) {
-
-            this.loading_anim = new egui.Anim();
-            this.loading_anim.set_duration(500);
-
-            (function(self, is_loading){
-
-                self.loading_anim.set_update_callback(function(t){
-                    self.icon.set_opacity(egui.lerp(self.icon.rest_opacity, 0, t), true);
-                });
-
-                self.loading_anim.set_complete_callback(function(){
-                    self._set_loading(is_loading);
-                });
-
-            })(this, is_loading);
-
-            this.loading_anim.start();
-
-        }
-        else {
-            this._set_loading(is_loading);
-        };
-
-    };
+    // this._draw = function(){
+    // };
 
 
-    (function(self){
-        self.on_draw(function(){
-            self._draw();
-        });
-    })(this);
+
+
+    // (function(self){
+    //     self.on_draw(function(){
+    //         self._draw();
+    //     });
+    // })(this);
 
 };
 
