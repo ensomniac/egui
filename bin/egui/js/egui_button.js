@@ -20,9 +20,9 @@ function EguiButton(){
     this.set_cursor("pointer");
 
     this.set_icon = function(icon_name){
-        // this.icon = new egui.Image();
-        // this.icon.set_pointer_events_active(false);
-        // this.consume(this.icon);
+        this.icon = new egui.Image();
+        this.consume_as(this.icon);
+        console.log("!!");
     };
 
     this.draw_icon = function(){
@@ -32,6 +32,8 @@ function EguiButton(){
 
     this.setup = function(){
         this.setup_complete = true;
+
+        console.log(this.primitives);
 
         if (this.primitives["label"]) {
             this.set_primitive_pointer_events_active("label", false);
