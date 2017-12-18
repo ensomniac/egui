@@ -30,8 +30,13 @@ function EguiButton(){
         this.icon.rect.set(this.rect.width, this.rect.height, this.rect.left, this.rect.top-10);
     };
 
-    this.setup_complete = function(){
-        console.log("setting up");
+    this.setup = function(){
+        this.setup_complete = true;
+
+        if (this.primitives["label"]) {
+            this.set_primitive_pointer_events_active("label", false);
+        };
+
     };
 
     this._draw = function(){

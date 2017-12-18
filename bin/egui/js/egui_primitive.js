@@ -57,20 +57,24 @@ function EguiPrimitive(){
 
     };
 
-    this.set_pointer_events_active = function(pointer_events_active){
-        this.pointer_events_active = pointer_events_active;
+    this.set_primitive_pointer_events_active = function(primitive_name, pointer_events_active){
+        console.log(primitive_name);
+        console.log(pointer_events_active);
 
-        if (this.primitives["box"]) {
 
-            var pointer_events = "none";
-            if (this.pointer_events_active) {
-                pointer_events = "auto";
-            };
+        // this.pointer_events_active = pointer_events_active;
 
-            this.primitives["box"].css({
-                "pointer-events": pointer_events,
-            });
-        };
+        // if (this.primitives["box"]) {
+
+        //     var pointer_events = "none";
+        //     if (this.pointer_events_active) {
+        //         pointer_events = "auto";
+        //     };
+
+        //     this.primitives["box"].css({
+        //         "pointer-events": pointer_events,
+        //     });
+        // };
     };
 
 
