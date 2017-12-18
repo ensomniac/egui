@@ -15,6 +15,15 @@ function EguiLabel(){
     this.height = egui.line_height;
     this.is_loading = false;
 
+    this.set_loading = function(is_loading){
+        // if (this.is_loading && is_loading) {
+        //     return;
+        // };
+
+        console.log("LABEL LOADING");
+
+    };
+
     this.set_font_size_mult = function(font_size_mult){
         this.font_size_mult = font_size_mult;
     };
