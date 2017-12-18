@@ -17,24 +17,13 @@ function EguiLabel(){
     this.is_loading = false;
     this.load_dots = null;
     this.icon = null;
+    this.setup_complete = false;
 
     this.set_icon = function(icon_name){
         this.icon = new egui.Icon();
         this.icon.set_background_color(null);
         this.icon.set_icon_name(icon_name);
         this.consume_as("button_icon", this.icon);
-    };
-
-    this.draw_icon = function(){
-        var icon_size = (Math.min(this.rect.width, this.rect.height))-(egui.padding*2);
-
-
-        this.icon.rect.set(
-            icon_size,
-            icon_size,
-            this.rect.left + this.rect.width-icon_size-egui.padding,
-            this.rect.top+egui.padding,
-        );
     };
 
     this._set_loading = function(is_loading){
@@ -79,13 +68,37 @@ function EguiLabel(){
         };
     };
 
-    this.draw_label = function(){
+    this.draw_icon = function(){
+        var icon_size = (Math.min(this.rect.width, this.rect.height))-(egui.padding*2);
+
+        this.icon.rect.set(
+            icon_size,
+            icon_size,
+            this.rect.left + this.rect.width-icon_size-egui.padding,
+            this.rect.top+egui.padding,
+        );
+    };
+
+    this._draw = function(){
         // Post draw is fired by the inherited box
         if (!this.primitives["label"]) {
             this.create_label();
         };
 
+        if (this.icon) {
+            this.draw_icon();
+        };
+
+        if (!this.setup_complete) {
+            this.setup();
+        };
+
         this.set_post_rect();
+    };
+
+    this.setup = function(){
+        this.setup_complete = true;
+        this.set_primitive_pointer_events_active("button_icon", false);
     };
 
     this.set_text_color = function(text_color){
@@ -148,7 +161,7 @@ function EguiLabel(){
 
     (function(self){
         self.on_draw(function(){
-            self.draw_label();
+            self._draw();
         });
     })(this);
 

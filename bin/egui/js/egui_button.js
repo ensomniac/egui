@@ -25,7 +25,6 @@ function EguiButton(){
 
     this.setup = function(){
         this.setup_complete = true;
-        // this.set_primitive_pointer_events_active("button_icon", false);
         this.set_primitive_pointer_events_active("label", false);
     };
 
