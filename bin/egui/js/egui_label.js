@@ -68,6 +68,19 @@ function EguiLabel(){
         this.load_dots.set_icon_name("box");
         this.consume_as("label_load_dots", this.icon);
 
+        this._draw();
+
+    };
+
+    this.draw_load_dots = function(){
+        var icon_size = (Math.min(this.rect.width, this.rect.height))-(egui.padding*2);
+
+        this.load_dots.rect.set(
+            icon_size,
+            icon_size,
+            this.rect.left + this.rect.width-icon_size-egui.padding,
+            this.rect.top+egui.padding,
+        );
     };
 
     this.set_font_size_mult = function(font_size_mult){
@@ -115,6 +128,10 @@ function EguiLabel(){
 
         if (this.icon) {
             this.draw_icon();
+        };
+
+        if (this.load_dots) {
+            this.draw_load_dots();
         };
 
         if (!this.setup_complete) {
