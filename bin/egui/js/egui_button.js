@@ -9,6 +9,7 @@ function EguiButton(){
     this.rect.set_expand_y(this.height);
 
     this.icon = null;
+    this.setup_complete = false;
 
     this.set_text("Egui Button");
 
@@ -29,7 +30,15 @@ function EguiButton(){
         this.icon.rect.set(this.rect.width, this.rect.height, this.rect.left, this.rect.top-10);
     };
 
+    this.setup_complete = function(){
+        console.log("setting up");
+    };
+
     this._draw = function(){
+        if (!this.setup_complete) {
+            this.setup();
+        };
+
         if (this.icon) {
             this.draw_icon();
         };
