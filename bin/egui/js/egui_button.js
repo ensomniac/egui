@@ -17,7 +17,9 @@ function EguiButton(){
 
     this.set_text_color(egui.button_text_color);
     this.set_cursor("pointer");
-    this.set_pointer_events_active(false);
+    // this.set_pointer_events_active(false);
+
+    console.log(this.label);
 
     this.set_icon = function(icon_name){
         // this.icon = new egui.Image();
