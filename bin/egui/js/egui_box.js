@@ -167,6 +167,7 @@ function EguiBox(){
 
     this.on_click = function(){
         if (this.on_click_callback) {
+            console.log("CLICK");
             this.on_click_callback();
         }
         else {
