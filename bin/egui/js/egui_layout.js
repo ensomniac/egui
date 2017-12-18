@@ -31,7 +31,7 @@ function EguiLayout(){
 
         if (!this.background) {
             this.background = new egui.Box();
-            this.primitive.consume(this.background);
+            this.primitive.consume_as("background", this.background);
         };
 
         this.background.set_background_color(background_color);

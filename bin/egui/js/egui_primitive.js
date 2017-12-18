@@ -49,16 +49,16 @@ function EguiPrimitive(){
 
     };
 
-    this.consume_as = function(primitive_elem){
+    this.consume_as = function(primitive_name, primitive_elem){
         // This is generally used when one primitive instantiates another primitive
         // and needs to control their child primitives
 
         this.consumed.push(primitive_elem);
+        this.primitives = this.get_primitives();
 
     };
 
     this.set_primitive_pointer_events_active = function(primitive_name, pointer_events_active){
-
         if (!this.primitives[primitive_name]) {
             return;
         };
