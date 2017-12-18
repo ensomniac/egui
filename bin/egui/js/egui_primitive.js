@@ -67,38 +67,22 @@ function EguiPrimitive(){
         if (this._consumed[primitive_name]) {
             var consumed_primitives = this._consumed[primitive_name].get_primitives();
             for (var i in consumed_primitives) {
-                console.log(consumed_primitives[i]);
-            }
-        }
-
-        // console.log("FOUND (" + primitive_name + ")");
-        // console.log(found_primitive);
-
-        // console.log(this.primitives);
-        // console.log(this._consumed);
-
-        return
-
-
-        // if (!this.primitives[primitive_name]) {
-        //     return;
-        // };
+                found_primitives.push(consumed_primitives[i]);
+            };
+        };
 
         var pointer_events = "none";
         if (pointer_events_active) {
             pointer_events = "auto";
         };
 
-        this.primitives[primitive_name].css({
-            "pointer-events": pointer_events,
-        });
-
+        for (var i in found_primitives) {
+            found_primitives[i].css({
+                "pointer-events": pointer_events,
+            });
+        };
 
     };
-
-
-
-
 
 };
 
