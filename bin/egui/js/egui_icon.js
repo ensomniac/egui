@@ -46,17 +46,13 @@ function EguiIcon(){
 
     this.set_post_rect = function(){
 
-        var aspect = this.rect.width/this.rect.height;
-        var font_size_mult = 0.75;
-        var font_size = this.rect.height*font_size_mult;
-
         this.primitives["label_icon"].css({
-            "width": this.rect.width-(egui.padding*2),
-            "height": this.rect.width-(egui.padding*2),
+            "width": this.rect.width,
+            "height": this.rect.width,
             "left": this.rect.left,
             "top": this.rect.top,
-            "line-height": this.rect.height + "px",
-            "font-size": font_size*(this.scale) + "px",
+            "line-height": this.rect.width + "px",
+            "font-size": this.rect.width*(this.scale) + "px",
             // "padding-left": egui.padding,
             // "padding-right": egui.padding,
             // "padding-right": egui.padding,
