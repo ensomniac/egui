@@ -16,7 +16,10 @@ function EguiIcon(){
     this.set_icon_name = function(icon_name){
         this.icon_name = icon_name;
 
-        if (!this.primitives["label_icon"]) {
+        if (this.primitives["label_icon"]) {
+            this.primitives["label_icon"].removeClass();
+            this.primitives["label_icon"].addClass("fa");
+            this.primitives["label_icon"].addClass('"fa-' + this.icon_name + '"');
             this.set_post_rect();
         };
 
