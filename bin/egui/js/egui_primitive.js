@@ -42,6 +42,7 @@ function EguiPrimitive(){
 
         // Include any consumed primitives
         for (var consumed_name in this._consumed) {
+            console.log(consumed_name);
             primitives = primitives.concat(this._consumed[consumed_name].get_primitives());
         };
 
@@ -58,9 +59,16 @@ function EguiPrimitive(){
     };
 
     this.set_primitive_pointer_events_active = function(primitive_name, pointer_events_active){
-        if (!this.primitives[primitive_name]) {
-            return;
-        };
+        var primitives = this.get_primitives();
+
+        console.log(primitives);
+
+        return
+
+
+        // if (!this.primitives[primitive_name]) {
+        //     return;
+        // };
 
         var pointer_events = "none";
         if (pointer_events_active) {
