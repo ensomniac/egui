@@ -19,6 +19,8 @@ function EguiButton(){
     this.set_text_color(egui.button_text_color);
     this.set_cursor("pointer");
 
+    this.is_loading = false;
+
     // this.set_image = function(img_src){
     //     this.image = new egui.Image();
     //     this.consume_as("image", this.image);
@@ -59,6 +61,16 @@ function EguiButton(){
         };
 
     };
+
+    this.set_loading = function(is_loading){
+        if (this.is_loading && is_loading) {
+            return;
+        };
+
+
+
+    };
+
 
     (function(self){
         self.on_draw(function(){
