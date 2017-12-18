@@ -16,7 +16,7 @@ function EguiBox(){
     this.shadow = null;
     this.border = null;
     this.on_click_callback = null;
-    this.pointer_events_active = true;
+    // this.pointer_events_active = true;
 
     this.post_draw_callbacks = [];
 
