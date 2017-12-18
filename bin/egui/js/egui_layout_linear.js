@@ -60,12 +60,6 @@ function EguiLayoutLinear(){
         }
 
 
-        // if (this.constructor == egui.ButtonBar) {
-        //     console.log(this);
-        //     console.log(this.padding_inner);
-        //     // console.log(this.padding_outter);
-        // }
-
 
         for (var i in this.children) {
 
@@ -91,7 +85,7 @@ function EguiLayoutLinear(){
             }
             else {
                 // HORIZONTAL
-                height = this.rect.height;
+                height = this.rect.height-(this.rect.padding_outer*2);
                 width = child_width_expand;
 
                 if (child.rect.expand_x != -1) {
