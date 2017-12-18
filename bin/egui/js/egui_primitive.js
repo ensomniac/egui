@@ -15,14 +15,10 @@ function EguiPrimitive(){
         // When skip_set is true, this.rest_opacity is not set
         if (!skip_set) {
             this.rest_opacity = opacity;
-            // console.log("Setting rest opacity: " + this.rest_opacity);
         };
 
         this.opacity = opacity;
-
         var primitives = this.get_primitives();
-
-        console.log(this.opacity);
 
         for (var i in primitives) {
             primitives[i].css({"opacity": this.opacity});
