@@ -13,6 +13,7 @@ function EguiLabel(){
 
     this.width = -1;
     this.height = egui.line_height;
+    this.is_loading = false;
 
     this.set_font_size_mult = function(font_size_mult){
         this.font_size_mult = font_size_mult;
