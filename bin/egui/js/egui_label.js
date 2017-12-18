@@ -83,6 +83,7 @@ function EguiLabel(){
             "top": this.rect.top,
             "line-height": this.rect.height + "px",
             "font-size": font_size*(this.font_size_mult) + "px",
+            "font-size": egui.font_size + "px",
             "padding-left": egui.padding,
             "padding-right": egui.padding,
         });

@@ -32,7 +32,12 @@ function EguiButton(){
     };
 
     this.draw_icon = function(){
-        this.icon.rect.set(this.rect);
+        this.icon.rect.set(
+            this.rect.width,
+            this.rect.height,
+            this.rect.left - (this.rect.width),
+            this.rect.top,
+        );
     };
 
     this.setup = function(){
