@@ -56,10 +56,6 @@ function EguiBox(){
         this.post_draw_callbacks.push(draw_callback);
     };
 
-    // this.set_opacity = function(opacity){
-    //     this.primitives["box"].animate({"opacity": opacity});
-    // };
-
     this.set_shadow = function(left, top, blur){
         this.shadow = [left, top, blur];
 
