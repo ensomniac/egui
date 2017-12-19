@@ -71,6 +71,11 @@ function EguiLayout(){
 
         this.children.push(child);
 
+        if (this.drawn) {
+            // Since this has already been drawn, we need to force a redraw now
+            this.draw();
+        };
+
     };
 
     this.fade_in = function(fade_in_complete_callback){
