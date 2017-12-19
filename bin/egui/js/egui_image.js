@@ -14,11 +14,17 @@ function EguiImage(){
 
     this.set_path = function(image_path){
         this.image_path = image_path;
-        this.set_background_image(this.image_path, function(width, height){
-            console.log("image loaded");
-            console.log(width);
-            console.log(height);
-        });
+
+        var callback = null;
+        if (this.image_size_callback) {
+            (function(self){
+                callback = function(width, height){
+                    self.image_size_callback(width, height);
+                };
+            })(this);
+        }
+
+        this.set_background_image(this.image_path, callback);
     };
 
     this.on_image_size = function(image_size_callback){
