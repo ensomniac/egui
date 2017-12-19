@@ -202,8 +202,12 @@ function EguiLabel(){
     };
 
     this.setup = function(){
+        console.log("label setup");
         this.setup_complete = true;
+
+        console.log("+++_");
         this.set_primitive_pointer_events_active("button_icon", false);
+
     };
 
     this.set_text_color = function(text_color){
