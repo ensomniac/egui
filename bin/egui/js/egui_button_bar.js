@@ -21,7 +21,7 @@ function EguiButtonBar(){
 
         button.set_text("");
         button.set_icon_alignment("center");
-        // button.set_opacity(0.5);
+        button.set_background(null);
 
         this.append(button);
         this.buttons.push(button);
