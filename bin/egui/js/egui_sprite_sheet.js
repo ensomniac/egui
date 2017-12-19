@@ -93,9 +93,9 @@ function EguiSpriteSheet(){
     };
 
     this.draw_current_frame = function(){
-        console.log("Frame: " + this.current_frame);
+        // console.log("Frame: " + this.current_frame);
 
-        var row = Math.ceil(this.current_frame/this.num_rows);
+        var row = (this.current_frame/this.num_rows);
 
         // console.log("ROW: " + row);
         console.log("Frame: " + this.current_frame + " ROW " + row);
