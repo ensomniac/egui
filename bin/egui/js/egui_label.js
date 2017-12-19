@@ -19,15 +19,20 @@ function EguiLabel(){
     this.icon = null;
     this.setup_complete = false;
 
-    this.set_icon = function(icon_name){
+    this.set_icon = function(icon_name, click_callback){
         this.icon = new egui.Icon();
         this.icon.set_background_color(null);
         this.icon.set_icon_name(icon_name);
         this.consume_as("button_icon", this.icon);
 
-        this.icon.set_click_callback(function(){
-            console.log("click");
-        });
+        if (click_callback) {
+            console.log(this);
+
+            this.icon.set_click_callback(function(){
+                console.log("click");
+            });
+
+        };
 
     };
 
