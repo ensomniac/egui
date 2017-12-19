@@ -148,6 +148,7 @@ function EguiBox(){
     };
 
     this.set_click_callback = function(on_click_callback){
+        console.log(this);
         this.on_click_callback = on_click_callback;
     };
 

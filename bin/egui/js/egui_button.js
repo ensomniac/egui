@@ -18,27 +18,10 @@ function EguiButton(){
     this.set_text_color(egui.button_text_color);
     this.set_cursor("pointer");
 
-    // this.set_image = function(img_src){
-    //     this.image = new egui.Image();
-    //     this.consume_as("image", this.image);
-    // };
-
     this.setup = function(){
         this.setup_complete = true;
         this.set_primitive_pointer_events_active("label", false);
     };
-
-    // this._draw = function(){
-    // };
-
-
-
-
-    // (function(self){
-    //     self.on_draw(function(){
-    //         self._draw();
-    //     });
-    // })(this);
 
 };
 
