@@ -12,6 +12,7 @@ function EguiSpriteSheet(){
     this.cycle_speed = 1000;
     this.num_frames = 1;
     this.current_frame = 1;
+    this.frame_map = {};
 
     this.img_size_native = [0, 0];
     this.img_size_scalled = [0, 0];
@@ -22,6 +23,28 @@ function EguiSpriteSheet(){
         this.num_rows = num_rows;
         this.num_cols = num_cols;
         this.num_frames = this.num_rows*this.num_cols;
+
+        this.frame_map = {};
+
+        var row = 0;
+        var row_index = 0;
+
+        for (var i = 0; i < this.num_frames; i++) {
+            var frame = parseInt(i) + 1;
+
+            console.log("Frame " + frame + " rr " + row_index);
+
+            row_index += 1;
+
+            if (row_index >= this.num_cols) {
+                row_index = 0;
+            }
+
+
+        };
+
+
+
     };
 
     this.setup = function(width, height){
