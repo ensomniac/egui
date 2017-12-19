@@ -92,7 +92,7 @@ function EguiLayout(){
         };
 
         this.anim = new egui.Anim();
-        this.anim.set_duration(750);
+        this.anim.set_duration(400);
 
         (function(self){
 
