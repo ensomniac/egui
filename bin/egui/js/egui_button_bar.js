@@ -10,6 +10,7 @@ function EguiButtonBar(){
 
     this.button_color = null;
     this.click_callback = null;
+    this.icon_alignment = "center";
 
     this.button_width = 0;
     this.button_height = 0;
@@ -17,15 +18,21 @@ function EguiButtonBar(){
     this.padding = 0;
     this.buttons = [];
 
+    this.set_padding_inner(egui.padding);
+
     this.set_button_color = function(button_color){
         this.button_color = button_color;
+    };
+
+    this.set_icon_alignment = function(icon_alignment){
+        this.icon_alignment = icon_alignment;
     };
 
     this.add_button = function(){
         var button = new egui.Button();
 
         button.set_text("");
-        button.set_icon_alignment("center");
+        button.set_icon_alignment(this.icon_alignment);
         button.set_background(this.button_color);
 
         this.append(button);
