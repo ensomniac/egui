@@ -20,7 +20,7 @@ function EguiButtonBar(){
         var button = new egui.Button();
 
         button.set_text("");
-        button.set_icon_alignment("center");
+        button.set_icon_alignment("right");
         button.set_background(null);
 
         this.append(button);
