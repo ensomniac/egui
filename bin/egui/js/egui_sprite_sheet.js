@@ -31,7 +31,7 @@ function EguiSpriteSheet(){
     };
 
     this.update = function(t){
-        this.current_frame = Math.floor(egui.lerp(0, this.num_frames, t));
+        this.current_frame = Math.floor(egui.lerp(1, this.num_frames, t));
         this.draw_current_frame();
     };
 
@@ -93,6 +93,10 @@ function EguiSpriteSheet(){
 
     this.draw_current_frame = function(){
         console.log("Frame: " + this.current_frame);
+
+
+
+
     };
 
 
