@@ -42,6 +42,34 @@ function EguiButton(){
 
     this.setup_file_uploader = function(){
         console.log("UPLOAD SETUP");
+        var options = {};
+        options["url"] = "www.api.com?f=upload_image";
+        options["uploadMultiple"] = false;
+        options["addRemoveLinks"] = false;
+        options["createImageThumbnails"] = false;
+        options["params"] = {};
+
+
+        (function(self){
+
+            options["init"] = function(){
+
+                this.on("uploadprogress", function(file, progress){
+                    console.log(progress)
+                });
+
+                this.on("success", function(file, result){
+                    console.log(result)
+                });
+
+            };
+
+        })(this);
+
+        console.log(this.primitives);
+
+        // self.html.dropzone(options);
+
     };
 
     (function(self){
@@ -51,3 +79,15 @@ function EguiButton(){
     })(this);
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
