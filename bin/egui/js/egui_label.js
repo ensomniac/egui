@@ -9,7 +9,9 @@ function EguiLabel(){
     this.label_text = "EGUI Label";
     this.font_size_mult = 1.0;
     this.text_color = egui.text_color;
+
     this.text_alignment = "center";
+    this.icon_alignment = "right";
 
     this.width = -1;
     this.height = egui.line_height;
@@ -172,10 +174,21 @@ function EguiLabel(){
     this.draw_icon = function(){
         var icon_size = (Math.min(this.rect.width, this.rect.height))-(egui.padding*2);
 
+        var left = 0;
+        if (this.icon_alignment == "left") {
+            left = 0;
+        }
+        else if (this.icon_alignment == "center") {
+            left = this.rect.left + (this.rect.width*0.5) - (icon_size*0.5);
+        }
+        else {
+            left = this.rect.left + this.rect.width-icon_size-egui.padding;
+        };
+
         this.icon.rect.set(
             icon_size,
             icon_size,
-            this.rect.left + this.rect.width-icon_size-egui.padding,
+            left,
             this.rect.top+egui.padding,
         );
     };
