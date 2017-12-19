@@ -171,6 +171,14 @@ function EguiLabel(){
         };
     };
 
+    this.set_icon_alignment = function(icon_alignment){
+        this.icon_alignment = icon_alignment;
+
+        if (this.icon) {
+            this.draw_icon();
+        };
+    };
+
     this.draw_icon = function(){
         var icon_size = (Math.min(this.rect.width, this.rect.height))-(egui.padding*2);
 
