@@ -11,6 +11,7 @@ function EguiSpriteSheet(){
     this.setup_complete = false;
     this.cycle_speed = 1000;
     this.num_frames = 1;
+    this.current_frame = 1;
 
     this.img_size_native = [0, 0];
     this.img_size_scalled = [0, 0];
@@ -94,7 +95,10 @@ function EguiSpriteSheet(){
     this.draw_current_frame = function(){
         console.log("Frame: " + this.current_frame);
 
+        var row = Math.ceil(this.current_frame/this.num_rows);
 
+        // console.log("ROW: " + row);
+        console.log("Frame: " + this.current_frame + " ROW " + row);
 
 
     };
