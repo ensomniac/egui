@@ -8,6 +8,7 @@ function EguiButtonBar(){
     this.height = egui.line_height;
     this.set_height(this.height);
 
+    this.button_color = null;
     this.click_callback = null;
 
     this.button_width = 0;
@@ -16,12 +17,16 @@ function EguiButtonBar(){
     this.padding = 0;
     this.buttons = [];
 
+    this.set_button_color = function(button_color){
+        this.button_color = button_color;
+    };
+
     this.add_button = function(){
         var button = new egui.Button();
 
         button.set_text("");
-        button.set_icon_alignment("right");
-        button.set_background(null);
+        button.set_icon_alignment("center");
+        button.set_background(this.button_color);
 
         this.append(button);
         this.buttons.push(button);
