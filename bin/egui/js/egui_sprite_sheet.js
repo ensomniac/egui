@@ -106,7 +106,7 @@ function EguiSpriteSheet(){
 
         this.primitives["box"].css({
             "background-size": this.img_size_scalled[0] + "px " + this.img_size_scalled[1] + "px",
-            "background-position": 0 + "px " + 0 + "px",
+            // "background-position": 0 + "px " + 0 + "px",
         });
 
         this.draw_current_frame();
@@ -118,9 +118,15 @@ function EguiSpriteSheet(){
 
         // var row = (this.current_frame/this.num_rows);
 
-        console.log(this.frame_map[this.current_frame]);
+        var placement = this.frame_map[this.current_frame];
+
         // console.log("Frame: " + this.current_frame + " ROW " + row);
 
+        console.log(placement[0]);
+
+        this.primitives["box"].css({
+            "background-position": 0 + "px " + 0 + "px",
+        });
 
     };
 
