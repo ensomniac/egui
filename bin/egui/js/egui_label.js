@@ -64,8 +64,7 @@ function EguiLabel(){
         this.is_loading = is_loading;
 
         this.load_dots = new egui.SpriteSheet();
-
-
+        this.load_dots.set_path("egui/img/load_dots_ss.png");
 
         this.consume_as("label_load_dots", this.icon);
 
