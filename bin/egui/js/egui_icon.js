@@ -68,7 +68,6 @@ function EguiIcon(){
             "color": "rgba(255, 255, 255, 0.7)",
         });
 
-        // this.set_pointer_events_active(this.pointer_events_active);
         $("body").append(this.primitives["label_icon"]);
     };
 
