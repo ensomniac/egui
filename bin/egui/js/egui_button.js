@@ -9,6 +9,7 @@ function EguiButton(){
     this.rect.set_expand_y(this.height);
 
     this.button_setup_complete = false;
+    this.upload_setup_complete = false;
 
     this.set_text("Egui Button");
 
@@ -41,6 +42,11 @@ function EguiButton(){
     };
 
     this.setup_file_uploader = function(){
+        if (!this.primitives["box"]) {
+            console.log("Unable to set up");
+            return;
+        };
+
         console.log("UPLOAD SETUP");
         var options = {};
         options["url"] = "www.api.com?f=upload_image";
@@ -69,6 +75,7 @@ function EguiButton(){
         console.log(this.primitives);
 
         // self.html.dropzone(options);
+        this.upload_setup_complete = true;
 
     };
 
