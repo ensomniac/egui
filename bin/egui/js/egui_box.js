@@ -32,6 +32,12 @@ function EguiBox(){
                 "background-position": "center center",
             });
         };
+
+        console.log(this.primitives["box"]);
+        // console.log(this.primitives["box"][0]);
+        console.log(this.primitives["box"].naturalHeight);
+
+        // imageElement.naturalHeight
     };
 
     this.on_draw = function(draw_callback){
