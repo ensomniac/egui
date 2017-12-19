@@ -4,56 +4,107 @@ function EguiSpriteSheet(){
     this.description = "Sprite Sheet Interface"
 
     egui.Image.call(this);
-    this.set_opacity(0);
 
-    this.on_image_size(function(width, height){
-        console.log("size back");
-    });
+    this.aspect = 1.0;
+    this.num_rows = 1;
+    this.num_cols = 1;
+    this.setup_complete = false;
+    this.cycle_speed = 1000;
+    this.num_frames = 1;
 
-    // this.primitives["sprite_sheet"] = null;
+    this.img_size_native = [0, 0];
+    this.img_size_scalled = [0, 0];
 
-    // this.scale = 1.0;
-    // this.width = egui.line_height;
-    // this.height = egui.line_height;
+    // this.set_opacity(0);
 
-    // this.draw_sprite_sheet = function(){
-    //     // Post draw is fired by the inherited box
-    //     if (!this.primitives["sprite_sheet"]) {
-    //         this.create_sprite_sheet();
-    //     };
+    this.set_layout = function(num_rows, num_cols){
+        this.num_rows = num_rows;
+        this.num_cols = num_cols;
+        this.num_frames = this.num_rows*this.num_cols;
+    };
 
-    //     this.set_post_rect();
-    // };
+    this.setup = function(width, height){
+        this.aspect = width/height;
+        this.setup_complete = true;
+        this.img_size_native = [width, height];
+        this.draw_sprite_sheet();
+    };
 
-    // this.set_post_rect = function(){
+    this.update = function(t){
+        console.log(this.num_frames);
 
-    //     this.primitives["sprite_sheet"].css({
-    //         "width": this.rect.width,
-    //         "height": this.rect.width,
-    //         "left": this.rect.left,
-    //         "top": this.rect.top,
-    //     });
-    // };
+        this.current_frame = Math.floor(egui.lerp(0, this.num_frames, t));
 
-    // this.create_sprite_sheet = function(){
-    //     // This should be the only place an instance of a native platform
-    //     // visual element is created. DIV/DRID (HTML/UNITY)
+        console.log("current_frame: " + this.current_frame);
 
-    //     this.primitives["sprite_sheet"] = $('<div></div>');
-    //     this.primitives["sprite_sheet"].css({
-    //         "position": "absolute",
-    //         "background": "purple",
-    //     });
+    };
 
-    //     // this.set_pointer_events_active(this.pointer_events_active);
-    //     $("body").append(this.primitives["sprite_sheet"]);
-    // };
+    this.cycle_complete = function(){
+        console.log("Complete");
+    };
 
-    // (function(self){
-    //     self.on_draw(function(){
-    //         self.draw_sprite_sheet();
-    //     });
-    // })(this);
+    this.start_cycle = function(){
+        console.log("start");
+
+        this.anim = new egui.Anim();
+        this.anim.set_duration(this.cycle_speed);
+
+        (function(self){
+
+            self.anim.set_update_callback(function(t){
+                self.update(t);
+            });
+
+            self.anim.set_complete_callback(function(){
+                self.cycle_complete();
+            });
+
+        })(this);
+
+        this.anim.start();
+
+    };
+
+    this.start = function(cycle_speed){
+        if (cycle_speed) {
+            this.cycle_speed = cycle_speed;
+        };
+
+        this.start_cycle();
+
+    };
+
+    this.draw_sprite_sheet = function(){
+        if (!this.setup_complete) {
+            return;
+        };
+
+        this.img_size_scalled = [
+            this.rect.width*this.num_cols,
+            (this.rect.width*this.num_cols)/this.aspect
+        ];
+
+        this.cell_width = this.img_size_scalled[0]/this.num_cols;
+        this.cell_height = this.img_size_scalled[1]/this.num_rows;
+
+        this.primitives["box"].css({
+            "background-size": this.img_size_scalled[0] + "px " + this.img_size_scalled[1] + "px",
+            "background-position": 0 + "px " + 0 + "px",
+        });
+
+    };
+
+    (function(self){
+
+        self.on_image_size(function(width, height){
+            self.setup(width, height);
+        });
+
+        self.on_draw(function(){
+            self.draw_sprite_sheet();
+        });
+
+    })(this);
 
 };
 
