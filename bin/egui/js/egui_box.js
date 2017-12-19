@@ -74,11 +74,6 @@ function EguiBox(){
     };
 
     this.draw = function(){
-
-        // if (this.primitives["box"]) {
-        //     console.log(this.primitives["box"][0].naturalHeight);
-        // }
-
         if (!this.primitives["box"]) {
             this.create_box_object();
         };
@@ -148,12 +143,10 @@ function EguiBox(){
     };
 
     this.set_click_callback = function(on_click_callback){
-        console.log(this);
         this.on_click_callback = on_click_callback;
     };
 
     this.on_click = function(){
-        console.log("--");
         if (this.on_click_callback) {
             this.on_click_callback();
         };

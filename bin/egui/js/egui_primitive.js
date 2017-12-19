@@ -78,6 +78,8 @@ function EguiPrimitive(){
             found_primitives = [this.primitives[primitive_name]];
         };
 
+        console.log(found_primitives);
+
         if (this._consumed[primitive_name]) {
             var consumed_primitives = this._consumed[primitive_name].get_primitives();
             for (var i in consumed_primitives) {
