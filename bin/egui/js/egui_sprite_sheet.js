@@ -48,6 +48,7 @@ function EguiSpriteSheet(){
 
         this.anim = new egui.Anim();
         this.anim.set_duration(this.cycle_speed);
+        this.anim.set_ease_curve("linear");
 
         (function(self){
 
