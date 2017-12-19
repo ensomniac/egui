@@ -19,7 +19,6 @@ function EguiButton(){
     this.set_text_color(egui.button_text_color);
     this.set_cursor("pointer");
 
-    this.on_upload_started_cb = null;
     this.on_upload_progress_cb = null;
     this.on_upload_complete_cb = null;
 
@@ -39,8 +38,9 @@ function EguiButton(){
         this.set_primitive_pointer_events_active("label", false);
     };
 
-    this.set_file_upload_callbacks = function(on_upload_started, on_upload_progress, on_upload_complete){
-        this.on_upload_started_cb = on_upload_started;
+    this.set_file_upload = function(url, params, on_upload_progress, on_upload_complete){
+        this.upload_url = url;
+        this.upload_params = params;
         this.on_upload_progress_cb = on_upload_progress;
         this.on_upload_complete_cb = on_upload_complete;
         this.setup_file_uploader();
@@ -53,33 +53,39 @@ function EguiButton(){
         };
 
         var options = {};
-        options["url"] = "www.api.com?f=upload_image";
+        options["url"] = this.upload_url;
         options["uploadMultiple"] = false;
         options["addRemoveLinks"] = false;
         options["createImageThumbnails"] = false;
-        options["params"] = {};
-
+        options["previewsContainer"] = false;
+        options["params"] = this.upload_params;
 
         (function(self){
 
             options["init"] = function(){
 
                 this.on("uploadprogress", function(file, progress){
-                    console.log(progress)
+                    console.log(progress);
                 });
 
                 this.on("success", function(file, result){
-                    console.log(result)
+                    if (self.on_upload_complete_cb) {
+                        console.log(result);
+                        console.log($.parseJSON(result));
+                        self.on_upload_complete_cb($.parseJSON(result));
+                    };
                 });
 
             };
 
         })(this);
 
-        console.log(this.primitives);
-
-        this.primitives["box"].dropzone(options);
+        this.uploader = this.primitives["box"].uploader(options);
         this.upload_setup_complete = true;
+
+        this.uploader.css({
+            "opacity": 0,
+        });
 
     };
 
