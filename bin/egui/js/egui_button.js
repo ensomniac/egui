@@ -27,6 +27,11 @@ function EguiButton(){
         if (!this.button_setup_complete) {
             this.setup_button();
         };
+
+        if (this.on_upload_complete_cb && !this.upload_setup_complete) {
+            this.setup_file_uploader();
+        };
+
     };
 
     this.setup_button = function(){
@@ -47,7 +52,6 @@ function EguiButton(){
             return;
         };
 
-        console.log("UPLOAD SETUP");
         var options = {};
         options["url"] = "www.api.com?f=upload_image";
         options["uploadMultiple"] = false;
@@ -74,7 +78,7 @@ function EguiButton(){
 
         console.log(this.primitives);
 
-        // self.html.dropzone(options);
+        this.primitives["box"].dropzone(options);
         this.upload_setup_complete = true;
 
     };
