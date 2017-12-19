@@ -153,6 +153,7 @@ function EguiBox(){
     };
 
     this.on_click = function(){
+        console.log("--");
         if (this.on_click_callback) {
             this.on_click_callback();
         };
