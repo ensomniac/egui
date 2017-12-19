@@ -13,7 +13,7 @@ function EguiButtonBar(){
     this.button_width = 0;
     this.button_height = 0;
 
-    this.set_padding_inner(egui.padding);
+    // this.set_padding_inner(egui.padding);
 
     this.padding = 0;
     this.buttons = [];
@@ -41,9 +41,9 @@ function EguiButtonBar(){
     };
 
     this.set_padding = function(padding){
-        this.padding = padding;
-        this.set_padding_inner(this.padding);
-        this.set_padding_outer(this.padding);
+        // this.padding = padding;
+        // this.set_padding_inner(this.padding);
+        // this.set_padding_outer(this.padding);
     };
 
     this.set_click_callback = function(click_callback){
