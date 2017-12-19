@@ -8,7 +8,7 @@ function EguiButton(){
     this.height = egui.line_height;
     this.rect.set_expand_y(this.height);
 
-    this.setup_complete = false;
+    this.button_setup_complete = false;
 
     this.set_text("Egui Button");
 
@@ -18,10 +18,23 @@ function EguiButton(){
     this.set_text_color(egui.button_text_color);
     this.set_cursor("pointer");
 
-    this.setup = function(){
-        this.setup_complete = true;
+    this.draw_button = function(){
+        if (!this.button_setup_complete) {
+            this.setup_button();
+        };
+    };
+
+    this.setup_button = function(){
+        console.log("button setup");
+        this.button_setup_complete = true;
         this.set_primitive_pointer_events_active("label", false);
     };
+
+    (function(self){
+        self.on_draw(function(){
+            self.draw_button();
+        });
+    })(this);
 
 };
 
