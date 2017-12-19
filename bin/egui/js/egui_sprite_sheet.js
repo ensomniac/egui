@@ -122,10 +122,14 @@ function EguiSpriteSheet(){
 
         // console.log("Frame: " + this.current_frame + " ROW " + row);
 
-        console.log(placement[0]);
+        var x = -((placement[1])*this.cell_width);
+        var y = -((placement[0])*this.cell_height);
+
+        console.log(x);
+
 
         this.primitives["box"].css({
-            "background-position": 0 + "px " + 0 + "px",
+            "background-position": x + "px " + y + "px",
         });
 
     };
