@@ -27,24 +27,21 @@ function EguiSpriteSheet(){
         this.frame_map = {};
 
         var row = 0;
-        var row_index = 0;
+        var col = 0;
 
         for (var i = 0; i < this.num_frames; i++) {
             var frame = parseInt(i) + 1;
 
-            console.log("Frame " + frame + " rr " + row);
+            this.frame_map[frame] = [row, col];
 
-            row_index += 1;
+            col += 1;
 
-            if (row_index >= this.num_cols) {
-                row_index = 0;
+            if (col >= this.num_cols) {
+                col = 0;
                 row += 1;
-            }
-
+            };
 
         };
-
-
 
     };
 
@@ -119,10 +116,10 @@ function EguiSpriteSheet(){
     this.draw_current_frame = function(){
         // console.log("Frame: " + this.current_frame);
 
-        var row = (this.current_frame/this.num_rows);
+        // var row = (this.current_frame/this.num_rows);
 
-        // console.log("ROW: " + row);
-        console.log("Frame: " + this.current_frame + " ROW " + row);
+        console.log(this.frame_map[this.current_frame]);
+        // console.log("Frame: " + this.current_frame + " ROW " + row);
 
 
     };
