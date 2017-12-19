@@ -8,7 +8,7 @@ function EguiLabel(){
     this.primitives["label"] = null;
     this.label_text = "EGUI Label";
     this.font_size_mult = 1.0;
-    this.text_color = "rgba(0, 0, 0, 0.8)";
+    this.text_color = egui.text_color;
     this.text_alignment = "center";
 
     this.width = -1;
@@ -27,52 +27,102 @@ function EguiLabel(){
     };
 
     this.set_loading = function(is_loading){
-        if ((this.is_loading && is_loading) || (!this.is_loading && !is_loading) ) {
+        if (is_loading) {
+            this.loading_dots_start();
+        }
+        else {
+            this.loading_dots_stop();
+        };
+    };
+
+    this.loading_dots_stop = function(){
+        if (!this.is_loading) {
             return;
         };
 
-        if (this.icon) {
+        this.is_loading = false;
+
+        if (!this.load_dots) {
+            //console.log("They didn't start yet");
+        }
+        else {
+            this.load_dots.stop();
+            this.load_dots = null;
+        };
+
+        if (this.loading_anim && this.icon) {
+            this.loading_anim.stop();
 
             this.loading_anim = new egui.Anim();
             this.loading_anim.set_duration(200);
 
-            (function(self, is_loading){
+            var start_opac = this.icon.opacity;
+
+            (function(self, start_opac){
+
+                self.loading_anim.set_update_callback(function(t){
+                    self.icon.set_opacity(egui.lerp(start_opac, self.icon.rest_opacity, t), true);
+                });
+
+                self.loading_anim.set_complete_callback(function(){
+                    self.loading_anim = null;
+
+                });
+
+            })(this, start_opac);
+
+            this.loading_anim.start();
+
+        };
+
+
+    };
+
+    this.loading_dots_start = function(){
+        if (this.is_loading) {
+            return;
+        };
+
+        this.is_loading = true;
+
+        if (this.icon) {
+            // There's an icon that needs to be hidden first
+
+            this.loading_anim = new egui.Anim();
+            this.loading_anim.set_duration(200);
+
+            (function(self){
 
                 self.loading_anim.set_update_callback(function(t){
                     self.icon.set_opacity(egui.lerp(self.icon.rest_opacity, 0, t), true);
                 });
 
                 self.loading_anim.set_complete_callback(function(){
-                    self._set_loading(is_loading);
+                    self._loading_dots_start();
                 });
 
-            })(this, is_loading);
+            })(this);
 
             this.loading_anim.start();
 
         }
         else {
-            this._set_loading(is_loading);
+            this._loading_dots_start();
         };
     };
 
-    this._set_loading = function(is_loading){
-        if ((this.is_loading && is_loading) || (!this.is_loading && !is_loading) ) {
+    this._loading_dots_start = function(){
+
+        if (!this.is_loading) {
+            // The dots were cancelled before an icon faded out
             return;
         };
 
-        this.is_loading = is_loading;
-
-        this.load_dots = new egui.SpriteSheet();
-        this.load_dots.set_layout(6, 5);
-        this.load_dots.set_path("egui/img/load_dots_ss.png");
+        this.load_dots = new egui.LoadDots();
         this.load_dots.start();
 
-
-        this.consume_as("label_load_dots", this.icon);
-
+        this.consume_as("label_load_dots", this.load_dots);
         this._draw();
-
     };
 
     this.draw_load_dots = function(){

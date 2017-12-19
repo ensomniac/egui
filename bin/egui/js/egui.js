@@ -113,6 +113,9 @@ $(document).ready(function() {
         window.egui["SpriteSheet"] = EguiSpriteSheet;
         EguiSpriteSheet = null;
 
+        window.egui["LoadDots"] = EguiLoadDots;
+        EguiLoadDots = null;
+
         // HTML PARTS ///////////////////////////////
         window.egui.html.Button = EguiHTMLButton;
         EguiHTMLButton = null;
@@ -189,6 +192,7 @@ function Egui(){
     this.Input = null;
     this.Icon = null;
     this.SpriteSheet = null;
+    this.LoadDots = null;
 
     // HTML Simple Objects
     this.html = {};
@@ -218,7 +222,6 @@ function Egui(){
 
         this.get_image_size_from_src = function(src, callback){
             if (this.image_size_cache[src]) {
-                console.log("Using cached image results - delete this logline");
                 callback(this.image_size_cache[src]["width"], this.image_size_cache[src]["height"]);
                 return;
             };

@@ -1,5 +1,7 @@
 'use strict';
 
+// This class is depracated
+
 function EguiImageGallery(opts){
     this.description = "An image gallery";
 
@@ -60,7 +62,7 @@ function EguiImageGallery(opts){
             "background": "rgba(0, 0, 0, 0.9)",
             "position": "absolute",
             "top": 0,
-            // "overflow": "hidden",
+            "overflow": "hidden",
             "border-radius": 4,
         });
 
@@ -100,7 +102,7 @@ function EguiImageGallery(opts){
             "position": "absolute",
             "bottom": 0,
             "left": 0,
-            // "overflow": "hidden",
+            "overflow": "hidden",
             "background": "rgba(0, 0, 0, 0.7)",
             "opacity": 0.01,
         });
@@ -149,14 +151,14 @@ function EguiImageGallery(opts){
         this.next_button.css({
             "width": this.nav_button_width,
             "height": this.feature_height,
-            "left": (this.width*0.5)-(this.nav_button_width)+(this.feature_width*0.5),
+            "left": (this.available_width*0.5)-(this.nav_button_width)+(this.feature_width*0.5),
             "top": 0,
         });
 
         this.previous_button.css({
             "width": this.nav_button_width,
             "height": this.feature_height,
-            "left": (this.width*0.5)-(this.feature_width*0.5),
+            "left": (this.available_width*0.5)-(this.feature_width*0.5),
             "top": 0,
         });
 
@@ -183,7 +185,7 @@ function EguiImageGallery(opts){
         this.thumbs_bar.css({
             "width": this.feature_width,
             "height": this.thumb_bar_height,
-            "left": (this.width*0.5)-(this.feature_width*0.5),
+            "left": (this.available_width*0.5)-(this.feature_width*0.5),
         });
 
         var total_width = (this.thumb_bar_height*this.thumbs.length) + (this.thumb_padding*(this.thumbs.length-1));
@@ -227,13 +229,17 @@ function EguiImageGallery(opts){
                 this.feature_width = this.feature_width;
             }
 
-        }
+        };
+
+        this.available_width = this.html.width();
+
+        if (!this.available_width) {
+            return;
+        };
 
         this.html.css({
             "height": this.feature_height,
         });
-
-
 
         if (this.bleed == "full" && this.size[1] == -1) {
             this.feature_height = this.height;
@@ -246,7 +252,7 @@ function EguiImageGallery(opts){
             "width": this.feature_width,
             "height": this.feature_height,
             "top": 0,
-            "left": (this.width*0.5)-(this.feature_width*0.5),
+            "left": (this.available_width*0.5)-(this.feature_width*0.5),
         });
 
         this.setup_complete = true;
@@ -385,5 +391,12 @@ function EguiImageGallery(opts){
     this.style();
     this.connect();
 
-}
+    (function(self){
+        new egui.html.OnResize(self.html, function(){
+            self.draw();
+        });
+    })(this);
+
+
+};
 

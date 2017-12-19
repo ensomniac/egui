@@ -13,11 +13,12 @@ function EguiSpriteSheet(){
     this.num_frames = 1;
     this.current_frame = 1;
     this.frame_map = {};
+    this.is_active = false;
 
     this.img_size_native = [0, 0];
     this.img_size_scalled = [0, 0];
 
-    // this.set_opacity(0);
+    this.set_opacity(0);
 
     this.set_layout = function(num_rows, num_cols){
         this.num_rows = num_rows;
@@ -49,7 +50,11 @@ function EguiSpriteSheet(){
         this.aspect = width/height;
         this.setup_complete = true;
         this.img_size_native = [width, height];
-        this.draw_sprite_sheet();
+
+        if (this.primitives["box"]) {
+            this.draw_sprite_sheet();
+        };
+
     };
 
     this.update = function(t){
@@ -58,7 +63,9 @@ function EguiSpriteSheet(){
     };
 
     this.cycle_complete = function(){
-        console.log("Complete");
+        if (this.is_active) {
+            this.start_cycle();
+        };
     };
 
     this.start_cycle = function(){
@@ -87,8 +94,18 @@ function EguiSpriteSheet(){
             this.cycle_speed = cycle_speed;
         };
 
+        if (this.is_active) {
+            return;
+        };
+
+        this.set_opacity(1);
+        this.is_active = true;
         this.start_cycle();
 
+    };
+
+    this.stop = function(){
+        this.is_active = false;
     };
 
     this.draw_sprite_sheet = function(){
@@ -106,7 +123,6 @@ function EguiSpriteSheet(){
 
         this.primitives["box"].css({
             "background-size": this.img_size_scalled[0] + "px " + this.img_size_scalled[1] + "px",
-            // "background-position": 0 + "px " + 0 + "px",
         });
 
         this.draw_current_frame();
