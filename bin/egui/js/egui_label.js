@@ -17,7 +17,7 @@ function EguiLabel(){
     this.is_loading = false;
     this.load_dots = null;
     this.icon = null;
-    this.setup_complete = false;
+    this.label_setup_complete = false;
 
     this.set_icon = function(icon_name){
         this.icon = new egui.Icon();
@@ -129,7 +129,7 @@ function EguiLabel(){
         this.load_dots.start();
 
         this.consume_as("label_load_dots", this.load_dots);
-        this._draw();
+        this.draw_label();
     };
 
     this.draw_load_dots = function(){
@@ -180,7 +180,7 @@ function EguiLabel(){
         );
     };
 
-    this._draw = function(){
+    this.draw_label = function(){
         // Post draw is fired by the inherited box
         if (!this.primitives["label"]) {
             this.create_label();
@@ -194,7 +194,7 @@ function EguiLabel(){
             this.draw_load_dots();
         };
 
-        if (!this.setup_complete) {
+        if (!this.label_setup_complete) {
             this.setup();
         };
 
@@ -203,7 +203,7 @@ function EguiLabel(){
 
     this.setup = function(){
         console.log("label setup");
-        this.setup_complete = true;
+        this.label_setup_complete = true;
 
         console.log("+++_");
         this.set_primitive_pointer_events_active("button_icon", false);
@@ -270,7 +270,7 @@ function EguiLabel(){
 
     (function(self){
         self.on_draw(function(){
-            self._draw();
+            self.draw_label();
         });
     })(this);
 
