@@ -7,6 +7,7 @@ function EguiImage(){
 
     this.image = null;
     this.image_path = "egui/img/default.jpg";
+    this.image_size_callback = null;
 
     this.set_background_color();
     this.set_background_image(this.image_path);
@@ -20,7 +21,8 @@ function EguiImage(){
         });
     };
 
-    this.on_image_size = function(image_path){
+    this.on_image_size = function(image_size_callback){
+        this.image_size_callback = image_size_callback;
     };
 
 
