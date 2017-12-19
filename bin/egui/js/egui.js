@@ -209,24 +209,31 @@ function Egui(){
     this.random_color = null;
     this.is_mobile = null;
     this.is_object = null;
+
     this.get_image_size_from_src = null;
+    this.image_size_cache = {};
 
     this.create_public_functions = function(){
         // This wrapper function is simply used to organize the public function descriptions
 
         this.get_image_size_from_src = function(src, callback){
-            console.log("getting");
+            if (this.image_size_cache[src]) {
+                console.log("Using cached image results - delete this logline");
+                callback(this.image_size_cache[src]["width"], this.image_size_cache[src]["height"]);
+                return;
+            };
 
             var img = new Image();
             img.src = src;
 
-            (function(self, img, callback){
+            (function(self, img, src, callback){
 
                 img.onload = function() {
+                    self.image_size_cache[src] = {"width": this.width, "height": this.height};
                     callback(this.width, this.height);
                 };
 
-            })(this, img, callback);
+            })(this, img, src, callback);
 
         };
 
