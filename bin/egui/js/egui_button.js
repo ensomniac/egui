@@ -18,6 +18,10 @@ function EguiButton(){
     this.set_text_color(egui.button_text_color);
     this.set_cursor("pointer");
 
+    this.on_upload_started_cb = null;
+    this.on_upload_progress_cb = null;
+    this.on_upload_complete_cb = null;
+
     this.draw_button = function(){
         if (!this.button_setup_complete) {
             this.setup_button();
@@ -36,4 +40,3 @@ function EguiButton(){
     })(this);
 
 };
-
