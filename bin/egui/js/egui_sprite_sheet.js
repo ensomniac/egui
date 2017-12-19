@@ -5,9 +5,9 @@ function EguiSpriteSheet(){
 
     egui.Image.call(this);
 
-    this.on_image_size(function(){
-        console.log("size back");
-    });
+    // this.on_image_size(function(){
+    //     console.log("size back");
+    // });
 
     // this.primitives["sprite_sheet"] = null;
 

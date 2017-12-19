@@ -18,7 +18,7 @@ function EguiBox(){
     this.on_click_callback = null;
     this.post_draw_callbacks = [];
 
-    this.set_background_image = function(background_image_src){
+    this.set_background_image = function(background_image_src, on_load_callback){
         this.background_image_src = background_image_src;
 
         if (this.primitives["box"]) {
@@ -33,11 +33,10 @@ function EguiBox(){
             });
         };
 
-        console.log(this.primitives["box"]);
-        // console.log(this.primitives["box"][0]);
-        console.log(this.primitives["box"].naturalHeight);
+        if (on_load_callback) {
+            egui.get_image_size_from_src(background_image_src, on_load_callback);
+        };
 
-        // imageElement.naturalHeight
     };
 
     this.on_draw = function(draw_callback){
@@ -75,6 +74,10 @@ function EguiBox(){
     };
 
     this.draw = function(){
+
+        // if (this.primitives["box"]) {
+        //     console.log(this.primitives["box"][0].naturalHeight);
+        // }
 
         if (!this.primitives["box"]) {
             this.create_box_object();

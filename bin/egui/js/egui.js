@@ -209,9 +209,27 @@ function Egui(){
     this.random_color = null;
     this.is_mobile = null;
     this.is_object = null;
+    this.get_image_size_from_src = null;
 
     this.create_public_functions = function(){
         // This wrapper function is simply used to organize the public function descriptions
+
+        this.get_image_size_from_src = function(src, callback){
+            console.log("getting");
+
+            var img = new Image();
+            img.src = src;
+
+            img.onload = function() {
+                console.log("Loaded");
+                console.log(this.width);
+                console.log(this.height);
+                console.log(this.src);
+            }
+
+        };
+
+
 
         this.is_object = function(obj){
 
