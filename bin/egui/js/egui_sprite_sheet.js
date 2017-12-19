@@ -32,12 +32,13 @@ function EguiSpriteSheet(){
         for (var i = 0; i < this.num_frames; i++) {
             var frame = parseInt(i) + 1;
 
-            console.log("Frame " + frame + " rr " + row_index);
+            console.log("Frame " + frame + " rr " + row);
 
             row_index += 1;
 
             if (row_index >= this.num_cols) {
                 row_index = 0;
+                row += 1;
             }
 
 
