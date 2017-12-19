@@ -194,9 +194,6 @@ function EguiLabel(){
             this.draw_load_dots();
         };
 
-        console.log("**");
-        console.log(this.label_setup_complete);
-
         if (!this.label_setup_complete) {
             this.setup_label();
         };
@@ -205,12 +202,8 @@ function EguiLabel(){
     };
 
     this.setup_label = function(){
-        console.log("label setup");
         this.label_setup_complete = true;
-
-        console.log("+++_");
         this.set_primitive_pointer_events_active("button_icon", false);
-
     };
 
     this.set_text_color = function(text_color){
