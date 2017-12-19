@@ -194,14 +194,17 @@ function EguiLabel(){
             this.draw_load_dots();
         };
 
+        console.log("**");
+        console.log(this.label_setup_complete);
+
         if (!this.label_setup_complete) {
-            this.setup();
+            this.setup_label();
         };
 
         this.set_post_rect();
     };
 
-    this.setup = function(){
+    this.setup_label = function(){
         console.log("label setup");
         this.label_setup_complete = true;
 
