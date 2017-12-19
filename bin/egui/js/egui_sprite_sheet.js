@@ -114,26 +114,14 @@ function EguiSpriteSheet(){
     };
 
     this.draw_current_frame = function(){
-        // console.log("Frame: " + this.current_frame);
-
-        // var row = (this.current_frame/this.num_rows);
-
-        var placement = this.frame_map[this.current_frame];
-
-        // console.log("Frame: " + this.current_frame + " ROW " + row);
-
-        var x = -((placement[1])*this.cell_width);
-        var y = -((placement[0])*this.cell_height);
-
-        console.log(x);
-
+        var x = -((this.frame_map[this.current_frame][1])*this.cell_width);
+        var y = -((this.frame_map[this.current_frame][0])*this.cell_height);
 
         this.primitives["box"].css({
             "background-position": x + "px " + y + "px",
         });
 
     };
-
 
     (function(self){
 
