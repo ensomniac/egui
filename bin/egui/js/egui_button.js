@@ -30,7 +30,6 @@ function EguiButton(){
         if (this.on_upload_complete_cb && !this.upload_setup_complete) {
             this.setup_file_uploader();
         };
-
     };
 
     this.setup_button = function(){
@@ -66,12 +65,15 @@ function EguiButton(){
 
                 this.on("uploadprogress", function(file, progress){
                     console.log(progress);
+
+                    if (self.on_upload_progress_cb) {
+                        self.on_upload_progress_cb(progress);
+                    };
+
                 });
 
                 this.on("success", function(file, result){
                     if (self.on_upload_complete_cb) {
-                        console.log(result);
-                        console.log($.parseJSON(result));
                         self.on_upload_complete_cb($.parseJSON(result));
                     };
                 });
