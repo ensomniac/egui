@@ -40,11 +40,11 @@ function EguiButtonBar(){
         return button;
     };
 
-    this.set_padding = function(padding){
-        // this.padding = padding;
-        // this.set_padding_inner(this.padding);
-        // this.set_padding_outer(this.padding);
-    };
+    // this.set_padding = function(padding){
+    //     // this.padding = padding;
+    //     // this.set_padding_inner(this.padding);
+    //     // this.set_padding_outer(this.padding);
+    // };
 
     this.set_click_callback = function(click_callback){
         this.click_callback = click_callback;
