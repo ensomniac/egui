@@ -33,6 +33,17 @@ function EguiButton(){
         this.set_primitive_pointer_events_active("label", false);
     };
 
+    this.set_file_upload_callbacks = function(on_upload_started, on_upload_progress, on_upload_complete){
+        this.on_upload_started_cb = on_upload_started;
+        this.on_upload_progress_cb = on_upload_progress;
+        this.on_upload_complete_cb = on_upload_complete;
+        this.setup_file_uploader();
+    };
+
+    this.setup_file_uploader = function(){
+        console.log("UPLOAD SETUP");
+    };
+
     (function(self){
         self.on_draw(function(){
             self.draw_button();
