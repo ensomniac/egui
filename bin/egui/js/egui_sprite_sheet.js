@@ -4,8 +4,9 @@ function EguiSpriteSheet(){
     this.description = "Sprite Sheet Interface"
 
     egui.Image.call(this);
+    this.set_opacity(0);
 
-    this.on_image_size(function(){
+    this.on_image_size(function(width, height){
         console.log("size back");
     });
 
