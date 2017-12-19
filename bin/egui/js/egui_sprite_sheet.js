@@ -31,12 +31,8 @@ function EguiSpriteSheet(){
     };
 
     this.update = function(t){
-        console.log(this.num_frames);
-
         this.current_frame = Math.floor(egui.lerp(0, this.num_frames, t));
-
-        console.log("current_frame: " + this.current_frame);
-
+        this.draw_current_frame();
     };
 
     this.cycle_complete = function(){
@@ -44,8 +40,6 @@ function EguiSpriteSheet(){
     };
 
     this.start_cycle = function(){
-        console.log("start");
-
         this.anim = new egui.Anim();
         this.anim.set_duration(this.cycle_speed);
         this.anim.set_ease_curve("linear");
@@ -93,7 +87,14 @@ function EguiSpriteSheet(){
             "background-position": 0 + "px " + 0 + "px",
         });
 
+        this.draw_current_frame();
+
     };
+
+    this.draw_current_frame = function(){
+        console.log("Frame: " + this.current_frame);
+    };
+
 
     (function(self){
 
