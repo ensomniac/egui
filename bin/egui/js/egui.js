@@ -220,12 +220,13 @@ function Egui(){
             var img = new Image();
             img.src = src;
 
-            img.onload = function() {
-                console.log("Loaded");
-                console.log(this.width);
-                console.log(this.height);
-                console.log(this.src);
-            }
+            (function(self, img, callback){
+
+                img.onload = function() {
+                    callback(this.width, this.height);
+                };
+
+            })(this, img, callback);
 
         };
 
