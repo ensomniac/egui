@@ -69,6 +69,9 @@ function EguiModal(){
     };
 
     (function(self){
+
+        console.log(this.background);
+
         // self.backing.set_click_callback(function(){
         //     self.hide();
         // });
