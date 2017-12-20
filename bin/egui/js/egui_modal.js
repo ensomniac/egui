@@ -16,33 +16,28 @@ function EguiModal(){
     this.background_color = "rgba(20, 20, 20, 0.9)";
     this.set_background(this.background_color);
 
-    this.backing = new egui.Box();
-    this.backing.set_background("orange");
+    // this.backing = new egui.Box();
+    // this.backing.set_background("orange");
 
     this.draw_layout = function(){
-        console.log("drawiong");
+        // var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
+        // var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
 
-        var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
-        var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
+        // if (this.aspect != -1) {
+        //     height = width/this.aspect;
+        // };
 
-        if (this.aspect != -1) {
-            height = width/this.aspect;
-        };
+        // var left = (this.rect.width-width)*0.5;
+        // var top = (this.rect.height-height)*0.5;
 
-        var left = (this.rect.width-width)*0.5;
-        var top = (this.rect.height-height)*0.5;
+        // this.background.rect.set(
+        //     width+(this.padding_outer*2),
+        //     height+(this.padding_outer*2),
+        //     left-this.padding_outer,
+        //     top-this.padding_outer
+        // );
 
-        this.background.rect.set(
-            width+(this.padding_outer*2),
-            height+(this.padding_outer*2),
-            left-this.padding_outer,
-            top-this.padding_outer
-        );
-
-        if (this.children.length) {
-            this.children[0].rect.set(width, height, left, top);
-        };
-
+        this.background.set(this.rect);
 
 
 
@@ -61,7 +56,7 @@ function EguiModal(){
     // this.vertical_layout = new egui.layout.Vertical();
     // this.vertical_layout.set_padding_inner(egui.padding);
 
-    this.append(this.backing);
+    // this.append(this.backing);
 
 
     this.show = function(){
@@ -73,9 +68,9 @@ function EguiModal(){
     };
 
     (function(self){
-        self.backing.set_click_callback(function(){
-            self.hide();
-        });
+        // self.backing.set_click_callback(function(){
+        //     self.hide();
+        // });
 
         // self.on_draw(function(){
         //     console.log("DRAW");
