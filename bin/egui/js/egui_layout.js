@@ -14,7 +14,6 @@ function EguiLayout(){
     this.backing = null;
 
     this.drawn = false;
-    this.fade_in_on_show = null;
 
     this.fade_in_complete_callback = null;
     this.on_fade_out_complete_callback = null;
@@ -59,9 +58,6 @@ function EguiLayout(){
 
         if (!this.drawn) {
             this.drawn = true;
-            if (this.fade_in_on_show) {
-                this.fade_in();
-            };
         };
     };
 
@@ -87,28 +83,13 @@ function EguiLayout(){
     this.fade_in = function(fade_in_complete_callback, speed){
         this.fade_in_complete_callback = fade_in_complete_callback;
 
-        console.log(this.name);
-
-        // console.log(this.fade_in_complete_callback);
-        // console.log(this);
-
-        if (!this.drawn) {
-            this.fade_in_on_show = true;
-            return;
-        };
-
         this.get_all_primitives();
         for (var i in this.found_primitives) {
             this.found_primitives[i].set_opacity(0, true);
         };
 
-        console.log(this.fade_in_complete_callback);
-
-
-
         this.anim = new egui.Anim();
         this.anim.set_duration(speed || 400);
-
 
         (function(self, fade_in_complete_callback){
 
@@ -120,13 +101,7 @@ function EguiLayout(){
 
             });
 
-            console.log(fade_in_complete_callback);
-
             self.anim.set_complete_callback(function(){
-
-                console.log("DONE");
-                console.log(self.fade_in_complete_callback);
-                console.log(self);
 
                 if (self.fade_in_complete_callback) {
                     self.fade_in_complete_callback();
