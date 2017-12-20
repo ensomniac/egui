@@ -120,7 +120,6 @@ function EguiInput(){
 
         this.set_placeholder_visible();
 
-        console.log("set");
     };
 
     this.create_input_object = function(){
