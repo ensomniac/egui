@@ -70,11 +70,13 @@ function EguiInput(){
 
     this.set_input_rect = function(){
         this.primitives["input"].css({
-            "width": this.rect.width-(egui.padding*2),
+            "width": this.rect.width,
             "height": this.rect.height,
-            "left": this.rect.left+egui.padding,
+            "left": this.rect.left,
             "top": this.rect.top,
             "line-height": this.rect.height + "px",
+            "padding-left": egui.padding,
+            "padding-right": egui.padding,
             "font-size": (this.rect.height*this.font_size_mult) + "px",
         });
     };
