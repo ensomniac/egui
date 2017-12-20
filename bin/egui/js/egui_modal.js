@@ -34,8 +34,6 @@ function EguiModal(){
             this.setup_complete = true;
         };
 
-        console.log(this.drawn);
-
         var width = (this.rect.width*this.width_mult);
         var height = (this.rect.height*this.height_mult);
 

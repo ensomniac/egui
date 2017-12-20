@@ -41,6 +41,10 @@ function EguiLayout(){
 
     this.draw = function(){
 
+        if (!this.drawn) {
+            this.drawn = true;
+        };
+
         if (this.background) {
 
             this.background.rect.set(
