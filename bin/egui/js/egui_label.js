@@ -158,6 +158,8 @@ function EguiLabel(){
     };
 
     this.set_text_opacity = function(opacity){
+        console.log(this.primitives["label"]);
+        console.log(opacity);
         this.primitives["label"].css({"opacity": opacity});
     };
 

@@ -82,10 +82,13 @@ function EguiInput(){
 
         this.placeholder_visible = placeholder_visible;
 
+        console.log(this.placeholder_visible);
+
         if (this.placeholder_visible) {
             this.placeholder_label.set_text_opacity(1);
         }
         else {
+            console.log("hide");
             this.placeholder_label.set_text_opacity(0);
         }
     };
