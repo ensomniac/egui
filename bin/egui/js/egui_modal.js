@@ -2,7 +2,6 @@
 
 function EguiModal(){
     this.description = "General Use Modal Container"
-
     // egui.layout.CenterBox.call(this);
     egui.layout.Vertical.call(this);
 
@@ -20,18 +19,11 @@ function EguiModal(){
 
     this.layout = new egui.layout.Vertical();
 
-    // this.backing = new egui.Box();
-    // this.backing.set_background("orange");
-
-    // this.main_layout_v = new egui.layout.Vertical();
-    // this.main_layout_v.append(this.backing);
-
-    // this.append(this.main_layout_v);
-
     this.backing = new egui.Box();
     this.backing.set_background("orange");
 
     this.layout.append(this.backing);
+    this.background.consume_as("center_layout", this.layout);
 
     this.draw_layout = function(){
         var width = (this.rect.width*this.width_mult);
@@ -44,44 +36,14 @@ function EguiModal(){
         var left = (this.rect.width-width)*0.5;
         var top = (this.rect.height-height)*0.5;
 
-        // this.background.rect.set(
-        //     width+(this.padding_outer*2),
-        //     height+(this.padding_outer*2),
-        //     left-this.padding_outer,
-        //     top-this.padding_outer
-        // );
-
         if (this.layout) {
             this.layout.rect.set(width, height, left, top);
         };
-
     };
 
-    // this.setup = function(){
-    //     this.setup_complete = true;
-    //     console.log('SETTING UP');
-    //     console.log();
-    // };
-
-
-
-    // this.set_aspect(1.5);
-    // this.set_padding_outer(egui.padding);
-    // console.log("setting shad");
-
-    // console.log(this.set_shadow);
-
-    // this.box.set_shadow(0, egui.padding*0.5, egui.padding*10);
-
-    // this.vertical_layout = new egui.layout.Vertical();
-    // this.vertical_layout.set_padding_inner(egui.padding);
-
-    // this.append(this.backing);
-
-
     this.show = function(){
-        // console.log("Show modal");
         egui.current_context.set_modal(this);
+        this.fade_in();
 
     };
 
