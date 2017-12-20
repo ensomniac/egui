@@ -16,6 +16,10 @@ function EguiModal(){
     this.backing = new egui.Box();
     this.backing.set_background("orange");
 
+    this.draw_layout = function(){
+        console.log("drawiong");
+    };
+
     // this.set_aspect(1.5);
     // this.set_padding_outer(egui.padding);
     // console.log("setting shad");
