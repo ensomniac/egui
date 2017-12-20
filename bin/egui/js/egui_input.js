@@ -45,6 +45,11 @@ function EguiInput(){
 
         console.log("drawn");
         console.log(this.text);
+
+        console.log(this.placeholder_label.rest_opacity);
+        console.log(this.placeholder_label.opacity);
+
+
     };
 
     this.set_is_password = function(is_password_input){
