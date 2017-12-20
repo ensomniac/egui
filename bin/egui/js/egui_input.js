@@ -70,7 +70,7 @@ function EguiInput(){
 
     this.set_input_rect = function(){
         this.primitives["input"].css({
-            "width": this.rect.width,
+            "width": this.rect.width-(egui.padding*2),
             "height": this.rect.height,
             "left": this.rect.left,
             "top": this.rect.top,
