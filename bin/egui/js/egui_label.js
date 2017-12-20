@@ -20,7 +20,6 @@ function EguiLabel(){
     this.load_dots = null;
     this.icon = null;
     this.label_setup_complete = false;
-    this.text_opacity = 1;
 
     this.set_icon = function(icon_name){
         this.icon = new egui.Icon();
@@ -158,17 +157,6 @@ function EguiLabel(){
         };
     };
 
-    this.set_text_opacity = function(text_opacity){
-        this.text_opacity = text_opacity;
-
-        console.log("Setting opacity to " + this.text_opacity);
-
-        if (this.primitives["label"]) {
-            this.primitives["label"].css({"opacity": this.text_opacity});
-        };
-
-    };
-
     this.set_text_alignment = function(text_alignment){
         this.text_alignment = text_alignment;
 
@@ -272,10 +260,8 @@ function EguiLabel(){
             "font-size": egui.font_size + "px",
             "padding-left": egui.padding,
             "padding-right": egui.padding,
-            "opacity": this.text_opacity,
         });
 
-        console.log(this.text_opacity);
     };
 
     this.create_label = function(){
