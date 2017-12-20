@@ -161,6 +161,8 @@ function EguiLabel(){
     this.set_text_opacity = function(text_opacity){
         this.text_opacity = text_opacity;
 
+        console.log("Setting opacity to " + this.text_opacity);
+
         if (this.primitives["label"]) {
             this.primitives["label"].css({"opacity": this.text_opacity});
         };
