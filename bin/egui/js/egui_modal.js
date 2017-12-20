@@ -16,9 +16,36 @@ function EguiModal(){
     this.backing = new egui.Box();
     this.backing.set_background("orange");
 
-    // this.draw_layout = function(){
-    //     console.log("drawiong");
-    // };
+    this.draw_layout = function(){
+        console.log("drawiong");
+
+        var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
+        var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
+
+        if (this.aspect != -1) {
+            height = width/this.aspect;
+        };
+
+        var left = (this.rect.width-width)*0.5;
+        var top = (this.rect.height-height)*0.5;
+
+        this.background.rect.set(
+            width+(this.padding_outer*2),
+            height+(this.padding_outer*2),
+            left-this.padding_outer,
+            top-this.padding_outer
+        );
+
+        if (this.children.length) {
+            this.children[0].rect.set(width, height, left, top);
+        };
+
+
+
+
+
+
+    };
 
     // this.set_aspect(1.5);
     // this.set_padding_outer(egui.padding);
