@@ -8,6 +8,7 @@ function EguiModal(){
     this.aspect = 1.0;
     this.width_mult = 0.5;
     this.height_mult = 0.5;
+    this.setup_complete = false;
 
     if (!egui.current_context) {
         console.log("WARNING: Unable to locate context for modal");
@@ -23,13 +24,17 @@ function EguiModal(){
 
     this.set_aspect = function(aspect){
         this.aspect = aspect;
-        if (this.layout) {
+        if (this.setup_complete) {
             this.draw_layout();
         };
     };
 
     this.draw_layout = function(){
-        console.log(this.rect.width);
+        if (!this.setup_complete) {
+            this.setup_complete = true;
+        };
+
+        console.log(this.drawn);
 
         var width = (this.rect.width*this.width_mult);
         var height = (this.rect.height*this.height_mult);
