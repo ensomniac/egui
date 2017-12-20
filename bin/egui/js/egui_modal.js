@@ -4,7 +4,7 @@ function EguiModal(){
     this.description = "General Use Modal Container"
 
     // egui.layout.CenterBox.call(this);
-    egui.Layout.call(this);
+    egui.layout.Vertical.call(this);
 
     // this.setup_complete = false;
 
@@ -47,6 +47,8 @@ function EguiModal(){
         // if (!this.setup_complete) {
         //     this.setup();
         // };
+
+        console.log(this.children);
 
         console.log(this.background);
         // this.background.set(this.rect);
