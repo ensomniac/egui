@@ -4,7 +4,7 @@ function EguiModal(){
     this.description = "General Use Modal Container"
 
     // egui.layout.CenterBox.call(this);
-    egui.layout.Vertical.call(this);
+    egui.Layout.call(this);
 
     if (!egui.current_context) {
         console.log("WARNING: Unable to locate context for modal");
@@ -47,9 +47,9 @@ function EguiModal(){
             self.hide();
         });
 
-        self.on_draw(function(){
-            console.log("DRAW");
-        });
+        // self.on_draw(function(){
+        //     console.log("DRAW");
+        // });
 
     })(this);
 

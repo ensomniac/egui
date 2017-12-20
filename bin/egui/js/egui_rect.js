@@ -4,7 +4,7 @@ function EguiRect(drawable){
     this.description = "Store of width, height, top & left. Was: egui.Layout";
 
     this.drawable = drawable;
-    this.post_draw_callbacks = [];
+    // this.post_draw_callbacks = [];
 
     // DEFAULTS
     this.width = 0;
@@ -50,7 +50,7 @@ function EguiRect(drawable){
 
         if (this.drawable) {
             this.drawable.draw();
-            console.log(this.post_draw_callbacks);
+            // console.log(this.post_draw_callbacks);
         };
 
     };
