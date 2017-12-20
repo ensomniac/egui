@@ -71,6 +71,17 @@ function EguiLayout(){
 
     };
 
+    this.empty = function(){
+        if (this.children.length == 0) {
+            return;
+        };
+
+        this.destroy();
+        this.children = [];
+        this.draw();
+
+    };
+
     this.append = function(child){
         // Must be a packable
         if (child.root != "EguiPackable") {
