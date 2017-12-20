@@ -108,7 +108,7 @@ function EguiLayout(){
             });
 
             self.anim.set_complete_callback(function(){
-
+                console.log("DONE");
                 if (self.fade_in_complete_callback) {
                     self.fade_in_complete_callback();
                 };
