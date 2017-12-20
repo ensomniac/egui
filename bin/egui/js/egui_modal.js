@@ -3,7 +3,8 @@
 function EguiModal(){
     this.description = "General Use Modal Container"
 
-    egui.layout.CenterBox.call(this);
+    // egui.layout.CenterBox.call(this);
+    egui.layout.Vertical.call(this);
 
     if (!egui.current_context) {
         console.log("WARNING: Unable to locate context for modal");
@@ -12,9 +13,10 @@ function EguiModal(){
 
     egui.current_context.set_modal(this);
 
+
     this.box = new egui.Box();
 
-    this.set_aspect(1.5);
+    // this.set_aspect(1.5);
     // this.set_padding_outer(egui.padding);
     console.log("setting shad");
 
