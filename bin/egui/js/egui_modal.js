@@ -6,6 +6,8 @@ function EguiModal(){
     // egui.layout.CenterBox.call(this);
     egui.Layout.call(this);
 
+    // this.setup_complete = false;
+
     if (!egui.current_context) {
         console.log("WARNING: Unable to locate context for modal");
         return;
@@ -35,14 +37,22 @@ function EguiModal(){
         //     top-this.padding_outer
         // );
 
+        // if (!this.setup_complete) {
+        //     this.setup();
+        // };
+
         console.log(this.background);
         // this.background.set(this.rect);
 
-
-
-
-
     };
+
+    // this.setup = function(){
+    //     this.setup_complete = true;
+    //     console.log('SETTING UP');
+    //     console.log();
+    // };
+
+
 
     // this.set_aspect(1.5);
     // this.set_padding_outer(egui.padding);
@@ -70,11 +80,9 @@ function EguiModal(){
 
     (function(self){
 
-        console.log(this.background);
-
-        // self.backing.set_click_callback(function(){
-        //     self.hide();
-        // });
+        self.background.set_click_callback(function(){
+            self.hide();
+        });
 
         // self.on_draw(function(){
         //     console.log("DRAW");
