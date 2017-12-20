@@ -62,8 +62,9 @@ function EguiModal(){
         egui.current_context.set_modal(null);
     };
 
-    this.append = function(){
-        console.log("Overriddden append");
+    this.append = function(child){
+        // Overridden so we can pack into the center box
+        return this.layout.append(child);
     };
 
     (function(self){
