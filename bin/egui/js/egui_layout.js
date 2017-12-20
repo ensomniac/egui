@@ -62,6 +62,7 @@ function EguiLayout(){
     };
 
     this.destroy = function(){
+        console.log("Destroy");
     };
 
     this.append = function(child){
