@@ -49,6 +49,8 @@ function EguiRect(drawable){
         };
 
         if (this.drawable) {
+            console.log("it's drawable");
+            console.log(this.drawable);
             this.drawable.draw();
             // console.log(this.post_draw_callbacks);
         };

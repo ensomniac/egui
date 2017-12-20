@@ -20,6 +20,7 @@ function EguiModal(){
     // this.backing.set_background("orange");
 
     this.draw_layout = function(){
+        console.log(22);
         // var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
         // var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
 
