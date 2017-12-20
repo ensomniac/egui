@@ -62,15 +62,19 @@ function EguiContext(){
         };
 
         if (this.layout) {
+            self.layout = null;
+            // self.set_layout(new_layout);
 
-            (function(self, new_layout){
-                self.layout.fade_out(function(){
-                    self.layout = null;
-                    self.set_layout(new_layout);
-                });
-            })(this, layout);
 
-            return;
+            // console.log("!");
+            // (function(self, new_layout){
+            //     self.layout.fade_out(function(){
+            //         self.layout = null;
+            //         self.set_layout(new_layout);
+            //     });
+            // })(this, layout);
+
+            // return;
         };
 
         this.layout = layout;
