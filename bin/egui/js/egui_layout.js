@@ -16,6 +16,9 @@ function EguiLayout(){
     this.drawn = false;
     this.fade_in_on_show = null;
 
+    this.fade_in_complete_callback = null;
+    this.on_fade_out_complete_callback = null;
+
     this.set_width = function(width){
         this.width = width;
         this.rect.set_expand_x(this.width);
@@ -85,6 +88,7 @@ function EguiLayout(){
         this.fade_in_complete_callback = fade_in_complete_callback;
 
         console.log(this.fade_in_complete_callback);
+        console.log(this);
 
         if (!this.drawn) {
             this.fade_in_on_show = true;
@@ -113,6 +117,7 @@ function EguiLayout(){
 
                 console.log("DONE");
                 console.log(self.fade_in_complete_callback);
+                console.log(self);
 
                 if (self.fade_in_complete_callback) {
                     self.fade_in_complete_callback();
