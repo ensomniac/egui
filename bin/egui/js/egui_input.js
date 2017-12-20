@@ -41,6 +41,8 @@ function EguiInput(){
         };
 
         this.set_input_rect();
+        this.set_placeholder_visible();
+        console.log("drawn");
     };
 
     this.set_is_password = function(is_password_input){
@@ -77,31 +79,25 @@ function EguiInput(){
         });
     };
 
-    this.set_placeholder_visible = function(placeholder_visible){
-        if (this.placeholder_visible == placeholder_visible) {return};
+    this.set_placeholder_visible = function(){
 
-        this.placeholder_visible = placeholder_visible;
-
-        console.log(this.placeholder_visible);
+        if (this.get_text().length > 0) {
+            this.placeholder_visible = false;
+        }
+        else {
+            this.placeholder_visible = true;
+        };
 
         if (this.placeholder_visible) {
             this.placeholder_label.set_opacity(1);
         }
         else {
-            console.log("hide");
             this.placeholder_label.set_opacity(0);
         }
     };
 
     this.on_keyup = function(key_code){
-        var text = this.get_text();
-
-        if (text.length > 0) {
-            this.set_placeholder_visible(false);
-        }
-        else {
-            this.set_placeholder_visible(true);
-        };
+        this.set_placeholder_visible();
 
         if (key_code == 13 && this.on_enter_callback) {
             this.on_enter_callback();
@@ -118,15 +114,11 @@ function EguiInput(){
 
         if (this.primitives["input"]) {
             this.primitives["input"].val(text);
-
-            if (text && text.length) {
-                console.log("no place");
-                this.set_placeholder_visible(false);
-            }
-            else {
-                this.set_placeholder_visible(true);
-            }
         };
+
+        this.set_placeholder_visible();
+
+        console.log("set");
     };
 
     this.create_input_object = function(){
