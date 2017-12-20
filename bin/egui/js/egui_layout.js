@@ -45,6 +45,9 @@ function EguiLayout(){
             this.background.rect.set(this.rect);
         };
 
+        console.log(this);
+        console.log(this.draw_layout);
+
         if (this.draw_layout) {
             this.draw_layout();
         };
