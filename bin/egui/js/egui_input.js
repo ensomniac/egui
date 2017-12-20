@@ -42,7 +42,9 @@ function EguiInput(){
 
         this.set_input_rect();
         this.set_placeholder_visible();
+
         console.log("drawn");
+        console.log(this.text);
     };
 
     this.set_is_password = function(is_password_input){
@@ -97,6 +99,8 @@ function EguiInput(){
     };
 
     this.on_keyup = function(key_code){
+        this.text = this.primitives["input"].val();
+
         this.set_placeholder_visible();
 
         if (key_code == 13 && this.on_enter_callback) {
@@ -106,7 +110,7 @@ function EguiInput(){
     };
 
     this.get_text = function(){
-        return this.primitives["input"].val();
+        return this.text;
     };
 
     this.set_text = function(text){
