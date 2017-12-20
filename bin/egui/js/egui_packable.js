@@ -12,6 +12,10 @@ function EguiPackable(){
     this.root = "EguiPackable"; // Only set on objects that are consumed by children
     this.rect = new egui.Rect(this);
 
+    this.on_draw = function(draw_callback){
+        this.rect.post_draw_callbacks.push(draw_callback);
+    };
+
     this.set_width = function(width){
         this.width = width;
         this.rect.set_expand_x(this.width);

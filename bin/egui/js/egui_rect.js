@@ -18,10 +18,6 @@ function EguiRect(drawable){
     this.padding_inner = 0;
     this.padding_outer = 0;
 
-    this.on_draw = function(draw_callback){
-        this.post_draw_callbacks.push(draw_callback);
-    };
-
     this.lerp = function(layout_a, layout_b, t){
         this.width = egui.lerp(layout_a.width, layout_b.width, t);
         this.height = egui.lerp(layout_a.height, layout_b.height, t);
