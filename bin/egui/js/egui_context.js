@@ -21,6 +21,7 @@ function EguiContext(){
 
     this.layout = null;
     this.rect = new egui.Rect(this);
+    this.modal = null;
 
     egui.current_context = this;
 
@@ -30,6 +31,25 @@ function EguiContext(){
 
         if (this.layout) {
             this.layout.rect.set(this.rect.width, this.rect.height, this.rect.left, this.rect.top);
+        };
+
+        if (this.modal) {
+            this.modal.rect.set(this.rect.width, this.rect.height, this.rect.left, this.rect.top);
+        };
+
+    };
+
+    this.set_modal = function(modal){
+
+        if (this.modal) {
+            console.log("ERROR: There is already a modal loaded");
+            return;
+        };
+
+        this.modal = modal;
+
+        if (this.size_set) {
+            this.draw();
         };
 
     };
@@ -53,7 +73,6 @@ function EguiContext(){
         };
 
         this.layout = layout;
-
 
         if (this.size_set) {
             this.draw();
