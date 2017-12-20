@@ -47,7 +47,6 @@ function EguiButton(){
 
     this.setup_file_uploader = function(){
         if (!this.primitives["box"]) {
-            console.log("Unable to set up");
             return;
         };
 
