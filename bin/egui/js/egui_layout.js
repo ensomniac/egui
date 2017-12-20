@@ -40,6 +40,7 @@ function EguiLayout(){
     this.draw = function(){
 
         if (this.background) {
+            console.log(this.rect);
             this.background.rect.set(this.rect);
         };
 
