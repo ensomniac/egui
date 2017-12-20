@@ -84,6 +84,8 @@ function EguiLayout(){
     this.fade_in = function(fade_in_complete_callback, speed){
         this.fade_in_complete_callback = fade_in_complete_callback;
 
+        console.log(this.fade_in_complete_callback);
+
         if (!this.drawn) {
             this.fade_in_on_show = true;
             return;
@@ -108,7 +110,10 @@ function EguiLayout(){
             });
 
             self.anim.set_complete_callback(function(){
+
                 console.log("DONE");
+                console.log(self.fade_in_complete_callback);
+
                 if (self.fade_in_complete_callback) {
                     self.fade_in_complete_callback();
                 };
