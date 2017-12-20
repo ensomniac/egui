@@ -87,8 +87,10 @@ function EguiLayout(){
     this.fade_in = function(fade_in_complete_callback, speed){
         this.fade_in_complete_callback = fade_in_complete_callback;
 
-        console.log(this.fade_in_complete_callback);
-        console.log(this);
+        console.log(fade_in_complete_callback);
+
+        // console.log(this.fade_in_complete_callback);
+        // console.log(this);
 
         if (!this.drawn) {
             this.fade_in_on_show = true;
@@ -103,7 +105,9 @@ function EguiLayout(){
         this.anim = new egui.Anim();
         this.anim.set_duration(speed || 400);
 
-        (function(self){
+        console.log(fade_in_complete_callback);
+
+        (function(self, fade_in_complete_callback){
 
             self.anim.set_update_callback(function(t){
 
@@ -112,6 +116,8 @@ function EguiLayout(){
                 };
 
             });
+
+            console.log(fade_in_complete_callback);
 
             self.anim.set_complete_callback(function(){
 
@@ -124,7 +130,7 @@ function EguiLayout(){
                 };
             });
 
-        })(this);
+        })(this, fade_in_complete_callback);
 
         this.anim.start();
     };
