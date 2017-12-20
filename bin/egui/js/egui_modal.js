@@ -5,6 +5,8 @@ function EguiModal(){
 
     egui.layout.CenterBox.call(this);
 
+    console.log(egui.current_context);
+
     this.set_aspect(1.5);
     this.set_padding_outer(egui.padding);
     this.set_shadow(0, egui.padding*0.5, egui.padding*10);
