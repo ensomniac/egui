@@ -17,11 +17,12 @@ function EguiInput(){
 
     this.on_enter_callback = null
 
+    this.text = "";
+    this.placeholder_text = "Input Placeholder";
+
     this.text_color = egui.input_text_color;
     this.text_color_placeholder = egui.input_placeholder_color;
     this.background_color = egui.input_color;
-
-    this.placeholder_text = "Input Placeholder";
 
     this.placeholder_label = new egui.Label();
     this.placeholder_label.set_text(this.placeholder_text);
@@ -110,7 +111,19 @@ function EguiInput(){
     };
 
     this.set_text = function(text){
-        return this.primitives["input"].val(text);
+        this.text = text;
+
+        if (this.primitives["input"]) {
+            this.primitives["input"].val(text);
+
+            if (text && text.length) {
+                console.log("no place");
+                this.set_placeholder_visible(false);
+            }
+            else {
+                this.set_placeholder_visible(true);
+            }
+        };
     };
 
     this.create_input_object = function(){
@@ -134,6 +147,7 @@ function EguiInput(){
 
         $("body").append(this.primitives["input"]);
         this.setup_input_events();
+        this.set_text(this.text);
     };
 
     this.set_enter_callback = function(on_enter_callback){
