@@ -41,9 +41,9 @@ function EguiModal(){
         // var left = (this.rect.width-width)*0.5;
         // var top = (this.rect.height-height)*0.5;
 
-        if (this.layout) {
-            this.layout.rect.set(width, height, left, top);
-        };
+        // if (this.layout) {
+        //     this.layout.rect.set(width, height, left, top);
+        // };
 
 
 
