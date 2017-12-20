@@ -49,12 +49,27 @@ function EguiModal(){
     };
 
     this.hide = function(){
-        console.log("HIDE");
-
         this.fade_out();
-        this.layout.fade_out();
+
+        (function(self){
+
+            self.layout.fade_out(function(){
+                self.on_hidden();
+            });
+
+        })(this);
 
     };
+
+    this.on_hidden = function(){
+        // Called when it's faded out
+        console.log("Hidden");
+        egui.current_context.set_modal(null);
+
+    };
+
+
+
 
     (function(self){
 
