@@ -62,7 +62,13 @@ function EguiLayout(){
     };
 
     this.destroy = function(){
-        console.log("Destroy");
+        // This is automatically called on fade_out(), but that will need to be fixed
+
+        this.get_all_primitives();
+        for (var i in this.found_primitives) {
+            this.found_primitives[i].destroy();
+        };
+
     };
 
     this.append = function(child){
@@ -134,9 +140,7 @@ function EguiLayout(){
 
             self.anim.set_complete_callback(function(){
 
-                for (var i in self.found_primitives) {
-                    self.found_primitives[i].destroy();
-                };
+                self.destroy();
 
                 if (self.on_fade_out_complete_callback) {
                     self.on_fade_out_complete_callback();
