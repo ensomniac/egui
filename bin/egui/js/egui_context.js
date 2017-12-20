@@ -49,6 +49,7 @@ function EguiContext(){
         this.modal = modal;
 
         if (this.size_set) {
+            console.log("DRAWING MODAL");
             this.draw();
         };
 

@@ -37,7 +37,8 @@ function EguiModal(){
         //     top-this.padding_outer
         // );
 
-        this.background.set(this.rect);
+        console.log(this.background);
+        // this.background.set(this.rect);
 
 
 
