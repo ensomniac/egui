@@ -36,6 +36,8 @@ function EguiModal(){
             height = width/this.aspect;
         };
 
+        console.log(this.aspect);
+
         var left = (this.rect.width-width)*0.5;
         var top = (this.rect.height-height)*0.5;
 
