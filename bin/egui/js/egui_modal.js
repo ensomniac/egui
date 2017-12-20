@@ -1,7 +1,7 @@
 'use strict';
 
-function EguiLabel(){
-    this.description = "Describe this Egui constructor..."
+function EguiModal(){
+    this.description = "General Use Modal Container"
 
     egui.Box.call(this);
 
