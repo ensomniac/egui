@@ -87,7 +87,7 @@ function EguiLayout(){
     this.fade_in = function(fade_in_complete_callback, speed){
         this.fade_in_complete_callback = fade_in_complete_callback;
 
-        console.log(this.fade_in_complete_callback);
+        console.log(this.name);
 
         // console.log(this.fade_in_complete_callback);
         // console.log(this);
