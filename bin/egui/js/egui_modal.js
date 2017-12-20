@@ -15,6 +15,9 @@ function EguiModal(){
     this.set_aspect(1.5);
     // this.set_padding_outer(egui.padding);
     console.log("setting shad");
+
+    console.log(this.set_shadow);
+
     this.set_shadow(0, egui.padding*0.5, egui.padding*10);
 
     this.vertical_layout = new egui.layout.Vertical();
