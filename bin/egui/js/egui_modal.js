@@ -12,18 +12,20 @@ function EguiModal(){
 
     egui.current_context.set_modal(this);
 
+    this.box = new egui.Box();
+
     this.set_aspect(1.5);
     // this.set_padding_outer(egui.padding);
     console.log("setting shad");
 
     console.log(this.set_shadow);
 
-    this.set_shadow(0, egui.padding*0.5, egui.padding*10);
+    this.box.set_shadow(0, egui.padding*0.5, egui.padding*10);
 
     this.vertical_layout = new egui.layout.Vertical();
     this.vertical_layout.set_padding_inner(egui.padding);
 
-    this.append(new egui.Box());
+    this.append(this.box);
 
 
     this.show = function(){
