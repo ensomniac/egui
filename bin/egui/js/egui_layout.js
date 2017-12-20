@@ -40,8 +40,13 @@ function EguiLayout(){
     this.draw = function(){
 
         if (this.background) {
-            console.log(this.rect);
-            this.background.rect.set(this.rect);
+            this.background.rect.set(
+                this.rect.width,
+                this.rect.height,
+                this.rect.left,
+                this.rect.top,
+            );
+
         };
 
         if (this.draw_layout) {
