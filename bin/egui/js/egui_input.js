@@ -43,11 +43,10 @@ function EguiInput(){
         this.set_input_rect();
         this.set_placeholder_visible();
 
-        console.log("drawn");
-        console.log(this.text);
-
-        console.log(this.placeholder_label.rest_opacity);
-        console.log(this.placeholder_label.opacity);
+        // console.log("drawn");
+        // console.log(this.text);
+        // console.log(this.placeholder_label.rest_opacity);
+        // console.log(this.placeholder_label.opacity);
 
 
     };
