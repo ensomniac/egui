@@ -41,14 +41,15 @@ function EguiContext(){
 
     this.set_modal = function(modal){
 
-        if (this.modal) {
+        if (this.modal && modal) {
             console.log("ERROR: There is already a modal loaded");
             return;
         };
 
+        // modal might be null
         this.modal = modal;
 
-        if (this.size_set) {
+        if (this.size_set && this.modal) {
             this.draw();
         };
 
