@@ -44,13 +44,13 @@ function EguiModal(){
     };
 
     this.hide = function(){
-        this.fade_out();
+        this.fade_out(null, 200);
 
         (function(self){
 
             self.layout.fade_out(function(){
                 self.on_hidden();
-            });
+            }, 200);
 
         })(this);
 
