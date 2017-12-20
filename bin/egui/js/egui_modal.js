@@ -7,6 +7,8 @@ function EguiModal(){
     egui.layout.Vertical.call(this);
 
     this.aspect = 1.0;
+    this.width_mult = 0.5;
+    this.height_mult = 0.5;
 
     if (!egui.current_context) {
         console.log("WARNING: Unable to locate context for modal");
@@ -32,8 +34,8 @@ function EguiModal(){
     this.layout.append(this.backing);
 
     this.draw_layout = function(){
-        var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
-        var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
+        var width = (this.rect.width*this.width_mult);
+        var height = (this.rect.height*this.height_mult);
 
         if (this.aspect != -1) {
             height = width/this.aspect;
