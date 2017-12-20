@@ -141,7 +141,7 @@ function EguiInput(){
             "margin": 0,
             "color": this.text_color,
             "background": "rgba(0, 0, 0, 0)",
-            "-webkit-box-shadow": "0 0 0px 1000px white inset",
+            // "-webkit-box-shadow": "0 0 0px 1000px white inset",
         });
 
         $("body").append(this.primitives["input"]);
