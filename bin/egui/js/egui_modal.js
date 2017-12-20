@@ -14,16 +14,16 @@ function EguiModal(){
         return;
     };
 
-    this.background_color = "rgba(20, 20, 20, 0.9)";
-    this.set_background(this.background_color);
+    this.content_backing_color = "#444";
+    this.backing_color = "rgba(20, 20, 20, 0.9)";
+    this.set_background(this.backing_color);
+
+    // this.backing = new egui.Box();
+    // this.backing.set_background("orange");
 
     this.layout = new egui.layout.Vertical();
-
-    this.backing = new egui.Box();
-    this.backing.set_background("orange");
-
-    this.layout.append(this.backing);
-    // this.background.consume_as("center_layout", this.layout);
+    this.layout.set_background(this.content_backing_color);
+    // this.layout.append(this.backing);
 
     this.draw_layout = function(){
         var width = (this.rect.width*this.width_mult);
