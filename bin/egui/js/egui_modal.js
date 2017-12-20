@@ -6,7 +6,7 @@ function EguiModal(){
     // egui.layout.CenterBox.call(this);
     egui.layout.Vertical.call(this);
 
-    // this.setup_complete = false;
+    this.aspect = 1.0;
 
     if (!egui.current_context) {
         console.log("WARNING: Unable to locate context for modal");
@@ -26,19 +26,21 @@ function EguiModal(){
 
     // this.append(this.main_layout_v);
 
-    // this.backing = new egui.Box();
-    // this.backing.set_background("orange");
+    this.backing = new egui.Box();
+    this.backing.set_background("orange");
+
+    this.layout.append(this.backing);
 
     this.draw_layout = function(){
-        // var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
-        // var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
+        var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
+        var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
 
-        // if (this.aspect != -1) {
-        //     height = width/this.aspect;
-        // };
+        if (this.aspect != -1) {
+            height = width/this.aspect;
+        };
 
-        // var left = (this.rect.width-width)*0.5;
-        // var top = (this.rect.height-height)*0.5;
+        var left = (this.rect.width-width)*0.5;
+        var top = (this.rect.height-height)*0.5;
 
         // this.background.rect.set(
         //     width+(this.padding_outer*2),
@@ -47,17 +49,8 @@ function EguiModal(){
         //     top-this.padding_outer
         // );
 
-        // if (!this.setup_complete) {
-        //     this.setup();
-        // };
-
-        console.log(this.children);
-
-        console.log(this.background);
-        // this.background.set(this.rect);
-
-        if (this.children.length) {
-            this.children[0].rect.set(this.rect);
+        if (this.layout) {
+            this.layout.rect.set(width, height, left, top);
         };
 
     };
