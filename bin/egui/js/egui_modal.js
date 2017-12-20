@@ -13,7 +13,7 @@ function EguiModal(){
     egui.current_context.set_modal(this);
 
     this.set_aspect(1.5);
-    this.set_padding_outer(egui.padding);
+    // this.set_padding_outer(egui.padding);
     this.set_shadow(0, egui.padding*0.5, egui.padding*10);
 
     this.vertical_layout = new egui.layout.Vertical();
