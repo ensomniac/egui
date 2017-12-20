@@ -80,8 +80,6 @@ function EguiLayout(){
             return;
         };
 
-        console.log("EMPTY");
-
         for (var i in this.children) {
             this.children[i].destroy();
             // console.log(this.children[i]);

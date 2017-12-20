@@ -24,16 +24,14 @@ function EguiModal(){
 
     this.set_aspect = function(aspect){
         this.aspect = aspect;
-        if (this.setup_complete) {
+
+        if (this.drawn) {
             this.draw_layout();
         };
+
     };
 
     this.draw_layout = function(){
-        if (!this.setup_complete) {
-            this.setup_complete = true;
-        };
-
         var width = (this.rect.width*this.width_mult);
         var height = (this.rect.height*this.height_mult);
 
@@ -41,15 +39,8 @@ function EguiModal(){
             height = width/this.aspect;
         };
 
-        // console.log(this.aspect);
-
         var left = (this.rect.width-width)*0.5;
         var top = (this.rect.height-height)*0.5;
-
-        console.log(width);
-        console.log(height);
-        console.log(left);
-        console.log(top);
 
         if (this.layout) {
             this.layout.rect.set(width, height, left, top);
