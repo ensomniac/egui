@@ -159,7 +159,9 @@ function Egui(){
     this.Style = null;
     this.Color = null;
 
+    this.current_context = null;
     this.Context = null;
+
     this.Rect = null;
     this.Primitive = null;
 
