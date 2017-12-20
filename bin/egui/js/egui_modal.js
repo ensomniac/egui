@@ -13,6 +13,9 @@ function EguiModal(){
 
     egui.current_context.set_modal(this);
 
+    this.background_color = "rgba(20, 20, 20, 0.9)";
+    this.set_background(this.background_color);
+
     this.backing = new egui.Box();
     this.backing.set_background("orange");
 
