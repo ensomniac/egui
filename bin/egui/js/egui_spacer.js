@@ -5,8 +5,7 @@ function EguiSpacer(){
 
     egui.Packable.call(this);
 
-    this.draw = function(){
-    };
+
 
 };
 
