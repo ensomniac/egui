@@ -46,10 +46,14 @@ function EguiBox(){
     this.set_shadow = function(left, top, blur){
         this.shadow = [left, top, blur];
 
+        console.log("set");
+
         if (this.primitives["box"]) {
             this.primitives["box"].css({
                 "box-shadow": left + "px " + top + "px " + blur + "px rgba(0, 0, 0, 1)",
             });
+
+            console.log(left + "px " + top + "px " + blur + "px rgba(0, 0, 0, 1)");
         };
     };
 
