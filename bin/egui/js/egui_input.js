@@ -13,7 +13,7 @@ function EguiInput(){
 
     this.font_size_mult = 0.5;
     this.is_password_input = false;
-    this.placeholder_visible = true;
+    this.placeholder_visible = -1;
 
     this.on_enter_callback = null
 
