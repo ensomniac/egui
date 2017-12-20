@@ -20,7 +20,7 @@ function EguiPrimitive(){
     this.set_opacity = function(opacity, skip_set){
         // When skip_set is true, this.rest_opacity is not set
         if (!skip_set) {
-            console.log("Setting opac from " + this.rest_opacity + " to " + opacity);
+            console.log("Setting rest opac from " + this.rest_opacity + " to " + opacity);
             this.rest_opacity = opacity;
         };
 
