@@ -29,7 +29,6 @@ function EguiInput(){
     this.placeholder_label.set_background_color(null);
     this.placeholder_label.set_text_color(this.text_color_placeholder);
     this.placeholder_label.set_text_alignment("left");
-    this.placeholder_label.set_opacity(0.3);
 
     this.primitive.consume_as("placeholder_label", this.placeholder_label);
 
@@ -43,12 +42,6 @@ function EguiInput(){
 
         this.set_input_rect();
         this.set_placeholder_visible();
-
-        // console.log("drawn");
-        // console.log(this.text);
-        // console.log(this.placeholder_label.rest_opacity);
-        // console.log(this.placeholder_label.opacity);
-
 
     };
 
@@ -96,10 +89,10 @@ function EguiInput(){
         };
 
         if (this.placeholder_visible) {
-            this.placeholder_label.set_opacity(1);
+            this.placeholder_label.set_text_color(this.text_color_placeholder);
         }
         else {
-            this.placeholder_label.set_opacity(0);
+            this.placeholder_label.set_text_color("rgba(0, 0, 0, 0)");
         }
     };
 

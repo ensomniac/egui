@@ -92,7 +92,6 @@ function EguiLayout(){
 
         this.get_all_primitives();
         for (var i in this.found_primitives) {
-            console.log(this.found_primitives[i].rest_opacity);
             this.found_primitives[i].set_opacity(0, true);
         };
 
@@ -105,7 +104,6 @@ function EguiLayout(){
 
                 for (var i in self.found_primitives) {
                     // console.log(self.found_primitives[i].rest_opacity);
-
                     self.found_primitives[i].set_opacity(egui.lerp(0, self.found_primitives[i].rest_opacity, t), true);
                 };
 
