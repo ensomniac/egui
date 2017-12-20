@@ -29,14 +29,11 @@ function EguiContext(){
         // Called whenever the window/screen size changes
         // console.log("Context sized " + this.width + " x " + this.height);
 
-        console.log("--");
-
         if (this.layout) {
             this.layout.rect.set(this.rect.width, this.rect.height, this.rect.left, this.rect.top);
         };
 
         if (this.modal) {
-            console.log("DRAWING MODAL RECT");
             this.modal.rect.set(this.rect.width, this.rect.height, this.rect.left, this.rect.top);
         };
 
@@ -52,7 +49,6 @@ function EguiContext(){
         this.modal = modal;
 
         if (this.size_set) {
-            console.log("DRAWING MODAL");
             this.draw();
         };
 
