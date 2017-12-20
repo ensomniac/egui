@@ -21,6 +21,13 @@ function EguiModal(){
     this.layout = new egui.layout.Vertical();
     this.layout.set_background(this.content_backing_color);
 
+    this.set_aspect = function(aspect){
+        this.aspect = aspect;
+        if (this.layout) {
+            this.draw_layout();
+        };
+    };
+
     this.draw_layout = function(){
         var width = (this.rect.width*this.width_mult);
         var height = (this.rect.height*this.height_mult);
