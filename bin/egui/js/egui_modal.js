@@ -16,6 +16,10 @@ function EguiModal(){
     this.background_color = "rgba(20, 20, 20, 0.9)";
     this.set_background(this.background_color);
 
+    this.layout = null;
+
+    console.log(this.layout);
+
 
 
     this.backing = new egui.Box();
@@ -55,6 +59,10 @@ function EguiModal(){
 
         console.log(this.background);
         // this.background.set(this.rect);
+
+        if (this.children.length) {
+            this.children[0].rect.set(this.rect);
+        };
 
     };
 
