@@ -109,6 +109,10 @@ function EguiInput(){
         return this.primitives["input"].val();
     };
 
+    this.set_text = function(text){
+        return this.primitives["input"].val(text);
+    };
+
     this.create_input_object = function(){
         // This should be the only place an instance of a native platform
         // visual element is created. DIV/DRID (HTML/UNITY)
