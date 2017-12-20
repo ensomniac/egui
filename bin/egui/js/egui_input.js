@@ -85,11 +85,11 @@ function EguiInput(){
         console.log(this.placeholder_visible);
 
         if (this.placeholder_visible) {
-            this.placeholder_label.set_opacity(1, true);
+            this.placeholder_label.set_opacity(1);
         }
         else {
             console.log("hide");
-            this.placeholder_label.set_opacity(0, true);
+            this.placeholder_label.set_opacity(0);
         }
     };
 
