@@ -29,53 +29,28 @@ function EguiModal(){
     };
 
     this.draw_layout = function(){
-        // var width = (this.rect.width*this.width_mult);
-        // var height = (this.rect.height*this.height_mult);
+        console.log(this.rect.width);
 
-        // if (this.aspect != -1) {
-        //     height = width/this.aspect;
-        // };
-
-        // console.log(this.aspect);
-
-        // var left = (this.rect.width-width)*0.5;
-        // var top = (this.rect.height-height)*0.5;
-
-        // if (this.layout) {
-        //     this.layout.rect.set(width, height, left, top);
-        // };
-
-
-
-
-
-        var width = (this.rect.width*this.width_mult)-(this.padding_outer*2);
-        var height = (this.rect.height*this.height_mult)-(this.padding_outer*2);
+        var width = (this.rect.width*this.width_mult);
+        var height = (this.rect.height*this.height_mult);
 
         if (this.aspect != -1) {
             height = width/this.aspect;
         };
 
+        // console.log(this.aspect);
+
         var left = (this.rect.width-width)*0.5;
         var top = (this.rect.height-height)*0.5;
 
-        // this.background.rect.set(
-        //     width+(this.padding_outer*2),
-        //     height+(this.padding_outer*2),
-        //     left-this.padding_outer,
-        //     top-this.padding_outer
-        // );
+        console.log(width);
+        console.log(height);
+        console.log(left);
+        console.log(top);
 
         if (this.layout) {
             this.layout.rect.set(width, height, left, top);
         };
-
-
-
-
-
-
-
     };
 
     this.show = function(){
