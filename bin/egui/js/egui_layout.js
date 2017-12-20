@@ -103,6 +103,8 @@ function EguiLayout(){
             self.anim.set_update_callback(function(t){
 
                 for (var i in self.found_primitives) {
+                    console.log(self.found_primitives[i].rest_opacity);
+
                     self.found_primitives[i].set_opacity(egui.lerp(0, self.found_primitives[i].rest_opacity, t), true);
                 };
 
