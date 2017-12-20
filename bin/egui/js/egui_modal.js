@@ -43,7 +43,7 @@ function EguiModal(){
 
     this.show = function(){
         egui.current_context.set_modal(this);
-        this.fade_in();
+        this.fade_in(null, 100);
         this.layout.fade_in();
 
     };

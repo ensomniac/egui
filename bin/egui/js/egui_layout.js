@@ -74,7 +74,7 @@ function EguiLayout(){
         };
     };
 
-    this.fade_in = function(fade_in_complete_callback){
+    this.fade_in = function(fade_in_complete_callback, speed){
         this.fade_in_complete_callback = fade_in_complete_callback;
 
         if (!this.drawn) {
@@ -88,7 +88,7 @@ function EguiLayout(){
         };
 
         this.anim = new egui.Anim();
-        this.anim.set_duration(400);
+        this.anim.set_duration(speed || 400);
 
         (function(self){
 
@@ -112,13 +112,13 @@ function EguiLayout(){
         this.anim.start();
     };
 
-    this.fade_out = function(fade_out_complete_callback){
+    this.fade_out = function(fade_out_complete_callback, speed){
 
         this.on_fade_out_complete_callback = fade_out_complete_callback;
         this.get_all_primitives();
 
         this.anim = new egui.Anim();
-        this.anim.set_duration(250);
+        this.anim.set_duration(speed || 250);
 
         (function(self){
 
