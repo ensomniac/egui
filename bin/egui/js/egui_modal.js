@@ -2,7 +2,7 @@
 
 function EguiModal(){
     this.description = "General Use Modal Container"
-    // egui.layout.Vertical.call(this);
+
     egui.Layout.call(this);
 
     this.aspect = 1.0;
@@ -60,6 +60,10 @@ function EguiModal(){
     this.on_hidden = function(){
         // Called when it's faded out
         egui.current_context.set_modal(null);
+    };
+
+    this.append = function(){
+        console.log("Overriddden append");
     };
 
     (function(self){
