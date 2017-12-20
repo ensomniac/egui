@@ -34,9 +34,13 @@ function EguiModal(){
         // console.log("Show modal");
     };
 
+    this.hide = function(){
+        console.log("HIDE");
+    };
+
     (function(self){
         self.backing.set_click_callback(function(){
-            console.log("hide");
+            self.hide();
         });
     })(this);
 
