@@ -13,13 +13,16 @@ function EguiModal(){
         return;
     };
 
-    this.main_layout_v = new egui.layout.Vertical();
-
     this.background_color = "rgba(20, 20, 20, 0.9)";
     this.set_background(this.background_color);
 
 
-    this.main_layout_v.append(new egui.Box());
+
+    this.backing = new egui.Box();
+    this.backing.set_background("orange");
+
+    this.main_layout_v = new egui.layout.Vertical();
+    this.main_layout_v.append(this.backing);
 
     this.append(this.main_layout_v);
 
