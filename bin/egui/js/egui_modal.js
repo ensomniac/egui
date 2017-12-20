@@ -13,26 +13,32 @@ function EguiModal(){
 
     egui.current_context.set_modal(this);
 
-
-    this.box = new egui.Box();
+    this.backing = new egui.Box();
+    this.backing.set_background("orange");
 
     // this.set_aspect(1.5);
     // this.set_padding_outer(egui.padding);
-    console.log("setting shad");
+    // console.log("setting shad");
 
-    console.log(this.set_shadow);
+    // console.log(this.set_shadow);
 
-    this.box.set_shadow(0, egui.padding*0.5, egui.padding*10);
+    // this.box.set_shadow(0, egui.padding*0.5, egui.padding*10);
 
-    this.vertical_layout = new egui.layout.Vertical();
-    this.vertical_layout.set_padding_inner(egui.padding);
+    // this.vertical_layout = new egui.layout.Vertical();
+    // this.vertical_layout.set_padding_inner(egui.padding);
 
-    this.append(this.box);
+    this.append(this.backing);
 
 
     this.show = function(){
         // console.log("Show modal");
     };
+
+    (function(self){
+        self.backing.set_click_callback(function(){
+            console.log("hide");
+        });
+    })(this);
 
 };
 
