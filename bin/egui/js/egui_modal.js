@@ -11,8 +11,6 @@ function EguiModal(){
         return;
     };
 
-    egui.current_context.set_modal(this);
-
     this.background_color = "rgba(20, 20, 20, 0.9)";
     this.set_background(this.background_color);
 
@@ -63,6 +61,8 @@ function EguiModal(){
 
     this.show = function(){
         // console.log("Show modal");
+        egui.current_context.set_modal(this);
+
     };
 
     this.hide = function(){
