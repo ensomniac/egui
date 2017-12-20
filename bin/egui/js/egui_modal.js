@@ -23,7 +23,7 @@ function EguiModal(){
     this.backing.set_background("orange");
 
     this.layout.append(this.backing);
-    this.background.consume_as("center_layout", this.layout);
+    // this.background.consume_as("center_layout", this.layout);
 
     this.draw_layout = function(){
         var width = (this.rect.width*this.width_mult);
@@ -44,11 +44,16 @@ function EguiModal(){
     this.show = function(){
         egui.current_context.set_modal(this);
         this.fade_in();
+        this.layout.fade_in();
 
     };
 
     this.hide = function(){
         console.log("HIDE");
+
+        this.fade_out();
+        this.layout.fade_out();
+
     };
 
     (function(self){
