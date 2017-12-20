@@ -116,6 +116,11 @@ $(document).ready(function() {
         window.egui["LoadDots"] = EguiLoadDots;
         EguiLoadDots = null;
 
+        window.egui["Modal"] = EguiModal;
+        EguiModal = null;
+
+
+
         // HTML PARTS ///////////////////////////////
         window.egui.html.Button = EguiHTMLButton;
         EguiHTMLButton = null;
@@ -161,6 +166,7 @@ function Egui(){
     this.Layout = null;
     this.Packable = null;
     this.Spacer = null;
+    this.Modal = null;
 
     this.LayoutContainer = null;
     this.LayoutColumns = null;
