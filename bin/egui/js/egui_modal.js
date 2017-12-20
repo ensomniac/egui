@@ -2,8 +2,8 @@
 
 function EguiModal(){
     this.description = "General Use Modal Container"
-    // egui.layout.CenterBox.call(this);
-    egui.layout.Vertical.call(this);
+    // egui.layout.Vertical.call(this);
+    egui.Layout.call(this);
 
     this.aspect = 1.0;
     this.width_mult = 0.5;
@@ -14,16 +14,12 @@ function EguiModal(){
         return;
     };
 
-    this.content_backing_color = "#444";
+    this.content_backing_color = "#666";
     this.backing_color = "rgba(20, 20, 20, 0.9)";
     this.set_background(this.backing_color);
 
-    // this.backing = new egui.Box();
-    // this.backing.set_background("orange");
-
     this.layout = new egui.layout.Vertical();
     this.layout.set_background(this.content_backing_color);
-    // this.layout.append(this.backing);
 
     this.draw_layout = function(){
         var width = (this.rect.width*this.width_mult);
@@ -63,23 +59,14 @@ function EguiModal(){
 
     this.on_hidden = function(){
         // Called when it's faded out
-        console.log("Hidden");
         egui.current_context.set_modal(null);
-
     };
-
-
-
 
     (function(self){
 
         self.background.set_click_callback(function(){
             self.hide();
         });
-
-        // self.on_draw(function(){
-        //     console.log("DRAW");
-        // });
 
     })(this);
 
