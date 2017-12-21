@@ -50,7 +50,7 @@ function EguiLayoutLinear(){
         var fixed_padding = (this.padding_inner*(this.children.length-1));
         var outter_padding = this.rect.padding_outer*2;
         var child_width_expand = (this.rect.width-outter_padding-this.fixed_space_x-fixed_padding)/(this.children.length-this.num_fixed_children_x);
-        var child_height_expand = (this.rect.height-this.fixed_space_y-fixed_padding)/(this.children.length-this.num_fixed_children_y);
+        var child_height_expand = (this.rect.height-outter_padding-this.fixed_space_y-fixed_padding)/(this.children.length-this.num_fixed_children_y);
 
         // child_width_expand -= (this.rect.padding_outer*0.5);
         // console.log(this.rect.padding_outer);
@@ -70,7 +70,7 @@ function EguiLayoutLinear(){
 
             if (this.orientation == "vertical") {
                 // VERTICAL
-                width = this.rect.width;
+                width = this.rect.width-(this.rect.padding_outer*2);
                 height = child_height_expand;
 
                 if (child.rect.expand_y != -1) {
