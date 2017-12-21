@@ -87,6 +87,10 @@ function EguiLabel(){
 
     };
 
+    this.set_bottom_bar = function(progress_norm){
+        console.log("progress: " + progress_norm);
+    };
+
     this.loading_dots_start = function(){
         if (this.is_loading) {
             return;
