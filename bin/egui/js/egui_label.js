@@ -20,6 +20,7 @@ function EguiLabel(){
     this.load_dots = null;
     this.icon = null;
     this.label_setup_complete = false;
+    this.progress_bar = null;
 
     this.set_icon = function(icon_name){
         this.icon = new egui.Icon();
@@ -84,11 +85,18 @@ function EguiLabel(){
 
         };
 
-
     };
 
     this.set_bottom_bar = function(progress_norm){
         console.log("progress: " + progress_norm);
+
+        if (!this.progress_bar) {
+            console.log("making progress bar");
+            this.progress_bar = new egui.Box();
+            this.progress_bar.set_background_color("#fff");
+            this.consume_as("progress_bar", this.progress_bar);
+        };
+
     };
 
     this.loading_dots_start = function(){
