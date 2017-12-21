@@ -20,7 +20,10 @@ function EguiLabel(){
     this.load_dots = null;
     this.icon = null;
     this.label_setup_complete = false;
+
     this.progress_bar = null;
+    this.progress_bar_height = egui.padding;
+    this.progress_bar_progress_norm = 0;
 
     this.set_icon = function(icon_name){
         this.icon = new egui.Icon();
@@ -88,20 +91,16 @@ function EguiLabel(){
     };
 
     this.set_bottom_bar = function(progress_norm){
-        console.log("progress: " + progress_norm);
+        this.progress_bar_progress_norm = progress_norm;
 
         if (!this.progress_bar) {
-            console.log("making progress bar");
             this.progress_bar = new egui.Box();
             this.progress_bar.set_background_color("#fff");
-            this.consume_as("progress_bar", this.progress_bar);
         };
 
         if (this.drawn) {
             this.draw_label();
         };
-
-        console.log(this.drawn);
 
     };
 
@@ -236,10 +235,10 @@ function EguiLabel(){
         if (this.progress_bar) {
 
             this.progress_bar.rect.set(
-                this.rect.width,
-                egui.padding,
+                egui.lerp(0, this.rect.width, this.progress_bar_progress_norm),
+                this.progress_bar_height,
                 this.rect.left,
-                this.rect.top + this.rect.height - egui.padding,
+                this.rect.top + this.rect.height - this.progress_bar_height,
             );
 
         };
