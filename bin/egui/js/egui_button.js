@@ -12,7 +12,7 @@ function EguiButton(){
     this.upload_setup_complete = false;
     this.upload_active = false;
 
-    this.set_text("Egui Button");
+    this.set_text("");
 
     this.set_background_color(egui.button_color);
     this.set_background_hover_color(egui.button_color_hover);
