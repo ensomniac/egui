@@ -6,7 +6,7 @@ function EguiLabel(){
     egui.Box.call(this);
 
     this.primitives["label"] = null;
-    this.label_text = "EGUI Label";
+    this.label_text = "";
     this.font_size_mult = 1.0;
     this.text_color = egui.text_color;
 
