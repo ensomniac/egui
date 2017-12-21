@@ -48,21 +48,15 @@ function EguiButton(){
 
     this.on_upload_started = function(){
         this.upload_active = true;
-
-        console.log("Started");
-
         this.set_loading(true);
-
     };
 
     this.on_upload_completed = function(result){
-        console.log(result);
-
         this.upload_active = false;
         this.set_loading(false);
 
-        if (self.on_upload_complete_cb) {
-            self.on_upload_complete_cb(result);
+        if (this.on_upload_complete_cb) {
+            this.on_upload_complete_cb(result);
         };
 
     };
@@ -85,8 +79,6 @@ function EguiButton(){
             options["init"] = function(){
 
                 this.on("uploadprogress", function(file, progress){
-                    console.log(progress);
-
                     if (self.on_upload_progress_cb) {
 
                         if (!self.upload_active) {
