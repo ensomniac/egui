@@ -51,7 +51,7 @@ function EguiLayout(){
                 this.rect.width + (this.rect.padding_outer*2),
                 this.rect.height + (this.rect.padding_outer*2),
                 this.rect.left,
-                this.rect.top,
+                this.rect.top
             );
 
         };

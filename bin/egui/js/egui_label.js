@@ -193,7 +193,7 @@ function EguiLabel(){
             icon_size,
             icon_size,
             left,
-            this.rect.top+egui.padding,
+            this.rect.top+egui.padding
         );
     };
 

@@ -227,7 +227,7 @@ function EguiHTMLButton(label){
             icon_size,
             icon_size,
             this.layout.width-icon_size-egui.padding,
-            (this.layout.height*0.5)-(icon_size*0.5),
+            (this.layout.height*0.5)-(icon_size*0.5)
         );
 
     };
