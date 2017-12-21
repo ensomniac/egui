@@ -23,8 +23,6 @@ function EguiButton(){
     this.on_upload_progress_cb = null;
     this.on_upload_complete_cb = null;
 
-    this.set_bottom_bar(0.5);
-
     this.draw_button = function(){
         if (!this.button_setup_complete) {
             this.setup_button();
@@ -81,6 +79,9 @@ function EguiButton(){
             options["init"] = function(){
 
                 this.on("uploadprogress", function(file, progress){
+
+                    self.set_progress_bar(progress*0.01);
+
                     if (self.on_upload_progress_cb) {
 
                         if (!self.upload_active) {

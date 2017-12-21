@@ -90,7 +90,7 @@ function EguiLabel(){
 
     };
 
-    this.set_bottom_bar = function(progress_norm){
+    this.set_progress_bar = function(progress_norm){
         this.progress_bar_progress_norm = progress_norm;
 
         if (!this.progress_bar) {
