@@ -31,27 +31,6 @@ function EguiRect(drawable){
             return;
         };
 
-        // if (this.padding_inner) {
-        //     console.log("Padding inner: " + this.padding_inner);
-        // }
-
-        if (this.padding_outer) {
-            console.log(this.padding_outer);
-        }
-
-        // if (width_rect.constructor == egui.Rect) {
-        //     this.width = width_rect.width - (this.padding_outer*2);
-        //     this.height = width_rect.height - (this.padding_outer*2);
-        //     this.left = width_rect.left;
-        //     this.top = width_rect.top;
-        // }
-        // else {
-        //     this.width = width_rect - (this.padding_outer*2);
-        //     this.height = height - (this.padding_outer*2);
-        //     this.left = left;
-        //     this.top = top;
-        // };
-
         if (width_rect.constructor == egui.Rect) {
             this.width = width_rect.width;
             this.height = width_rect.height;
