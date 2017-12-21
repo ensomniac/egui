@@ -95,7 +95,7 @@ function EguiLabel(){
 
         if (!this.progress_bar) {
             this.progress_bar = new egui.Box();
-            this.progress_bar.set_background_color("#fff");
+            this.progress_bar.set_background_color("rgba(255, 255, 255, 0.75)");
         };
 
         if (this.drawn) {
