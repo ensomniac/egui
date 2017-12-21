@@ -9,6 +9,7 @@ function EguiPackable(){
     this.padding_outer = 0;
     this.padding_inner = 0;
 
+    this.drawn = false;
     this.root = "EguiPackable"; // Only set on objects that are consumed by children
     this.rect = new egui.Rect(this);
 
