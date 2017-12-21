@@ -97,6 +97,8 @@ function EguiLabel(){
             this.consume_as("progress_bar", this.progress_bar);
         };
 
+        console.log(this.drawn);
+
     };
 
     this.loading_dots_start = function(){

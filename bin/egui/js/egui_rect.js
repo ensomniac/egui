@@ -49,6 +49,7 @@ function EguiRect(drawable){
         };
 
         if (this.drawable) {
+            this.drawable.drawn = 11;
             this.drawable.draw();
         };
 
