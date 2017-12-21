@@ -35,6 +35,10 @@ function EguiRect(drawable){
         //     console.log("Padding inner: " + this.padding_inner);
         // }
 
+        if (this.padding_outer) {
+            console.log(this.padding_outer);
+        }
+
         if (width_rect.constructor == egui.Rect) {
             this.width = width_rect.width - (this.padding_outer*2);
             this.height = width_rect.height - (this.padding_outer*2);
