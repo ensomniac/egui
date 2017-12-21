@@ -56,8 +56,9 @@ function EguiButton(){
     };
 
     this.on_upload_completed = function(result){
-        this.upload_active = false;
+        console.log(result);
 
+        this.upload_active = false;
         this.set_loading(false);
 
         if (self.on_upload_complete_cb) {
