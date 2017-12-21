@@ -97,6 +97,10 @@ function EguiLabel(){
             this.consume_as("progress_bar", this.progress_bar);
         };
 
+        if (this.drawn) {
+            this.draw_label();
+        };
+
         console.log(this.drawn);
 
     };
@@ -227,6 +231,12 @@ function EguiLabel(){
 
         if (!this.label_setup_complete) {
             this.setup_label();
+        };
+
+        if (this.progress_bar) {
+            console.log("draw progress");
+            console.log(this.progress_bar);
+            // this.progress_bar = new egui.Box();
         };
 
         this.set_post_rect();
