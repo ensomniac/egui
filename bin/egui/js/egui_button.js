@@ -59,7 +59,7 @@ function EguiButton(){
             this.on_upload_complete_cb(result);
         };
 
-        self.set_progress_bar(0);
+        this.set_progress_bar(0);
 
     };
 
