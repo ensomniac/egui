@@ -59,6 +59,8 @@ function EguiButton(){
             this.on_upload_complete_cb(result);
         };
 
+        self.set_progress_bar(0);
+
     };
 
     this.setup_file_uploader = function(){
