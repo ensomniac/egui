@@ -10,6 +10,7 @@ function EguiButton(){
 
     this.button_setup_complete = false;
     this.upload_setup_complete = false;
+    this.upload_active = false;
 
     this.set_text("Egui Button");
 
@@ -45,6 +46,24 @@ function EguiButton(){
         this.setup_file_uploader();
     };
 
+    this.on_upload_started = function(){
+        this.upload_active = true;
+
+        console.log("Started");
+
+        this.set_loading(true);
+
+    };
+
+    this.on_upload_completed = function(result){
+        this.upload_active = false;
+
+        if (self.on_upload_complete_cb) {
+            self.on_upload_complete_cb(result);
+        };
+
+    };
+
     this.setup_file_uploader = function(){
         if (!this.primitives["box"]) {
             return;
@@ -66,15 +85,18 @@ function EguiButton(){
                     console.log(progress);
 
                     if (self.on_upload_progress_cb) {
+
+                        if (!self.upload_active) {
+                            self.on_upload_started();
+                        };
+
                         self.on_upload_progress_cb(progress);
                     };
 
                 });
 
                 this.on("success", function(file, result){
-                    if (self.on_upload_complete_cb) {
-                        self.on_upload_complete_cb($.parseJSON(result));
-                    };
+                    self.on_upload_completed($.parseJSON(result));
                 });
 
             };
