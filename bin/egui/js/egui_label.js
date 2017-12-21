@@ -234,15 +234,12 @@ function EguiLabel(){
         };
 
         if (this.progress_bar) {
-            // console.log("draw progress");
-            // console.log(this.progress_bar);
-            // this.progress_bar = new egui.Box();
 
             this.progress_bar.rect.set(
                 this.rect.width,
                 egui.padding,
                 this.rect.left,
-                this.rect.top,
+                this.rect.top + this.rect.height - egui.padding,
             );
 
         };
