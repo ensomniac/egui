@@ -19,6 +19,8 @@ function EguiLabel(){
     this.is_loading = false;
     this.load_dots = null;
     this.icon = null;
+    this.icon_name = null;
+
     this.label_setup_complete = false;
 
     this.progress_bar = null;
@@ -26,6 +28,9 @@ function EguiLabel(){
     this.progress_bar_progress_norm = 0;
 
     this.set_icon = function(icon_name){
+        if (this.icon && this.icon_name == icon_name){
+            return;
+        };
 
         if (this.icon) {
             this.remove_icon(icon_name);
@@ -33,15 +38,11 @@ function EguiLabel(){
         };
 
         this.icon = new egui.Icon();
+        this.icon_name = icon_name;
+
         this.icon.set_background_color(null);
         this.icon.set_icon_name(icon_name);
         this.consume_as("button_icon", this.icon);
-
-        // if (click_callback) {
-        //     this.icon.set_click_callback(function(){
-        //         console.log("click");
-        //     });
-        // };
 
         if (this.drawn) {
             this.draw_label();
