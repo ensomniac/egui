@@ -7,7 +7,6 @@ function EguiBox(){
     egui.Packable.call(this);
 
     this.primitives["box"] = null;
-    this.background_color = egui.random_color();
     this.background_color = null;
     this.background_hover_color = null;
 
@@ -65,7 +64,11 @@ function EguiBox(){
     this.set_background_color = function(background_color){
         if (!background_color) {
             background_color = "rgba(0, 0, 0, 0)";
-        }
+        };
+
+        if (background_color == -1) {
+            background_color = egui.random_color();
+        };
 
         this.background_color = background_color;
 
