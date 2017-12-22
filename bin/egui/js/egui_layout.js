@@ -78,16 +78,21 @@ function EguiLayout(){
     };
 
     this.empty = function(){
-        if (this.children.length == 0) {
+        if (this.children.length == 0 && this.layers.length == 0) {
             return;
         };
 
         for (var i in this.children) {
             this.children[i].destroy();
-            // console.log(this.children[i]);
+        };
+
+        for (var i in this.layers) {
+            this.layers[i].destroy();
         };
 
         this.children = [];
+        this.layers = [];
+
         this.draw();
 
     };
@@ -200,6 +205,7 @@ function EguiLayout(){
         };
 
         this.get_children_primitives(this.children);
+        this.get_children_primitives(this.layers);
     };
 
     this.get_children_primitives = function(children_list){
