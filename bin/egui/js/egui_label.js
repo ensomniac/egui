@@ -332,9 +332,7 @@ function EguiLabel(){
             var aspect_scale_norm = egui.inverse_lerp(0.01, 1, aspect);
             font_size_mult = egui.lerp(0.1, 0.5, aspect_scale_norm);
             font_size = (this.rect.width*font_size_mult);
-        }
-
-        console.log(this.font_size_mult);
+        };
 
         this.primitives["label"].css({
             "width": this.rect.width-(egui.padding*2),
