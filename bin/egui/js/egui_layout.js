@@ -222,8 +222,10 @@ function EguiLayout(){
                 this.get_children_primitives(child.children);
             };
 
+            if (child.layers) {
+                this.get_children_primitives(child.layers);
+            };
         };
     };
-
 };
 
