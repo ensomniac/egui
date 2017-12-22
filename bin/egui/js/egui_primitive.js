@@ -15,6 +15,8 @@ function EguiPrimitive(){
 
     this.set_tooltip = function(tooltip){
         this.tooltip = tooltip;
+
+        console.log(this.drawn);
     };
 
     this.set_opacity = function(opacity, skip_set){
