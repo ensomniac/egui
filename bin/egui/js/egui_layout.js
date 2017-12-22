@@ -49,21 +49,12 @@ function EguiLayout(){
 
         if (this.background) {
 
-            // this.background.rect.set(
-            //     this.rect.width + (this.rect.padding_outer*2),
-            //     this.rect.height + (this.rect.padding_outer*2),
-            //     this.rect.left,
-            //     this.rect.top
-            // );
-
             this.background.rect.set(
                 this.rect.width,
                 this.rect.height,
                 this.rect.left,
                 this.rect.top
             );
-
-
 
         };
 
@@ -125,19 +116,14 @@ function EguiLayout(){
             return;
         };
 
-        this.children.push(child_layer);
+        // child_layer.is_layer = true;
+        this.layers.push(child_layer);
 
         if (this.drawn) {
             // Since this has already been drawn, we need to force a redraw now
             this.draw();
         };
     };
-
-
-
-
-
-
 
     this.fade_in = function(fade_in_complete_callback, speed){
         this.fade_in_complete_callback = fade_in_complete_callback;
