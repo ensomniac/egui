@@ -43,6 +43,10 @@ function EguiLabel(){
         //     });
         // };
 
+        if (this.drawn) {
+            this.draw_label();
+        };
+
     };
 
     this.remove_icon = function(new_icon_name){
@@ -55,7 +59,7 @@ function EguiLabel(){
 
         console.log(this.icon);
 
-        (function(self, start_opac){
+        (function(self, start_opac, new_icon_name){
 
             self.remove_icon_anim.set_update_callback(function(t){
                 self.icon.set_opacity(egui.lerp(start_opac, 0, t), true);
@@ -63,18 +67,19 @@ function EguiLabel(){
 
             self.remove_icon_anim.set_complete_callback(function(){
                 self.icon = null;
-                console.log("Icon is removed");
+
+                if (new_icon_name) {
+                    self.set_icon(new_icon_name);
+                };
 
             });
 
-        })(this, start_opac);
+        })(this, start_opac, new_icon_name);
 
         this.remove_icon_anim.start();
 
 
     };
-
-
 
     this.set_loading = function(is_loading){
         if (is_loading) {
