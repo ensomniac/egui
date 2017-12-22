@@ -26,6 +26,13 @@ function EguiLabel(){
     this.progress_bar_progress_norm = 0;
 
     this.set_icon = function(icon_name){
+
+        if (this.icon) {
+            this.remove_icon();
+            return;
+        };
+
+
         this.icon = new egui.Icon();
         this.icon.set_background_color(null);
         this.icon.set_icon_name(icon_name);
@@ -38,6 +45,35 @@ function EguiLabel(){
         // };
 
     };
+
+    this.remove_icon = function(){
+        console.log("Removing icon");
+
+        this.remove_icon_anim = new egui.Anim();
+        this.remove_icon_anim.set_duration(200);
+
+        var start_opac = this.icon.opacity;
+
+        console.log(this.icon);
+
+        (function(self, start_opac){
+
+            self.remove_icon_anim.set_update_callback(function(t){
+                self.icon.set_opacity(egui.lerp(start_opac, 0, t), true);
+            });
+
+            self.remove_icon_anim.set_complete_callback(function(){
+                self.icon = null;
+                console.log("Icon is removed");
+
+            });
+
+        })(this, start_opac);
+
+
+    };
+
+
 
     this.set_loading = function(is_loading){
         if (is_loading) {
