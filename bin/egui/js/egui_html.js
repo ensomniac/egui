@@ -22,6 +22,14 @@ function EguiHTML(){
             this.attach_html();
         };
 
+        this.html.css({
+            "position": "absolute",
+            "width": this.rect.width,
+            "height": this.rect.height,
+            "left": this.rect.left,
+            "top": this.rect.top,
+        });
+
         console.log("DD");
         console.log(this.rect);
     };
