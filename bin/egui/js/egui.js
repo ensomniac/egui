@@ -119,6 +119,8 @@ $(document).ready(function() {
         window.egui["Modal"] = EguiModal;
         EguiModal = null;
 
+        window.egui["HTML"] = EguiHTML;
+        EguiHTML = null;
 
 
         // HTML PARTS ///////////////////////////////
@@ -161,6 +163,7 @@ function Egui(){
 
     this.current_context = null;
     this.Context = null;
+    this.HTML = null;
 
     this.Rect = null;
     this.Primitive = null;
