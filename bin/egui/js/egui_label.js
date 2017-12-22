@@ -294,7 +294,7 @@ function EguiLabel(){
                 egui.lerp(0, this.rect.width, this.progress_bar_progress_norm),
                 this.progress_bar_height,
                 this.rect.left,
-                this.rect.top + this.rect.height - this.progress_bar_height,
+                this.rect.top + this.rect.height - this.progress_bar_height
             );
 
         };
