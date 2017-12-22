@@ -7,6 +7,7 @@ function EguiHTML(){
 
     this.html = null;
     this.draw_callback = null;
+    this.html_attached = false;
 
     this.set_background("green");
 
@@ -17,6 +18,7 @@ function EguiHTML(){
 
     this.draw_html = function(){
         console.log("DD");
+        console.log(this.rect);
     };
 
     (function(self){
