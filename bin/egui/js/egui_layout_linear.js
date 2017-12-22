@@ -100,6 +100,13 @@ function EguiLayoutLinear(){
             left += left_addl;
             top += top_addl;
         };
+
+        if (this.layers.length) {
+            console.log("DRAW LAYERS");
+            console.log(this.layers);
+        }
+
+
     };
 
 };
