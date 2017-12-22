@@ -16,7 +16,13 @@ function EguiPrimitive(){
     this.set_tooltip = function(tooltip){
         this.tooltip = tooltip;
 
-        console.log(this.drawn);
+        if (this.drawn) {
+            var primitives = this.get_primitives();
+
+            for (var i in primitives) {
+                primitives[i].attr({"title": tooltip});
+            };
+        };
     };
 
     this.set_opacity = function(opacity, skip_set){
