@@ -9,8 +9,6 @@ function EguiHTML(){
     this.draw_callback = null;
     this.html_attached = false;
 
-    this.set_background("green");
-
     this.set_html = function(html, draw_callback){
         this.html = html;
         this.draw_callback = draw_callback;
@@ -30,14 +28,15 @@ function EguiHTML(){
             "top": this.rect.top,
         });
 
-        console.log("DD");
-        console.log(this.rect);
+        if (this.draw_callback) {
+            this.draw_callback(this.rect.width, this.rect.height);
+        };
+
     };
 
     this.attach_html = function(){
         $("body").append(this.html);
         this.html_attached = true;
-        console.log("ATTACHED HTML");
     };
 
     (function(self){
@@ -47,15 +46,6 @@ function EguiHTML(){
     })(this);
 
 };
-
-
-
-
-
-
-
-
-
 
 
 
