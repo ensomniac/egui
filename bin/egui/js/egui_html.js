@@ -10,17 +10,20 @@ function EguiHTML(){
 
     this.set_background("green");
 
-    this.set_html = function(html){
+    this.set_html = function(html, draw_callback){
         this.html = html;
+        this.draw_callback = draw_callback;
     };
 
-    this.set_draw_callback = function(callback){
-        console.log(callback);
-        this.draw_callback = callback;
+    this.draw_html = function(){
+        console.log("DD");
     };
 
-
-
+    (function(self){
+        self.on_draw(function(){
+            self.draw_html();
+        });
+    })(this);
 
 };
 
