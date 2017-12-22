@@ -7,6 +7,8 @@ function EguiLayout(){
     egui.Packable.call(this);
 
     this.children = [];
+    this.layers = [];
+
     this.found_primitives = [];
     this.background = null;
 
