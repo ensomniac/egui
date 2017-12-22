@@ -8,6 +8,7 @@ function EguiBox(){
 
     this.primitives["box"] = null;
     this.background_color = egui.random_color();
+    this.background_color = null;
     this.background_hover_color = null;
 
     this.corner_radius = egui.corner_radius;

@@ -65,6 +65,13 @@ function EguiLayout(){
         if (!this.drawn) {
             this.drawn = true;
         };
+
+        if (this.layers.length) {
+            for (var i in this.layers) {
+                this.layers[i].rect.set(this.rect);
+            };
+        };
+
     };
 
     this.destroy = function(){

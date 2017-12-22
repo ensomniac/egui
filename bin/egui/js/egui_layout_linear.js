@@ -101,10 +101,13 @@ function EguiLayoutLinear(){
             top += top_addl;
         };
 
-        if (this.layers.length) {
-            console.log("DRAW LAYERS");
-            console.log(this.layers);
-        }
+        // if (this.layers.length) {
+        //     console.log("DRAW LAYERS");
+        //     console.log(this.layers);
+        //     for (var i in this.layers) {
+
+        //     }
+        // }
 
 
     };
