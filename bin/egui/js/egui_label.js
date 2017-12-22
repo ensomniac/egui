@@ -19,7 +19,6 @@ function EguiLabel(){
     this.is_loading = false;
     this.load_dots = null;
     this.icon = null;
-    this.icon_name = null;
 
     this.label_setup_complete = false;
 
@@ -28,7 +27,7 @@ function EguiLabel(){
     this.progress_bar_progress_norm = 0;
 
     this.set_icon = function(icon_name){
-        if (this.icon && this.icon_name == icon_name){
+        if (this.icon && this.icon.icon_name == icon_name){
             return;
         };
 
@@ -38,7 +37,6 @@ function EguiLabel(){
         };
 
         this.icon = new egui.Icon();
-        this.icon_name = icon_name;
 
         this.icon.set_background_color(null);
         this.icon.set_icon_name(icon_name);
