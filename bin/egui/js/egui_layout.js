@@ -115,6 +115,28 @@ function EguiLayout(){
         };
     };
 
+    this.append_layer = function(child_layer){
+        // Must be a packable
+        if (child_layer.root != "EguiPackable") {
+            console.log("ERROR: Unable to append child layer. Expected root type EguiPackable");
+            console.log(child_layer);
+            return;
+        };
+
+        this.children.push(child_layer);
+
+        if (this.drawn) {
+            // Since this has already been drawn, we need to force a redraw now
+            this.draw();
+        };
+    };
+
+
+
+
+
+
+
     this.fade_in = function(fade_in_complete_callback, speed){
         this.fade_in_complete_callback = fade_in_complete_callback;
 
