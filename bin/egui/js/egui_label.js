@@ -28,10 +28,9 @@ function EguiLabel(){
     this.set_icon = function(icon_name){
 
         if (this.icon) {
-            this.remove_icon();
+            this.remove_icon(icon_name);
             return;
         };
-
 
         this.icon = new egui.Icon();
         this.icon.set_background_color(null);
@@ -46,7 +45,7 @@ function EguiLabel(){
 
     };
 
-    this.remove_icon = function(){
+    this.remove_icon = function(new_icon_name){
         console.log("Removing icon");
 
         this.remove_icon_anim = new egui.Anim();
@@ -69,6 +68,8 @@ function EguiLabel(){
             });
 
         })(this, start_opac);
+
+        this.remove_icon_anim.start();
 
 
     };
