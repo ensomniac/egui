@@ -45,24 +45,39 @@ function EguiLabel(){
 
         if (this.drawn) {
             this.draw_label();
+            this.fade_in_icon();
         };
 
     };
 
-    this.remove_icon = function(new_icon_name){
-        console.log("Removing icon");
+    this.fade_in_icon = function(){
+        this.icon.set_opacity(0);
+        this.fade_icon_anim = new egui.Anim();
+        this.fade_icon_anim.set_duration(200);
 
+        (function(self){
+
+            self.fade_icon_anim.set_update_callback(function(t){
+                self.icon.set_opacity(t);
+            });
+
+        })(this);
+
+        this.fade_icon_anim.start();
+
+
+    };
+
+    this.remove_icon = function(new_icon_name){
         this.remove_icon_anim = new egui.Anim();
         this.remove_icon_anim.set_duration(200);
 
         var start_opac = this.icon.opacity;
 
-        console.log(this.icon);
-
         (function(self, start_opac, new_icon_name){
 
             self.remove_icon_anim.set_update_callback(function(t){
-                self.icon.set_opacity(egui.lerp(start_opac, 0, t), true);
+                self.icon.set_opacity(egui.lerp(start_opac, 0, t));
             });
 
             self.remove_icon_anim.set_complete_callback(function(){
