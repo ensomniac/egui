@@ -17,8 +17,19 @@ function EguiHTML(){
     };
 
     this.draw_html = function(){
+
+        if (this.html && !this.html_attached) {
+            this.attach_html();
+        };
+
         console.log("DD");
         console.log(this.rect);
+    };
+
+    this.attach_html = function(){
+        $("body").append(this.html);
+        this.html_attached = true;
+        console.log("ATTACHED HTML");
     };
 
     (function(self){
