@@ -61,6 +61,7 @@ body {
     border: 0;
     padding: 0;
     background: #111;
+    overflow: hidden;
 }
 
 b {

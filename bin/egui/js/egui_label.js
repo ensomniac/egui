@@ -334,14 +334,16 @@ function EguiLabel(){
             font_size = (this.rect.width*font_size_mult);
         }
 
+        console.log(this.font_size_mult);
+
         this.primitives["label"].css({
             "width": this.rect.width-(egui.padding*2),
             "height": this.rect.height,
             "left": this.rect.left,
             "top": this.rect.top,
             "line-height": this.rect.height + "px",
-            "font-size": font_size*(this.font_size_mult) + "px",
-            "font-size": egui.font_size + "px",
+            // "font-size": font_size*(this.font_size_mult) + "px",
+            "font-size": (egui.font_size*this.font_size_mult) + "px",
             "padding-left": egui.padding,
             "padding-right": egui.padding,
         });
